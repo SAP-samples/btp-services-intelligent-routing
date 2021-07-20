@@ -1,14 +1,14 @@
 # Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager
 
-This repository contains code samples and step by step instructions for the SAP Discovery Center mission [Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager TODO](https://discovery-center.cloud.sap/)
+This repository contains code samples and step by step instructions for the SAP Discovery Center mission [Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager TODO](https://discovery-center.cloud.sap/). The SAP Discovery Center mission not only contains the step by step instructions but also more information to get a holistic view on this scenario. 
 
 ## Description
 
-Extending your S/4Hana business processes with BTP includes making sure, that you are ready to handle disaster recovery scenarios. When your SAP backend performs a failover, BTP workloads need to switch too. This can happen on configuration or on deployment level and involves adding an abstraction layer to be able to switch routing targets without the need to touch S/4Hana backend configuration. For a timely recovery of the service chain, we need to apply automation to the process.
+Extending your S/4HANA business processes with SAP Business Technology Platform (BTP) includes making sure, that you are ready to handle disaster recovery scenarios. When your SAP backend performs a failover, BTP workloads need to switch too. This can happen on configuration or on deployment level and involves adding an abstraction layer to be able to switch routing targets without the need to touch S/4HANA backend configuration. For a timely recovery of the service chain, we need to apply automation to the process.
 
 Furthermore, the decoupling of the connection allows to scale the endpoints globally as close to the end-users as possible, minimizing latency, increasing up-time and performance. Different routing techniques like performance-based, availability-based, weighted, or geo-based are typically used.
 
-In this mission you will learn how to run multiple SAP Cloud Integration tenants (Integration Suite) in parallel to apply the mechanisms mentioned above. Azure Traffic Manager will play a significant role in routing the traffic intelligently to different SAP Cloud Integration tenants.
+In this mission you will learn how to run multiple SAP Cloud Integration tenants (SAP Integration Suite) in parallel to apply the mechanisms mentioned above. Azure Traffic Manager will play a significant role in routing the traffic intelligently to different SAP Cloud Integration tenants.
 
 ### Current Position - What is the challenge?
 - Automatic Failover for SAP Cloud Integration (anticipating disaster recovery of S/4Hana, or regular CPI maintenance)
@@ -16,13 +16,42 @@ In this mission you will learn how to run multiple SAP Cloud Integration tenants
 - Load balancing between SAP Cloud Integration tenants (increasing throughput of your tenant beyond scale-up capabilities)
 
 ### Destination - What is the outcome?
-A cloud native integration pattern that incorporates BTP and S/4Hana to eliminate downtime, reduce global latency and increase throughput. The approach can be applied to other BTP services the same way.
+A cloud native integration pattern that incorporates BTP and S/4HANA to eliminate downtime, reduce global latency and increase throughput. The approach can be applied to other BTP services the same way.
 ### How You Get There - What is the solution?
-Learn about SAP Cloud Integration, Custom Domain Service and Azure Traffic Manager.
+- Learn about using your own domain for SAP Cloud Integration runtime endpoints using the SAP Custom Domain Service
+- Learn how to configure Azure Traffic Manager and different Azure Traffic Manager profiles to decouple connection information
 
 ## Requirements
+The required systems and components are:
 
-## Download and Installation
+- SAP BTP enterprise account
+- 2 SAP BTP subaccounts: one in EU20, one in US20
+
+Entitlements/Quota required in your SAP Business Technology Platform Account:
+
+| Service                     | Plan             | Number of instances |
+| --------------------------- | ---------------- | ------------------- |
+| Process Integration Runtime | integration-flow | 2                   |
+| Custom Domain Service       | Custom Domain    | 2                   |
+
+
+Subscriptions required in your SAP Business Technology Platform Account:
+
+| Subscription               | Plan                                                   |
+| -------------------------- | ------------------------------------------------------ |
+| Integration Suite          | Standard Edition or Digital Edition or Premium Edition |
+| Event Mesh                 | standard                                               |
+| Cloud Transport Management | saas-application                                       |
+
+## Setup and Configuration
+
+### Step 1: Setup SAP Cloud Integration
+
+### Step 2: Map SAP Cloud Integration routes to custom domain using SAP Custom Domain service
+### Step 3a): Setup Azure Traffic Manager using Azure Portal
+### Step 3b): Setup Azure Traffic Manager using Terraform
+
+### Step 4: Test Azure Traffic Manager setup
 
 ## Known Issues
 
