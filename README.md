@@ -37,11 +37,12 @@ Entitlements/Quota required in your SAP Business Technology Platform Account:
 
 Subscriptions required in your SAP Business Technology Platform Account:
 
-| Subscription               | Plan                                                   |
-| -------------------------- | ------------------------------------------------------ |
-| Integration Suite          | Standard Edition or Digital Edition or Premium Edition |
-| Event Mesh                 | standard                                               |
-| Cloud Transport Management | saas-application                                       |
+| Subscription                    | Plan                                                   |
+| ------------------------------- | ------------------------------------------------------ |
+| Integration Suite               | Standard Edition or Digital Edition or Premium Edition |
+| Event Mesh                      | standard                                               |
+| Cloud Transport Management      | saas-application                                       |
+| SAP Business Application Studio | standard-edition                                       |
 
 ## Setup and Configuration
 
