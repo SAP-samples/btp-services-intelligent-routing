@@ -138,6 +138,7 @@ At the top-right corner of each capability tile, you can choose the icon to brin
 ![Launch SAP Cloud Integration ](./images/21.png) 
 ![SAP Cloud Integration web interface](./images/22.png) 
 
+> Note: Bookmark the SAP Cloud Integration web interface to have the URL handy whenever you need it without navigation through the SAP Integration Suite launchpad. 
 
 28. **Repeat steps 10 - 27 for the second subaccount.**
 
