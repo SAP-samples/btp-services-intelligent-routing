@@ -47,7 +47,9 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
 10. **Save** and **Deploy** the Integration Flow. 
 
-    [replace placeholder Message Body](./images/09.png)
+    [Save and deploy](./images/09.png)
+
+
 
 11. Create Service Instance using the UI. 
 
