@@ -43,13 +43,11 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
 9. Select the **Message Body** tab so you can type in whatever message you want to reply to the sender. For testing purposes it helps, if you have replace the placeholder with the subaccount region the SAP Cloud Integration is located in. That way, you can easily identify which tenant is handling the traffic routed by Azure Traffic Manager. 
 
-    [replace placeholder Message Body](./images/08.png)
+    ![replace placeholder Message Body](./images/08.png)
 
 10. **Save** and **Deploy** the Integration Flow. 
 
-    [Save and deploy](./images/09.png)
-
-
+    ![Save and deploy](./images/09.png)
 
 11. Create Service Instance using the UI. 
 
