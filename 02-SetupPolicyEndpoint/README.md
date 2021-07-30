@@ -49,11 +49,90 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
     ![Save and deploy](./images/09.png)
 
-11. Create Service Instance using the UI. 
+11. Open a new browser tab and navigate to your subaccount in the SAP BTP Cockpit. 
 
-12. Call the endpoint using the Terminal 
+12. Create space in Cloud Foundry environment to control use of resources. A space sets the scope to fix the share of resources to be consumed by a particular subaccount within a Cloud Foundry organization. Therefore, **Enable Cloud Foundry**. 
 
-13. **Repeat the steps for the second subaccount.**
+    ![Enable Cloud Foundry button](./images/10.png)
+
+    > If you already have a Cloud Foundry space, you can skip steps 12 - 15. 
+
+13.  Provide unique names for the instance and org name. 
+
+14.  Create a new Cloud Foundry space using the **Create Space** button.
+
+    ![Create space button](./images/11.png)
+
+15. Enter a space name and select the permissions you would like to assign to your ID and **Save** the changes.
+    
+    ![space name and creation button](./images/12.png)
+
+16. Select the newly created space. 
+    
+17. Go to **Services > Service Marketplace** and search for **Process Integration Runtime**.
+
+    ![Process Integration Runtime tile](./images/13.png)
+
+18. Select the tile and **Create** a instance of the Process Integration Runtime service.
+
+    ![Service instance creation](./images/14.png)
+
+19. In the New Instance or Subscription dialog box, select the Plan **integration-flow** and provide a instance name. Continue with **Next**.
+
+    ![Service instance name and plan](./images/15.png)
+
+20. In the Specify Parameter menu switch to the **JSON** tab and insert the following content in the text area to assign roles. This authorizes the sender system to call a tenant and allows to process the messages on the tenant.
+
+    > Note: The role name is case-sensitive and the authentication mode used is basic authentication. In the Assign Application menu, to bind the new service instance by default None selected and then choose Next.
+
+    ![Service instance name and plan](./images/16.png)
+
+21. Continue with **Create**. 
+
+22. **View Instance** to see the progress of the service instance creation. 
+
+    ![Service instance creation progress](./images/17.png)
+
+23. In the Instance View, select **Create** in the service key section to create a service key. 
+
+    ![service key creation](./images/18.png)
+
+24. Enter a name for the service key and choose **Create**. 
+
+25. Click on the recently created service key to retrieve the credential information from the service key. Keep this tab opened since you will need the credentials in one of the next steps.  
+
+    ![service key detail](./images/19.png)
+
+26. Go back to the tab with the SAP SAP Cloud Integration web interface or open a new one. Navigate to the **Monitor** item in the navigation area. 
+
+    ![SAP Cloud Integration Monitor section](./images/20.png)
+
+27. In the **Manage Integration Content** area, select the **Started** tile to have a look at the Integration Flow you have deployed in step 10. 
+
+    ![SAP Cloud Integration Monitor section](./images/21.png)
+
+28. Select **ping** and copy the endpoint URL of the Integration Flow. 
+
+    ![Integration Flow endpoint](./images/22.png)
+
+29. Open a terminal on your machine and try to execute the following command. 
+
+```cmd
+curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey'
+```
+
+- <endpoint_from_sapcloudintegration> is the endpoint URL you have just copied in the SAP Cloud Integration web interface. 
+- <clientid_from_servicekey> is the clientid value of the service key that you have created in step 25. 
+- <clientsecret_from_servicekey> is the clientsecret value of the service key that you have created in step 25.
+
+> The command could possibly look like: 
+> curl https://mysubaccount.it-cpi003-rt.cfapps.eu20.hana.ondemand.com/http/ping -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
+
+30.**Repeat all the steps for the second subaccount.**
+
+Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Azure Traffic Manager to identify whether one of the tenants is online or not. Surely, this Integration Flow only offers a straight forward way if the tenant is able to handle the incoming request or not. It's up to you to implement a more sophisticated logic to identify if the tenant should be the one Azure Traffic Manager prioritizes or not. 
+
+
 
     
 
