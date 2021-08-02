@@ -2,6 +2,7 @@
 
 In this step, you will create an Integration flow in SAP Cloud Integration that will act as an auxiliary endpoint for Azure Traffic Manager. 
 
+**Important:** The following steps need to executed for both SAP Cloud Integration tenants. 
 ## Setup Policy Endpoint for Azure Traffic Manager
 
 1. Go to the SAP Cloud Integration web interface of your first subaccount, either via the SAP Integration Suite launchpad as shown in [Setting SAP Cloud Integration](../01-SetupCloudIntegration/README.md). 
@@ -111,7 +112,7 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
     ![SAP Cloud Integration Monitor section](./images/21.png)
 
-28. Select **ping** and copy the endpoint URL of the Integration Flow. 
+28. <a name="endpoint"></a>Select **ping** and copy the endpoint URL of the Integration Flow. 
 
     ![Integration Flow endpoint](./images/22.png)
 
@@ -127,6 +128,8 @@ curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clients
 
 > The command could possibly look like: 
 > curl https://mysubaccount.it-cpi003-rt.cfapps.eu20.hana.ondemand.com/http/ping -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
+
+![Hit Integration Flow endpoint](./images/23.png)
 
 30.**Repeat all the steps for the second subaccount.**
 
