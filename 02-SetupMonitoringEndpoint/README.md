@@ -3,11 +3,11 @@
 In this step, you will create an Integration flow in SAP Cloud Integration that will act as an auxiliary endpoint for Azure Traffic Manager. 
 
 **Important:** The following steps need to executed for both SAP Cloud Integration tenants. 
-## Setup Policy Endpoint for Azure Traffic Manager
+## Setup Monitoring Endpoint for Azure Traffic Manager
 
 1. Go to the SAP Cloud Integration web interface of your first subaccount, either via the SAP Integration Suite launchpad as shown in [Setting SAP Cloud Integration](../01-SetupCloudIntegration/README.md). 
 
-2. Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupPolicyEndpoint/flow-azuretm.zip and **Download** the ZIP File containing the Integration Package with the sample Integration Flow for SAP Cloud Integration.
+2. Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupMonitoringEndpoint/flow-azuretm.zip and **Download** the ZIP File containing the Integration Package with the sample Integration Flow for SAP Cloud Integration.
 
 ![Download Button on GitHub](./images/01.png)
 
@@ -94,7 +94,7 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
     ![Service instance creation progress](./images/17.png)
 
-23. In the Instance View, select **Create** in the service key section to create a service key. 
+23. <a name="service key"></a> In the Instance View, select **Create** in the service key section to create a service key. 
 
     ![service key creation](./images/18.png)
 
