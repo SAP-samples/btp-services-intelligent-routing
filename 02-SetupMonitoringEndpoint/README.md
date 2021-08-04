@@ -94,7 +94,7 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
     ![Service instance creation progress](./images/17.png)
 
-23. <a name="service key"></a> In the Instance View, select **Create** in the service key section to create a service key. 
+23. <a name="servicekey"></a> In the Instance View, select **Create** in the service key section to create a service key. 
 
     ![service key creation](./images/18.png)
 
