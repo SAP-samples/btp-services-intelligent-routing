@@ -32,7 +32,7 @@ This is the alternative step to "Configure Azure Traffic Manager using terraform
 
     ![Traffic Manager profile details after deployment](./images/05.png)
 
-8. Provide the following settings: 
+8. <a name="tm-configuration">Provide the following settings: 
 
     - Routing method: Priority
     - DNS time to live (TTL): 1
@@ -67,11 +67,69 @@ This is the alternative step to "Configure Azure Traffic Manager using terraform
 
     ![Cloud Integration EU](./images/08.png)
 
-12. Open a new browser tab and navigate to the SAP BTP Cockpit, navigate to your first subaccount and open the serviceon your machine and retrieve the service key for the service with the service plan **integration-flow**. You have created the service instance and service key in one of the previous exercises, [Setup Monitoring Endpoint](../02-SetupMonitoringEndpoint/README.md#servicekey).
+12. Open a new browser tab and navigate to the SAP BTP Cockpit, go to your first subaccount and open the **Instances and Subscriptions** view. Select the service with the service plan **integration-flow** and display the service key details. 
+
+    ![Service Key details in SAP BTP Cockpit](./images/09.png)
+
+    > You have created the service instance and service key in one of the previous exercises, [Setup Monitoring Endpoint](../02-SetupMonitoringEndpoint/README.md#servicekey).
+
+13. Open another browser tab and go to <http://base64encode.org>. Encode the **clientid** and **clientsecret** from the service key (see previous step) in the following format: 
+
+    ```
+    <clientid>:<clientsecret>
+    ```
+
+    > Example: sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xyz34567!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07vxyz123
+
+    ![Encoding clientid and clientsecret via base64encode.org](./images/10.png)
 
 
+14. Copy the encoded information to your clipboard. 
 
+15. Go back to the browser tab, in that you have started to define one of the endpoints for the Azure Traffic Manager profile. Provide the authorization information as **Custom Header Settings** in the following format: 
 
+    ```
+    Authorization:Basic <encoded clientid:clientsecret>
+    ```
 
+    > Example: Authorization:Basic c2ItNTAxNjJhMzUtNTZkMC00YzA2LWFkYjAtM2YzMTVkZjNiMGMzIWIyNjU3fGl0LXJ0LW1234WQ2ZWQydHJpYWwhYjE5NjphZjM2ZjJlYS01NjFhLTQ0YTMtOTc3ZC04MzFmOGVkOWQxMjkkVGE4clFOMUxNelk5bDlTdm93ZnRycGNsQlJxSE5HSkR2YVgwN3Zja1pt1234
 
+    ![Add Authorization details as Custom Header Settings](./images/11.png)
+
+    > Note: This way Azure Traffic Manager can authenticate against SAP Cloud Integration and can call the Integration Flow without getting an HTTP 403 response. Alternatively you can call the Integration Flow anonymously (so that the messages from Azure Traffic Manager to monitor the endpoints aren't counted as actual handled messages) but then you need to change the [monitoring settings](./README.md#tm-configuration) accordingly. A HTTP 403 response would then reveal Azure Traffic Manager that the endpoint is available, a 5xx HTTP response that the endpoint is not available. 
+
+16. Continue with **Add**. 
+
+17. You have created the first endpoint in the Azure Traffic Manager profile. **IMPORTANT: Repeat the Steps 10-16 for the other SAP Cloud Integration endpoint(s) in the other SAP BTP region(s).**
+
+18. Display **Overview** of your Azure Traffic Manager profile and copy the **DNS Name**. 
+
+    ![DNS Name of Azure Traffic Manager profile](./images/12.png)
+
+19. Go to to the **DNS Zone** of your domain. 
+
+    ![DNS Zone search using Azure Portal](./images/13.png)
+    ![Select domain in Azure Portal](./images/14.png)
+
+20. Create a record set for the subdomain that [you have mapped to the SAP Cloud Integration runtime endpoint](../03-MapCustomDomainRoutes/README.md#endpointmapping): 
+
+    - Name: subdomain that you have mapped to the SAP Cloud Integration runtime endpoint
+    - Type: CNAME
+    - Alias Record Set: No
+    - TTL: 1 Second (depending on your requirements, how fast a failover should be executed)
+    - Alias: DNS Name of the Azure Traffic Manager profile that you have copied in Step 18 - without *http://*(e.g. cloudintegration-failover.trafficmanager.net)
+
+    ![Select domain in Azure Portal](./images/15.png)
+
+Congratulations. You have created an Azure Traffic Manager profile that detects which tenant should handle the messages based on a monitoring endpoint you have deployed (Integration Flow in both SAP Cloud Integration tenants) in one of the previous steps. All requests sent to the mapped route in Cloud Foundry (cloudintegration.example.com) are going to the Azure Traffic Manager profile because of the CNAME record set in the DNS Zone of the domain. Azure Traffic Manager then decides on the priority setting which tenant should handle the request. All of this happens on DNS level. 
+
+A DNS Lookup shows the resolution: 
+
+![DNS Lookup](./images/16.png)
+
+> As an alternative to **dig** you can also use **nslookup** on Windows. 
+
+You should also see that Azure Traffic Manager indicates that both SAP Cloud Integration as online right now. 
+
+![DNS Lookup](./images/17.png)
 

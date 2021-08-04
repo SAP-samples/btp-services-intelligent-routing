@@ -132,7 +132,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
     > Note: It can take a few minutes up to a few hours until the custom domain is activated. 
 
-18. <a name="endpointmapping">Finally, map the SAP Cloud Integration runtime endpoint to the custom domain: 
+18. <a name="endpointmapping">Finally, map the SAP Cloud Integration runtime endpoint to a subdomain of your domain: 
 
     ```cmd
     cf custom-domain-map-route <endpoint_from_sapcloudintegration> cloudintegration.example.com
