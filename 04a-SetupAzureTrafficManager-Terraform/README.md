@@ -94,7 +94,7 @@ Sign in with your account credentials in the browser.
 
     > IMPORTANT: Make sure you are in the btp-cloud-integration-intelligent-routing/terraform directory. That's where the config.tvars and environment.tf file are located. The terraform CLI picks the files implicitly from the current working directory. 
 
-25. *terraform plan* will give you an idea of what's already in place and what the executing of the subsequent *terraform apply* will cause in the system: 
+25. *terraform plan* will give you an idea of what's already in place and what the execution of the subsequent *terraform apply* will cause in the system: 
 
     ```cmd
     terraform plan -var-file=config.tfvars -out 
