@@ -58,13 +58,83 @@ A potential landscape could look like this:
 
 13. Search for **Cloud Transport Management** in the **Service Marketplace** and create an instance. 
 
-    ![Cloud Transport management: Service instance creation](./images/08.png)
+    ![Cloud Transport management: Subscription creation](./images/08.png)
 
 14. Select **Standard** as plan (type **Subscription**) and continue with **Create**. 
 
-    ![Cloud Transport management: Service instance creation details](./images/09.png)
+    ![Cloud Transport management: Subscription details](./images/09.png)
 
-15. 
+15. Additionally, Create a Service Instance of **Cloud Transport Management** for the Service Plan **standard**. 
+
+    ![Cloud Transport management: Service instance creation](./images/10.png)
+
+16. Make sure you are using the **standard** plan (type **Instance**) and provide **cloudtm** as the service instance name. 
+
+    ![Cloud Transport management: Service instance creation details](./images/11.png)
+
+17. Continue with **Create**. 
+
+18. Select **Destinations** in the navigation area and create a **New Destination**. The Destination should be based on a **Service Instance** (select the tab) not on a blank template. 
+
+    ![Content Assembly Destination creation](./images/12.png)
+    
+19. Select **contentagent** as the service instance and provide **ContentAssemblyService** (needs to be exactly this name, case-sensitive!). 
+
+    > **Important**: Make sure the destination is called exactly **ContentAssemblyService** otherwise SAP Cloud Integration won't recognize this destination. 
+
+    ![Content Assembly Destination creation detail](./images/13.png)
+
+20. Continue with **Next**. 
+
+    > the OAuth2 information from the service key of the selected service instance will now be loaded into the destination details. 
+
+21. **Save** the Destination. 
+
+    ![Saving the destination](./images/14.png)
+
+22. Display the service key information of the **cloudintegration_api** service instance. 
+
+    ![cloudintegration_api service details](./images/15.png)
+
+23. Copy the values of **clientid**, **clientsecret** and **url** of the service key details. 
+
+    ![cloudintegration_api URL](./images/16.png)
+
+24. Open a new browser tab and create a **new Destination**. 
+
+    > a new browser tab so you can later on simply copy&paste the values of service key (step 23)
+
+    ![New Destination](./images/17.png)
+
+25. Provide the following details: 
+
+    Name: CloudIntegration
+    Type: HTTP
+    Description: Source Tenant SAP Cloud Integration
+    URL: <url from step23>/api/1.0/transportmodule/Transport (e.g.: https://e2ed6ed2trial.it-cpitrial03.cfapps.ap21.hana.ondemand.com/api/1.0/transportmodule/Transport)
+    Proxy Type: Internet
+    Authentication: Oauth2ClientCredentials
+    Token Service URL: <token url from step23> (e.g. https://e2ed6ed2trial.authentication.ap21.hana.ondemand.com/oauth/token)
+    Client ID: <clientid from step23> (e.g. sb-12cf3456-7f95-4916-8c06-c9c43217e826!b2657|it!b196 )
+    Client Secret: <clientsecret from step23> (e.g. c1234567-dd57-4980-8b7c-bb30d01f0c3f$dvquwICkH9Jic1crOw3qx08n9zbJFwvBRvfa0tmb8Sk=)
+
+    ![New Destination details](./images/18.png)
+
+26. **Save** the destination. 
+
+27. Create a **new Destination**. 
+
+28. Select **Service Instance** and select **cloudtm** (The Cloud Transport Management service instance), the name of destination does have to be **TransportManagementService**. 
+
+    > **Important**: The destination name is canse-sensitive and needs to follow the naming convention. 
+
+    ![SAP Cloud Transport Management Destination creation](./images/19.png)
+
+
+
+
+
+
 
 
 
