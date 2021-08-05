@@ -8,13 +8,13 @@ This is the **alternative step** to "Configure Azure Traffic Manager using the A
 
 1. Clone this repository: 
 
-```cmd
+```console
 git clone https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing.git
 ```
 
 2. Change into the right directory: 
 
-```cmd
+```console
 cd terraform
 ```
 3. Install Terraform on your machine. Find the instructions [here](https://learn.hashicorp.com/tutorials/terraform/install-cli#install-terraform)  
@@ -75,7 +75,7 @@ cd terraform
 22. Install the Azure CLI. Find the instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). 
 23. Login to your Azure subscription using the Azure CLI: 
 
-```cmd
+```console
 az login
 ```
 If the CLI can open your default browser, it will do so and load an Azure sign-in page.
@@ -88,7 +88,7 @@ Sign in with your account credentials in the browser.
 
 24. Execute the following command in the terminal to initialize the Terraform working directory.
 
-    ```cmd
+    ```console
     terraform init
     ```
 
@@ -96,7 +96,7 @@ Sign in with your account credentials in the browser.
 
 25. *terraform plan* will give you an idea of what's already in place and what the execution of the subsequent *terraform apply* will cause in the system: 
 
-    ```cmd
+    ```console
     terraform plan -var-file=config.tfvars -out 
     ```
 
@@ -104,7 +104,7 @@ Sign in with your account credentials in the browser.
 
 26. Execute the actions proposed in the Terraform plan using *terraform apply*:
 
-    ```cmd
+    ```console
     terraform apply -var-file=config.tfvars
     ```
 
@@ -144,7 +144,7 @@ Sign in with your account credentials in the browser.
 
     ![Select domain in Azure Portal](./images/16.png)
 
-Congratulations. You have created an Azure Traffic Manager profile that detects which tenant should handle the messages based on a monitoring endpoint you have deployed (Integration Flow in both SAP Cloud Integration tenants) in one of the previous steps. All requests sent to the mapped route in Cloud Foundry (cloudintegration.example.com) are going to the Azure Traffic Manager profile because of the CNAME record set in the DNS Zone of the domain. Azure Traffic Manager then decides on the priority setting which tenant should handle the request. All of this happens on DNS level. 
+Congratulations. You have created an Azure Traffic Manager profile that detects which tenant should handle the messages based on a monitoring endpoint you have deployed (REST API in both SAP Cloud Integration tenants) in one of the previous steps. All requests sent to the mapped route in Cloud Foundry (cloudintegration.example.com) are going to the Azure Traffic Manager profile because of the CNAME record set in the DNS Zone of the domain. Azure Traffic Manager then decides on the priority setting which tenant should handle the request. All of this happens on DNS level. (If you want to use the Azure Traffic Manager for other scenarios like loadbalancing, reducing latency or others - have a look at the [available routing methods](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods).)
 
 A DNS Lookup shows the resolution: 
 
