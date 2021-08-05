@@ -46,5 +46,7 @@ Therefore, go to the **SAP Cloud Integration web interface** and select the said
    As you can see, the secondary tenant handles the request and sends back an HTTP body as defined in the SAP Cloud Integration REST API since Azure Traffic Manager considers the primary tenant as not reachable. 
 
 
-Great job! You have configured the Azure Traffic Manager profile, provided the necessary endpoints as REST APIs of the SAP Cloud Integration tenants and succesfully integrated your own domain in this whole flow. You are done with the general setup for incoming HTTP requests. All other steps (like sychronizing Integration Content and security artifacts between the tenants) do not influence the behaviour you have defined until now. 
+Great job! You have configured the Azure Traffic Manager profile, provided the necessary endpoints as REST APIs of the SAP Cloud Integration tenants and succesfully integrated your own domain in this whole flow. You are done with the general setup for incoming HTTP requests. All other steps (like sychronizing Integration Content and security artifacts between the tenants) do not influence the behaviour you have defined until now. With this setup you can also use different routing methods Azure Traffic Manager to use it as a DNS Loadbalancer or route the traffic depending on the geographical location of the sender. 
+
+
 
