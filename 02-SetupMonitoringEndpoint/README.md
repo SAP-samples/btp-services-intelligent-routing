@@ -1,13 +1,13 @@
 # Introduction
 
-In this step, you will create an Integration flow in SAP Cloud Integration that will act as an auxiliary endpoint for Azure Traffic Manager. 
+In this step, you will create a REST API in SAP Cloud Integration that will act as an auxiliary endpoint for Azure Traffic Manager. 
 
 **Important:** The following steps need to executed for both SAP Cloud Integration tenants. 
 ## Setup Monitoring Endpoint for Azure Traffic Manager
 
 1. Go to the SAP Cloud Integration web interface of your first subaccount, either via the SAP Integration Suite launchpad as shown in [Setting SAP Cloud Integration](../01-SetupCloudIntegration/README.md). 
 
-2. Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupMonitoringEndpoint/flow-azuretm.zip and **Download** the ZIP File containing the Integration Package with the sample Integration Flow for SAP Cloud Integration.
+2. Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupMonitoringEndpoint/flow-azuretm.zip and **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
 
 ![Download Button on GitHub](./images/01.png)
 
@@ -25,14 +25,14 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
     ![Select new integration package](./images/04.png)
 
-6. Go to the **Artifacts** tab and click on the **ping** artifact of type REST API to open the Integration Flow editor. 
+6. Go to the **Artifacts** tab and click on the **ping** artifact of type REST API to open the SAP Cloud Integration editor. 
 
-    ![Select new integration flow](./images/05.png)
+    ![Select new REST API](./images/05.png)
 
-    You should now see a very basic integration flow that offers an HTTP endpoint and returns a message using the HTTP body to the sender. This integration flow is used for different purposes: 
+    You should now see a very basic REST API that offers an HTTP endpoint and returns a message using the HTTP body to the sender. This REST API is used for different purposes: 
 
-    - a) Azure Traffic Manager will call this Integration Flow in both SAP Cloud Integration tenants in order to find out if the tenant is up and running. 
-    - b) A fictive sender will call this Integration Flow and will get back which tenant was chosen by Azure Traffic Manager. 
+    - a) Azure Traffic Manager will call this REST API in both SAP Cloud Integration tenants in order to find out if the tenant is up and running. 
+    - b) A fictive sender will call this REST API and will get back which tenant was chosen by Azure Traffic Manager. 
 
 7. Change into the **Edit** mode. 
 
@@ -46,7 +46,7 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
     ![replace placeholder Message Body](./images/08.png)
 
-10. **Save** and **Deploy** the Integration Flow. 
+10. **Save** and **Deploy** the REST API. 
 
     ![Save and deploy](./images/09.png)
 
@@ -108,17 +108,17 @@ In this step, you will create an Integration flow in SAP Cloud Integration that 
 
     ![SAP Cloud Integration Monitor section](./images/20.png)
 
-27. In the **Manage Integration Content** area, select the **Started** tile to have a look at the Integration Flow you have deployed in step 10. 
+27. In the **Manage Integration Content** area, select the **Started** tile to have a look at the REST API you have deployed in step 10. 
 
     ![SAP Cloud Integration Monitor section](./images/21.png)
 
-28. <a name="endpoint"></a>Select **ping** and copy the endpoint URL of the Integration Flow. 
+28. <a name="endpoint"></a>Select **ping** and copy the endpoint URL of the REST API. 
 
-    ![Integration Flow endpoint](./images/22.png)
+    ![REST API endpoint](./images/22.png)
 
 29. Open a terminal on your machine and try to execute the following command. 
 
-```cmd
+```console
 curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey'
 ```
 
@@ -129,11 +129,11 @@ curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clients
 > The command could possibly look like: 
 > curl https://mysubaccount.it-cpi003-rt.cfapps.eu20.hana.ondemand.com/http/ping -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
 
-![Hit Integration Flow endpoint](./images/23.png)
+![Hit REST API endpoint](./images/23.png)
 
 30.**Repeat all the steps for the second subaccount.**
 
-Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Azure Traffic Manager to identify whether one of the tenants is online or not. Surely, this Integration Flow only offers a straight forward way if the tenant is able to handle the incoming request or not. It's up to you to implement a more sophisticated logic to identify if the tenant should be the one Azure Traffic Manager prioritizes or not. 
+Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Azure Traffic Manager to identify whether one of the tenants is online or not. Surely, this REST API only offers a straight forward way if the tenant is able to handle the incoming request or not. It's up to you to implement a more sophisticated logic to identify if the tenant should be the one Azure Traffic Manager prioritizes or not. 
 
 
 

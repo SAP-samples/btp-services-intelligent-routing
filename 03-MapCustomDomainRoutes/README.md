@@ -16,13 +16,13 @@ The steps below describe the process with a domain bought via Azure. The process
 
 3. Double check if you are logged in to the right environment:
 
-    ```cmd
+    ```console
     cf target
     ```
 
 4. Register your custom domain: 
 
-    ```cmd
+    ```console
     cf create-domain primarydomain example.com
     ```
 
@@ -30,13 +30,13 @@ The steps below describe the process with a domain bought via Azure. The process
 
 4. Check if the domain was registered: 
 
-    ```cmd
+    ```console
     cf domains
     ```
 
 5. Generate a new private and public key pair for this domain: 
    
-    ```cmd
+    ```console
     cf custom-domain-create-key key1 "CN=*.example.com, O=Company, L=Cologne, C=DE" "*.example.com"
     ```
 
@@ -44,7 +44,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
 6. Download certificate signing request corresponding to the new key:
 
-    ```cmd
+    ```console
     cf custom-domain-get-csr key1 key1_unsigned.pem
     ```
 
@@ -64,11 +64,11 @@ The steps below describe the process with a domain bought via Azure. The process
 
 
     **Windows:**
-    ```cmd
+    ```console
     certbot certonly --manual --preferred-challenges dns --server "https://acme-v02.api.letsencrypt.org/directory" --domain "*.example.com" --email your.mail@example.com --csr key1_unsigned.pem --no-bootstrap --agree-tos
     ```
     **macOS**
-    ```cmd
+    ```console
     sudo certbot certonly --manual --preferred-challenges dns --server "https://acme-v02.api.letsencrypt.org/directory" --domain "*.example.com" --email your.mail@example.com --csr key1_unsigned.pem --no-bootstrap --agree-tos
     ```
 
@@ -105,7 +105,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
 15. Upload and activate the certificates: 
 
-    ```cmd
+    ```console
     cf custom-domain-upload-certificate-chain key1 certificate1.pem
     ```
 
@@ -115,7 +115,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
 16. Activate the custom domain: 
 
-    ```cmd
+    ```console
     cf custom-domain-activate key1 "*.example.com"
     ```
 
@@ -124,7 +124,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
 17. Verify the custom domain activation: 
 
-    ```cmd
+    ```console
     cf custom-domain-list
     ```
 
@@ -134,7 +134,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
 18. <a name="endpointmapping">Finally, map the SAP Cloud Integration runtime endpoint to a subdomain of your domain: 
 
-    ```cmd
+    ```console
     cf custom-domain-map-route <endpoint_from_sapcloudintegration> cloudintegration.example.com
     ```
 

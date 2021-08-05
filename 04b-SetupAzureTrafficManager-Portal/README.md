@@ -48,7 +48,7 @@ This is the alternative step to "Configure Azure Traffic Manager using terraform
 
     > **IMPORTANT**: Those settings enable the fatest failover that's possible based on DNS time to live & the **fast endpoint failover settings**. The more often the **monitor** endpoint (/http/ping) the higher the amount of messages the SAP Cloud Integration needs to handle. How often the monitor endpoint is called is defined by the combination of probe timeout and probing interval. Adjust the settings for your productive scenario depending on your needs. 
 
-    > Note: The path you have defined is later on used to monitor every defined endpoint in the Azure Traffic Manager profile. The exact path is then concatenated with the endpoints target that we'll define in one of the subsequent steps. **/http/ping* is the path the Integration Flow that you have deployed in one of the [previous exercises](../02-SetupMonitoringEndpoint/README.md#endpoint).
+    > Note: The path you have defined is later on used to monitor every defined endpoint in the Azure Traffic Manager profile. The exact path is then concatenated with the endpoints target that we'll define in one of the subsequent steps. **/http/ping* is the path of the REST API that you have deployed in one of the [previous exercises](../02-SetupMonitoringEndpoint/README.md#endpoint).
 
 9. Continue with **Save**.
 
@@ -63,7 +63,7 @@ This is the alternative step to "Configure Azure Traffic Manager using terraform
     - Fully-qualified domain name (FQDN) or IP: SAP Cloud Integration runtime endpoint EU20 (without any protocol)
     - Priority: 1
 
-    > Note: The SAP Cloud Integration runtime endpoint is the FQDN of the deployed Integration flow (without */http/ping*) that you have also mapped in the [previous exercise](../03-MapCustomDomainRoutes/README.md#endpointmapping). 
+    > Note: The SAP Cloud Integration runtime endpoint is the FQDN of the deployed REST API (without */http/ping*) that you have also mapped in the [previous exercise](../03-MapCustomDomainRoutes/README.md#endpointmapping). 
 
     ![Cloud Integration EU](./images/08.png)
 
@@ -96,7 +96,7 @@ This is the alternative step to "Configure Azure Traffic Manager using terraform
 
     ![Add Authorization details as Custom Header Settings](./images/11.png)
 
-    > Note: This way Azure Traffic Manager can authenticate against SAP Cloud Integration and can call the Integration Flow without getting an HTTP 403 response. Alternatively you can call the Integration Flow anonymously (so that the messages from Azure Traffic Manager to monitor the endpoints aren't counted as actual handled messages) but then you need to change the [monitoring settings](./README.md#tm-configuration) accordingly. A HTTP 403 response would then reveal Azure Traffic Manager that the endpoint is available, a 5xx HTTP response that the endpoint is not available. 
+    > Note: This way Azure Traffic Manager can authenticate against SAP Cloud Integration and can call the REST API without getting an HTTP 403 response. Alternatively you can call the REST API anonymously (so that the messages from Azure Traffic Manager to monitor the endpoints aren't counted as actual handled messages) but then you need to change the [monitoring settings](./README.md#tm-configuration) accordingly. A HTTP 403 response would then reveal Azure Traffic Manager that the endpoint is available, a 5xx HTTP response that the endpoint is not available. 
 
 16. Continue with **Add**. 
 
@@ -121,7 +121,7 @@ This is the alternative step to "Configure Azure Traffic Manager using terraform
 
     ![Select domain in Azure Portal](./images/15.png)
 
-Congratulations. You have created an Azure Traffic Manager profile that detects which tenant should handle the messages based on a monitoring endpoint you have deployed (Integration Flow in both SAP Cloud Integration tenants) in one of the previous steps. All requests sent to the mapped route in Cloud Foundry (cloudintegration.example.com) are going to the Azure Traffic Manager profile because of the CNAME record set in the DNS Zone of the domain. Azure Traffic Manager then decides on the priority setting which tenant should handle the request. All of this happens on DNS level. 
+Congratulations. You have created an Azure Traffic Manager profile that detects which tenant should handle the messages based on a monitoring endpoint you have deployed (REST API in both SAP Cloud Integration tenants) in one of the previous steps. All requests sent to the mapped route in Cloud Foundry (cloudintegration.example.com) are going to the Azure Traffic Manager profile because of the CNAME record set in the DNS Zone of the domain. Azure Traffic Manager then decides on the priority setting which tenant should handle the request. All of this happens on DNS level. (If you want to use the Azure Traffic Manager for other scenarios like loadbalancing, reducing latency or others - have a look at the [available routing methods](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods).)
 
 A DNS Lookup shows the resolution: 
 
