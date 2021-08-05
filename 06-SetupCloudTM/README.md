@@ -130,6 +130,16 @@ A potential landscape could look like this:
 
     ![SAP Cloud Transport Management Destination creation](./images/19.png)
 
+29. Continue with **Next** to fetch the service key information. 
+
+30. Add a **New Property**: 
+
+    sourceSystemId=DEV
+
+    ![sourceSystemId as new property for the destination](./images/20.png)
+
+31. Continue with **Save**. 
+
 
 
 
