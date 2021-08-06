@@ -108,15 +108,17 @@ A potential landscape could look like this:
 
 25. Provide the following details: 
 
-    Name: CloudIntegration
-    Type: HTTP
-    Description: Source Tenant SAP Cloud Integration
-    URL: <url from step23>/api/1.0/transportmodule/Transport (e.g.: https://e2ed6ed2trial.it-cpitrial03.cfapps.ap21.hana.ondemand.com/api/1.0/transportmodule/Transport)
-    Proxy Type: Internet
-    Authentication: Oauth2ClientCredentials
-    Token Service URL: <token url from step23> (e.g. https://e2ed6ed2trial.authentication.ap21.hana.ondemand.com/oauth/token)
-    Client ID: <clientid from step23> (e.g. sb-12cf3456-7f95-4916-8c06-c9c43217e826!b2657|it!b196 )
-    Client Secret: <clientsecret from step23> (e.g. c1234567-dd57-4980-8b7c-bb30d01f0c3f$dvquwICkH9Jic1crOw3qx08n9zbJFwvBRvfa0tmb8Sk=)
+    - **Name**: CloudIntegration
+    - **Type**: HTTP
+    - **Description**: Source Tenant SAP Cloud Integration
+    - **URL**: <url from step23>/api/1.0/transportmodule/Transport 
+        (e.g.: https://e2ed6ed2trial.it-cpitrial03.cfapps.ap21.hana.ondemand.com/api/1.0/transportmodule/Transport)
+    - **Proxy Type**: Internet
+    - **Authentication**: Oauth2ClientCredentials
+    - **Token Service URL**: <token url from step23> 
+        (e.g. https://e2ed6ed2trial.authentication.ap21.hana.ondemand.com/oauth/token)
+    - **Client ID**: <clientid from step23> 
+    - **Client Secret**: <clientsecret from step23> 
 
     ![New Destination details](./images/18.png)
 
@@ -139,6 +141,56 @@ A potential landscape could look like this:
     ![sourceSystemId as new property for the destination](./images/20.png)
 
 31. Continue with **Save**. 
+
+32. Create another Destination (still in the subaccount of the development environment): 
+
+    - **Name**: CloudIntegration EU
+    - **Type**: HTTP
+    - **Description**: Cloud Integration EU - Production
+    - **URL**: `https://deploy-service.cfapps.<region>.hana.ondemand.com/slprot/<OrgNameOfTarget>/<SpaceNameOfTarget>/slp`
+      e.g.: https://deploy-service.cfapps.eu20.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-eu/dev/slp
+    - **ProxyType**: Internet
+    - **Authentication**: BasicAuthentication
+    - **User**: <your username>
+    - **Password** <your password>
+
+    **Replace <region> with the region of your  productive target subaccount, in this case it is eu20.**
+    **Replace <OrgNameOfTarget> and <SpaceNameOfTarget> with the Cloud Foundry information of your productive target subaccount**. 
+
+    **Important: If the URL contains spaces, because your Cloud Foundry org or space contains spaces, replace the spaces with the URL escape character %20**
+
+    ![Create Destination for productive target subaccount](./images/21.png)
+
+    > More information about Transport Destinations on [help.sap.com](https://help.sap.com/viewer/7f7160ec0d8546c6b3eab72fb5ad6fd8/Cloud/en-US/c9905c142cf14aea86fe2451434faed9.html)
+
+33. **Save** the destination. 
+
+34. Check the connection. You should get the following response:
+
+    ![Check Connection for new Destination](./images/22.png)
+
+35. Create another destination for the other productive target subaccount - similar to what you have done in step 32. 
+
+    - **Name**: CloudIntegration US
+    - **Type**: HTTP
+    - **Description**: Cloud Integration US - Production
+    - **URL**: `https://deploy-service.cfapps.<region>.hana.ondemand.com/slprot/<OrgNameOfTarget>/<SpaceNameOfTarget>/slp`
+      e.g.: https://deploy-service.cfapps.us20.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-us/dev/slp
+    - **ProxyType**: Internet
+    - **Authentication**: BasicAuthentication
+    - **User**: <your username>
+    - **Password** <your password>
+
+    **Replace <region> with the region of your  productive target subaccount, in this case it is us20.**
+    **Replace <OrgNameOfTarget> and <SpaceNameOfTarget> with the Cloud Foundry information of your productive target subaccount**. 
+
+    **Important: If the URL contains spaces, because your Cloud Foundry org or space contains spaces, replace the spaces with the URL escape character %20**
+
+    ![Check Connection for new Destination](./images/23.png)
+
+36. Check the connection. You should get the following response:
+
+    ![Check Connection for new Destination](./images/24.png)
 
 
 
