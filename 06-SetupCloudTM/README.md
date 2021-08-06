@@ -16,7 +16,7 @@ A potential landscape could look like this:
 
 2. Open the SAP BTP Cockpit in the subaccount for the development (DEV) environment and look for **Content Agent** in the **Service Marketplace**. **Create** a service instance. 
 
-    > all the following steps needs to be done in the DEV subaccount until you are asked to change the subaccount
+    > **IMPORTANT:** All the following artifacts are created in the subaccount of the development environment!
 
     ![Content Agent in the Service Marketplace](./images/02.png)
 
@@ -191,6 +191,113 @@ A potential landscape could look like this:
 36. Check the connection. You should get the following response:
 
     ![Check Connection for new Destination](./images/24.png)
+
+37. Create a new Role Collection **CloudIntegrationTM** in the development subaccount to enable Transport Management in the SAP Cloud Integration development tenant: 
+
+    ![Check Connection for new Destination](./images/25.png)
+
+38. Select the created Role Collection from the list of all Role Collections. 
+
+39. Select **Edit** and add the following roles: 
+
+    - **AuthGroup_Admdinistrator**
+    - **WorkspacePackagesTransport**
+
+40. Assign the Role Collection to your user and **Save**. 
+
+    ![Role Collection for SAP Cloud TM](./images/26.png)
+
+41. Creat another Role Collection called **CloudTransportManagement**. 
+
+42. Select the created Role Collection from the list of all Role Collections and click on **Edit**.
+
+43. Add all roles of the application identifier beginning with **alm-ts**. 
+
+    ![Role Collection for SAP Cloud TM](./images/27.png)
+
+    > This is not a best practice to add all existing roles into a single Role Collection - this is only for the sake of simplicity in this exercise. 
+
+44. Assign the Role Collection to your user and **Save**. 
+
+    ![Role Collection for SAP Cloud TM](./images/28.png)
+
+45. Open the web interface of SAP Cloud Integration the development environment and select **Settings** in the navigation area. 
+
+46. Open the **Transport** Tab and select **Edit**. 
+
+    ![Role Collection for SAP Cloud TM](./images/29.png)
+
+47. Change the **Transport Mode** to **Transport Management Service**. 
+
+48. **Save** the changes. 
+
+49. Go to **Instances and Subscriptions** and open **Cloud Transport Management**. 
+
+    ![Open Cloud Transport Management](./images/30.png)
+
+50. Create the source Transport Node (development environment).
+
+    - **Name:** DEV
+    - **Description:** SAP Cloud Integration development Tenant
+    - **Allow Upload to Node**: Yes
+
+    Keep everything else as it is. 
+
+    ![Open Cloud Transport Management](./images/31.png)
+
+51. Continue with **OK**. 
+
+52. Go back to the **Transport** configuration in SAP Cloud Integration and select **Check Configuration**. 
+
+    > The Configuration checks if the CloudIntegration as well as the TransportManagementService destination is reachable. Additionally, if the sourceSystemId (property of the TransportManagementService destination) is defined as a Transport Node (*with Allow Upload to Node*) in SAP Cloud Transport Management. 
+
+    ![Open Cloud Transport Management](./images/32.png)
+
+53. Go back to **SAP Cloud Transport Management** and create a **Transport Route** for the primary productive SAP Cloud Integration tenant: 
+
+    - **Name:** PROD_EU
+    - **Description:** SAP Cloud Integration productive tenant - EU
+    - **Forward Mode:**: Auto
+    - **Content-Type:** Multi-Target Application
+    - **Destination:** CloudIntegrationEU
+
+    ![Open Cloud Transport Management](./images/33.png)
+
+54. Create another **Transport Route** for the secondary productive SAP Cloud Integration tenant: 
+
+    - **Name:** PROD_US
+    - **Description:** SAP Cloud Integration productive tenant - US
+    - **Forward Mode:**: Auto
+    - **Content-Type:** Multi-Target Application
+    - **Destination:** CloudIntegrationUS
+
+    ![Open Cloud Transport Management](./images/34.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 
 
 
