@@ -111,14 +111,14 @@ A potential landscape could look like this:
     - **Name**: CloudIntegration
     - **Type**: HTTP
     - **Description**: Source Tenant SAP Cloud Integration
-    - **URL**: <url from step23>/api/1.0/transportmodule/Transport 
+    - **URL**: `<url from step23>/api/1.0/transportmodule/Transport`
         (e.g.: https://e2ed6ed2trial.it-cpitrial03.cfapps.ap21.hana.ondemand.com/api/1.0/transportmodule/Transport)
     - **Proxy Type**: Internet
     - **Authentication**: Oauth2ClientCredentials
-    - **Token Service URL**: <token url from step23> 
+    - **Token Service URL**: `<token url from step23>`
         (e.g. https://e2ed6ed2trial.authentication.ap21.hana.ondemand.com/oauth/token)
-    - **Client ID**: <clientid from step23> 
-    - **Client Secret**: <clientsecret from step23> 
+    - **Client ID**: `<clientid from step23>`
+    - **Client Secret**: `<clientsecret from step23>`
 
     ![New Destination details](./images/18.png)
 
@@ -151,8 +151,8 @@ A potential landscape could look like this:
       e.g.: https://deploy-service.cfapps.eu20.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-eu/dev/slp
     - **ProxyType**: Internet
     - **Authentication**: BasicAuthentication
-    - **User**: <your username>
-    - **Password** <your password>
+    - **User**: `<your username>`
+    - **Password** `<your password>`
 
     **Replace <region> with the region of your  productive target subaccount, in this case it is eu20.**
     **Replace <OrgNameOfTarget> and <SpaceNameOfTarget> with the Cloud Foundry information of your productive target subaccount**. 
@@ -178,8 +178,8 @@ A potential landscape could look like this:
       e.g.: https://deploy-service.cfapps.us20.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-us/dev/slp
     - **ProxyType**: Internet
     - **Authentication**: BasicAuthentication
-    - **User**: <your username>
-    - **Password** <your password>
+    - **User**: `<your username>`
+    - **Password** `<your password>`
 
     **Replace <region> with the region of your  productive target subaccount, in this case it is us20.**
     **Replace <OrgNameOfTarget> and <SpaceNameOfTarget> with the Cloud Foundry information of your productive target subaccount**. 
