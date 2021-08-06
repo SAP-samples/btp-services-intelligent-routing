@@ -267,7 +267,7 @@ A potential landscape could look like this:
 
     - **Name:** PROD_US
     - **Description:** SAP Cloud Integration productive tenant - US
-    - **Forward Mode:**: Auto
+    - **Forward Mode:** Auto
     - **Content-Type:** Multi-Target Application
     - **Destination:** CloudIntegrationUS
 
