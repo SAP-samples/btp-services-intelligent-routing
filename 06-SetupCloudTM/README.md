@@ -325,16 +325,43 @@ A potential landscape could look like this:
     You should now see the Transport Request that you have previously created SAP Cloud Integration development environment appearing in the import queue. 
 
     ![Transport the content package](./images/41.png)
+    ![Transport Request created from SAP Cloud Integration](./images/42.png)
 
 65. **Import All** Transport Requests. 
 
-66. Check the Primary SAP Cloud Integration Tenant if the Integration Package was imported. 
+    > Alternatively select requests that you want to transport and use **Import Selected**. 
 
-66. TODO: Check Transport Queues. 
+    ![Import All Requests in SAP Cloud Transport Management](./images/43.png)
 
-67. TODO: Import to Secondary tenant
-68. TODO: Schedule Imports. 
+66. Check the Transport **Status** or **display the logs** for this transport request in case of errors.  
 
+    ![Transport Request Status or Logs](./images/44.png)
+
+67. Check the Primary SAP Cloud Integration Tenant if the Integration Package was imported. 
+
+    ![Imported Content Package](./images/45.png)
+
+68. Since you have already imported the Tranport Request into the primary productive tenant, go back to SAP Cloud Transport Management and go to the **PROD_US Transport Node**. 
+
+    ![Transport Request from PROD_EU](./images/46.png)
+
+69. Import the Transport Request that was recently imported to the PROD_EU Transport Node. 
+
+70. Check the Transport **Status** or **display the logs** for this transport request in case of errors.  
+
+71. Check the secondary SAP Cloud Integration Tenant if the Integration Package was imported. 
+
+    ![Imported Content Package](./images/45.png)
+
+72. Go back to SAP Cloud Transport Management and open the **PROD_EU Transport Node**. 
+
+73. Click on the **calendar icon** to schedule the Transport Request import process. Schedule the import for every hour. 
+
+    ![Imported Content Package](./images/47.png)
+
+74. Repeat the import scheduling for the **PROD_US Transport Node**. 
+
+Good Job! You have set SAP Cloud Transport Management for SAP Cloud Integration packages. You have now full control over your transports using SAP Cloud Transport Management. With the scheduled import of Transport Requests both into the primary SAP Cloud Integration tenant as well as to the secondary SAP Cloud Integration tenant, your tenants show always be in synch without manual effort. 
 
 
 
