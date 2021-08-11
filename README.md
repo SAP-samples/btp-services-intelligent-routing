@@ -6,6 +6,8 @@ This repository contains code samples and step by step instructions for the SAP 
 
 Extending your S/4HANA business processes with SAP Business Technology Platform (BTP) includes making sure, that you are ready to handle disaster recovery scenarios. When your SAP backend performs a failover, BTP workloads need to switch too. This can happen on configuration or on deployment level and involves adding an abstraction layer to be able to switch routing targets without the need to touch S/4HANA backend configuration. For a timely recovery of the service chain, we need to apply automation to the process.
 
+![Scenario explanation](./images/01.png)
+
 Furthermore, the decoupling of the connection allows to scale the endpoints globally as close to the end-users as possible, minimizing latency, increasing up-time and performance. Different routing techniques like performance-based, availability-based, weighted, or geo-based are typically used.
 
 In this mission you will learn how to run multiple SAP Cloud Integration tenants (SAP Integration Suite) in parallel to apply the mechanisms mentioned above. Azure Traffic Manager will play a significant role in routing the traffic intelligently to different SAP Cloud Integration tenants.
@@ -25,7 +27,9 @@ A cloud native integration pattern that incorporates BTP and S/4HANA to eliminat
 The required systems and components are:
 
 - SAP BTP enterprise account
-- 2 SAP BTP subaccounts: one in EU20, one in US20
+- 2 SAP BTP subaccounts: e.g. one in EU20, one in US20 (where SAP Integration Suite is available)
+- Microsoft Azure subscription
+- A own domain
 
 Entitlements/Quota required in your SAP Business Technology Platform Account:
 
@@ -37,28 +41,31 @@ Entitlements/Quota required in your SAP Business Technology Platform Account:
 
 Subscriptions required in your SAP Business Technology Platform Account:
 
-| Subscription                    | Plan                                                   |
-| ------------------------------- | ------------------------------------------------------ |
-| Integration Suite               | Standard Edition or Digital Edition or Premium Edition |
-| Event Mesh                      | standard                                               |
-| Cloud Transport Management      | saas-application                                       |
-| SAP Business Application Studio | standard-edition                                       |
+| Subscription               | Plan                                                   |
+| -------------------------- | ------------------------------------------------------ |
+| Integration Suite          | Standard Edition or Digital Edition or Premium Edition |
+| Event Mesh                 | standard                                               |
+| Cloud Transport Management | saas-application                                       |
 
 ## Setup and Configuration
 
-### Step 1: Setup SAP Cloud Integration
+### [Step 1: Setup SAP Cloud Integration](./01-SetupCloudIntegration/README.md)
+### [Step 2: Setup Monitoring Endpoint in SAP Cloud Integration](./02-SetupMonitoringEndpoint/README.md)
 
-### Step 2: Map SAP Cloud Integration routes to custom domain using SAP Custom Domain service
-### Step 3a): Setup Azure Traffic Manager using Azure Portal
-### Step 3b): Setup Azure Traffic Manager using Terraform
+### [Step 3: Map SAP Cloud Integration routes to custom domain using SAP Custom Domain service](./03-MapCustomDomainRoutes/README.md)
+### [Step 4a: Setup Azure Traffic Manager using Terraform](./04a-SetupAzureTrafficManager-Terraform/README.md)OR
+### [Step 4b: Setup Azure Traffic Manager using Azure Portal](./04b-SetupAzureTrafficManager-Portal/README.md) 
 
-### Step 4: Test Azure Traffic Manager setup
+> it's either step 4a or step 4b (not both of them)
 
+### [Step 5: Test the current failover scenario](./05-TestFailoverScenario/README.md)
+### [Step 7: Setup SAP Cloud Transport Management to keep tenants in sync](06-SetupCloudTM/README.md)
 ## Known Issues
 
+None so far. 
 ## How to obtain support
 
-[Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
+[Create an issue](https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/issues) in this repository if you find a bug or have questions about the content.
  
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
