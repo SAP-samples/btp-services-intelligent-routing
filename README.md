@@ -59,7 +59,7 @@ Subscriptions required in your SAP Business Technology Platform Account:
 > it's either step 4a or step 4b (not both of them)
 
 ### [Step 5: Test the current failover scenario](./05-TestFailoverScenario/README.md)
-### [Step 7: Setup SAP Cloud Transport Management to keep tenants in sync](06-SetupCloudTM/README.md)
+### [Step 6: Setup SAP Cloud Transport Management to keep tenants in sync](06-SetupCloudTM/README.md)
 ## Known Issues
 
 None so far. 
