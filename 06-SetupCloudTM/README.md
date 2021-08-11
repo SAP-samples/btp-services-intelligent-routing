@@ -307,6 +307,8 @@ A potential landscape could look like this:
 61. Select **Design** in the navigation area and choose an Integration Package that you would like to transport. 
     ![Design area SAP Cloud integration](./images/38.png)
 
+> If you don't have an Integration Package yet, feel free to use one of the previous exercises. TODO
+
 62. **Transport** the whole package and provide a short description. 
 
     > Go to the **artifacts** tab and make sure no artifacts are in draft version. If that's the case, open the artifcats in the SAP Cloud Integration editor an **Save as Version**. 
@@ -328,22 +330,10 @@ A potential landscape could look like this:
 
 66. Check the Primary SAP Cloud Integration Tenant if the Integration Package was imported. 
 
+66. TODO: Check Transport Queues. 
 
-
-
-
-
-    
-
-
-
-
-
-
-> If you don't have an Integration Package yet, feel free to use one of the previous exercises. TODO: 
-
-1.  Check Transport Queues
-2.  Check Result in PROD tenants
+67. TODO: Import to Secondary tenant
+68. TODO: Schedule Imports. 
 
 
 
