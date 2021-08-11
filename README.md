@@ -6,7 +6,7 @@ This repository contains code samples and step by step instructions for the SAP 
 
 Extending your S/4HANA business processes with SAP Business Technology Platform (BTP) includes making sure, that you are ready to handle disaster recovery scenarios. When your SAP backend performs a failover, BTP workloads need to switch too. This can happen on configuration or on deployment level and involves adding an abstraction layer to be able to switch routing targets without the need to touch S/4HANA backend configuration. For a timely recovery of the service chain, we need to apply automation to the process.
 
-![Scenario explanation](./images/01.png)
+![Scenario explanation](./images/scenario.png)
 
 Furthermore, the decoupling of the connection allows to scale the endpoints globally as close to the end-users as possible, minimizing latency, increasing up-time and performance. Different routing techniques like performance-based, availability-based, weighted, or geo-based are typically used.
 
