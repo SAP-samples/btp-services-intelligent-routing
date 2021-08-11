@@ -27,15 +27,16 @@ A cloud native integration pattern that incorporates BTP and S/4HANA to eliminat
 The required systems and components are:
 
 - SAP BTP enterprise account
-- 2 SAP BTP subaccounts: e.g. one in EU20, one in US20 (where SAP Integration Suite is available)
-- Microsoft Azure subscription
-- A own domain
+- 2 SAP BTP subaccounts: e.g. one in EU20, one in US20 or where the ([SAP Integration Suite is available](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan))
+- A Microsoft Azure subscription
+- An own domain
 
 Entitlements/Quota required in your SAP Business Technology Platform Account:
 
 | Service                     | Plan             | Number of instances |
 | --------------------------- | ---------------- | ------------------- |
 | Process Integration Runtime | integration-flow | 2                   |
+| Process Integration Runtime | api              | 2                   |
 | Custom Domain Service       | Custom Domain    | 2                   |
 
 
@@ -44,7 +45,6 @@ Subscriptions required in your SAP Business Technology Platform Account:
 | Subscription               | Plan                                                   |
 | -------------------------- | ------------------------------------------------------ |
 | Integration Suite          | Standard Edition or Digital Edition or Premium Edition |
-| Event Mesh                 | standard                                               |
 | Cloud Transport Management | saas-application                                       |
 
 ## Setup and Configuration
