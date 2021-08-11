@@ -1,6 +1,6 @@
 # Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager
 
-This repository contains code samples and step by step instructions for the SAP Discovery Center mission [Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager TODO](https://discovery-center.cloud.sap/). The SAP Discovery Center mission not only contains the step by step instructions but also more information to get a holistic view on this scenario. 
+This repository contains code samples and step by step instructions to enable *Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager*. 
 
 ## Description
 
