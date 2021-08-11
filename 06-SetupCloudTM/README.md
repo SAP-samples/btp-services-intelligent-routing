@@ -361,7 +361,7 @@ A potential landscape could look like this:
 
 74. Repeat the import scheduling for the **PROD_US Transport Node**. 
 
-Good Job! You have set SAP Cloud Transport Management for SAP Cloud Integration packages. You have now full control over your transports using SAP Cloud Transport Management. With the scheduled import of Transport Requests both into the primary SAP Cloud Integration tenant as well as to the secondary SAP Cloud Integration tenant, your tenants show always be in synch without manual effort. 
+Good Job! You have set SAP Cloud Transport Management for SAP Cloud Integration packages. You have now full control over your transports using SAP Cloud Transport Management. With the scheduled import of Transport Requests both into the primary SAP Cloud Integration tenant as well as to the secondary SAP Cloud Integration tenant, your tenants should now always be in synch without manual effort. 
 
 
 
