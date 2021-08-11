@@ -273,6 +273,74 @@ A potential landscape could look like this:
 
     ![Open Cloud Transport Management](./images/34.png)
 
+55. Create Transporte Routes from DEV to both prods seperately
+
+55. Go to **Transport Routes** in the navigation area and **create** a new transport route. 
+
+    ![Create new transport route](./images/35.png)
+
+56. Configure the Transport Route as follows: 
+
+    - **Name:** DEV-PRIMARY
+    - **Description:** From DEV to Primary Tenant (EU)
+    - **Choose a source Node:** DEV
+    - **Choose a target Node:** PROD_EU
+
+    ![Create new transport route](./images/36.png)
+
+57. Continue with **OK**. 
+
+58. Creater another Transport Route and configure it as follows: 
+
+    - **Name:** PRIMARY-SECONDARY
+    - **Description:** From Primary Tenant (EU) to Secondary Tenant (EU)
+    - **Choose a source Node:** DEV
+    - **Choose a target Node:** PROD_EU
+
+59. Continue with **OK**. 
+
+    You should now have all the needed transport routes to keep your productive tenants in synch. 
+    ![Overview transport routes](./images/37.png)
+
+60. Go to the SAP Cloud Integration web interface of your **development** environment. 
+    
+61. Select **Design** in the navigation area and choose an Integration Package that you would like to transport. 
+    ![Design area SAP Cloud integration](./images/38.png)
+
+62. **Transport** the whole package and provide a short description. 
+
+    > Go to the **artifacts** tab and make sure no artifacts are in draft version. If that's the case, open the artifcats in the SAP Cloud Integration editor an **Save as Version**. 
+
+    > Note: You can also transport individual artifacts via the Actions button next to the version number. 
+
+    ![Transport the content package](./images/39.png)
+    ![Transport the content package](./images/40.png)
+
+63. Go back **SAP Cloud Transport Management** and go to **Transport Nodes**. 
+
+64. Select **PROD_EU**. 
+
+    You should now see the Transport Request that you have previously created SAP Cloud Integration development environment appearing in the import queue. 
+
+    ![Transport the content package](./images/41.png)
+
+65. **Import All** Transport Requests. 
+
+66. Check the Primary SAP Cloud Integration Tenant if the Integration Package was imported. 
+
+
+    
+
+
+
+
+
+
+> If you don't have an Integration Package yet, feel free to use one of the previous exercises. TODO: 
+
+1.  Check Transport Queues
+2.  Check Result in PROD tenants
+
 
 
 
