@@ -13,8 +13,8 @@ Furthermore, the decoupling of the connection allows to scale the endpoints glob
 In this mission you will learn how to run multiple SAP Cloud Integration tenants (SAP Integration Suite) in parallel to apply the mechanisms mentioned above. Azure Traffic Manager will play a significant role in routing the traffic intelligently to different SAP Cloud Integration tenants.
 
 ### Current Position - What is the challenge?
-- Automatic Failover for SAP Cloud Integration (anticipating disaster recovery of S/4Hana, or regular CPI maintenance)
-- Reducing Latency for SAP Cloud Integration globally (US users accessing CPI in Europe for instance)
+- Automatic Failover for SAP Cloud Integration (anticipating disaster recovery of S/4HANA, or regular Cloud Integration maintenance)
+- Reducing Latency for SAP Cloud Integration globally (US users accessing Cloud Integration in Europe for instance)
 - Load balancing between SAP Cloud Integration tenants (increasing throughput of your tenant beyond scale-up capabilities)
 
 ### Destination - What is the outcome?
