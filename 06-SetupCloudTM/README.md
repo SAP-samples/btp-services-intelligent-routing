@@ -329,6 +329,10 @@ A potential landscape could look like this:
 66. Check the Primary SAP Cloud Integration Tenant if the Integration Package was imported. 
 
 
+
+
+
+
     
 
 
