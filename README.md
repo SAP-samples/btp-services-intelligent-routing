@@ -53,7 +53,7 @@ Subscriptions required in your SAP Business Technology Platform Account:
 ### [Step 2: Setup Monitoring Endpoint in SAP Cloud Integration](./02-SetupMonitoringEndpoint/README.md)
 
 ### [Step 3: Map SAP Cloud Integration routes to custom domain using SAP Custom Domain service](./03-MapCustomDomainRoutes/README.md)
-### [Step 4a: Setup Azure Traffic Manager using Terraform](./04a-SetupAzureTrafficManager-Terraform/README.md)OR
+### [Step 4a: Setup Azure Traffic Manager using Terraform](./04a-SetupAzureTrafficManager-Terraform/README.md) OR
 ### [Step 4b: Setup Azure Traffic Manager using Azure Portal](./04b-SetupAzureTrafficManager-Portal/README.md) 
 
 > it's either step 4a or step 4b (not both of them)
