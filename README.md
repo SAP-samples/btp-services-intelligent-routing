@@ -10,7 +10,7 @@ Extending your SAP S/4HANA business processes with SAP Business Technology Platf
 
 Furthermore, decoupling of the connection allows scaling of the endpoints globally as close to the end-users as possible, minimizing latency, increasing up-time and performance. Different routing techniques like performance-based, availability-based, weighted, or geo-based are typically used.
 
-In this mission you will learn how to run multiple SAP Cloud Integration tenants (SAP Integration Suite) in parallel to apply the mechanisms mentioned above. Microsoft Azure Traffic Manager will play a significant role in routing the traffic intelligently to different SAP Cloud Integration tenants.
+In this mission you will learn how to run multiple SAP Cloud Integration tenants (SAP Integration Suite) in parallel to apply the mechanisms mentioned above. Azure Traffic Manager will play a significant role in routing the traffic intelligently to different SAP Cloud Integration tenants.
 
 ### Current Position - What is the challenge?
 - Automatic Failover for SAP Cloud Integration (anticipating disaster recovery of SAP S/4HANA, or regular SAP Cloud Integration maintenance)
