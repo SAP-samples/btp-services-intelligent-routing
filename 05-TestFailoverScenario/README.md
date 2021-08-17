@@ -20,14 +20,14 @@ Depending on the Failover & DNS TTL settings in Azure Traffic Manager profile, t
    ```
     ![Custom Domain Call](./images/02.png)
 
-    As you can see, the primary tenant handles the request and sends back an HTTP body as defined SAP Cloud Integration REST API. 
+    As you can see, the primary tenant handles the request and sends back an HTTP body as defined in the SAP Cloud Integration REST API. 
 
    > Note: Coincidentally (and for the sake of simplicity) the REST API you call in this step is the same as the Azure Traffic Manager profile uses to monitor the endpoints. 
 
-   > In this example we are not using the clientid and clientsecret (from the service key) for the particular SAP Cloud Integration tenants as they are tenant specific. Since the caller doesn't know which tenant is handling the request, a user in both subaccounts is necessary. You have assigned the needed Role Collection to your account in one of the [previous exercises](./../01-SetupCloudIntegration/README.md#rolecollection-sender). That's the reason why you should use your personal credentials in this HTTP call. 
+   > In this example we are not using the clientid and clientsecret (from the service key) for the particular SAP Cloud Integration tenants as they are tenant specific. Since the caller doesn't know which tenant is handling the request, a user in both subaccounts is necessary. You have assigned the needed Role Collection to your account in one of the [previous exercises](./../01-SetupCloudIntegration/README.md#rolecollection-sender). That's the reason why you should use your personal BTP login credentials in this HTTP call. 
 
 3. Let's now simulate that the primary tenant is not available anymore. For testing purposes you can simply undeploy the REST API that acts as the monitoring endpoint for Azure Traffic Manager. That way, Azure Traffic Manager doesn't get a HTTP 200 Response from the REST API and considers the tenant as not available. 
-Therefore, go to the **SAP Cloud Integration web interface** and select the said REST API. (**Monitor** option in the navigation area)
+Therefore, go to the **SAP Cloud Integration web interface** and select the said REST API. (**Monitor** option in the navigation area). Select **Undeploy** to undeploy the REST API from SAP Cloud Integration. You can deploy the API later again, as learned in one of the previous exercises. 
 
 ![Undeploy REST API in SAP Cloud Integration web interface](./images/03.png)
 

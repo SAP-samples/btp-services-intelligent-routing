@@ -43,9 +43,9 @@ cd terraform
 
 13. Replace **region of secondary cloudintegration tenant** in the config.tfvars file with the region of the secondary SAP Cloud Integration tenant. (e.g. EU20, US20, etc.)
 
-14. Replace **cloudintegration runtime endpoint primary tenant** in the config.tfvars file with the primary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). 
+14. Replace **cloudintegration runtime endpoint primary tenant** in the config.tfvars file with the primary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). This could e.g. look like `ci-demo-us.it-cpi005-rt.cfapps.eu20.hana.ondemand.com`.
 
-15. Replace **cloudintegration runtime endpoint secondary tenant** in the config.tfvars file with the secondary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). 
+15. Replace **cloudintegration runtime endpoint secondary tenant** in the config.tfvars file with the secondary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). This could e.g. look like `ci-demo-eu.it-cpi009-rt.cfapps.us20.hana.ondemand.com`.
 
 16. Open a new browser tab and navigate to the SAP BTP Cockpit, go to your first subaccount and open the **Instances and Subscriptions** view. Select the service with the service plan **integration-flow** and display the service key details. 
 
@@ -108,9 +108,9 @@ Sign in with your account credentials in the browser.
     terraform apply -var-file=config.tfvars
     ```
 
-    > If you are asked *Do you want to perform these actions?* continue with **yes**. (depending on the plan output directly above the question)
+    > If you are asked *Do you want to perform these actions?* continue with **yes**. (depending on the plan output directly above the question). It may take some time until you see the new resource also in Azure Portal. 
 
-    > you can also revert the creation of all these objects again with *terraform destroy -var-file=config.dev01.tfvars*
+    > You can also revert the creation of all these objects again with *terraform destroy -var-file=config.tfvars*
 
     ![terraform apply result](./images/09.png)
 

@@ -154,7 +154,7 @@ A potential landscape could look like this:
     - **User**: `<your username>`
     - **Password** `<your password>`
 
-    **Replace <region> with the region of your  productive target subaccount, in this case it is eu20.**
+    **Replace <region> with the region of your  productive target subaccount, in this case it is eu20.** <br>
     **Replace <OrgNameOfTarget> and <SpaceNameOfTarget> with the Cloud Foundry information of your productive target subaccount**. 
 
     **Important: If the URL contains spaces, because your Cloud Foundry org or space contains spaces, replace the spaces with the URL escape character %20**
@@ -257,6 +257,7 @@ A potential landscape could look like this:
 
     - **Name:** PROD_EU
     - **Description:** SAP Cloud Integration productive tenant - EU
+    - **Allow Upload to Node:** Yes
     - **Forward Mode:**: Auto
     - **Content-Type:** Multi-Target Application
     - **Destination:** CloudIntegrationEU
@@ -267,6 +268,7 @@ A potential landscape could look like this:
 
     - **Name:** PROD_US
     - **Description:** SAP Cloud Integration productive tenant - US
+    - **Allow Upload to Node:** Yes
     - **Forward Mode:** Auto
     - **Content-Type:** Multi-Target Application
     - **Destination:** CloudIntegrationUS
@@ -293,9 +295,9 @@ A potential landscape could look like this:
 58. Creater another Transport Route and configure it as follows: 
 
     - **Name:** PRIMARY-SECONDARY
-    - **Description:** From Primary Tenant (EU) to Secondary Tenant (EU)
-    - **Choose a source Node:** DEV
-    - **Choose a target Node:** PROD_EU
+    - **Description:** From Primary Tenant (EU) to Secondary Tenant (US)
+    - **Choose a source Node:** PROD_EU
+    - **Choose a target Node:** PROD_US
 
 59. Continue with **OK**. 
 

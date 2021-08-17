@@ -15,7 +15,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![Navigate to the Design menu](./images/02.png)
 
-    > you can expand the navigation area using the hamburger icon. 
+    > Note: You can expand the navigation area using the hamburger icon. 
 
 4. Import the previously downloaded Integration Package (ZIP file from Step 2).  
 
@@ -34,7 +34,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
     - a) Azure Traffic Manager will call this REST API in both SAP Cloud Integration tenants in order to find out if the tenant is up and running. 
     - b) A fictive sender will call this REST API and will get back which tenant was chosen by Azure Traffic Manager. 
 
-7. Change into the **Edit** mode. 
+7. Change into the **Edit** mode and confirm potential messages with **Yes**.
 
     ![changed into edit mode](./images/06.png)
 
@@ -42,7 +42,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![changed into edit mode](./images/07.png)
 
-9. Select the **Message Body** tab so you can type in whatever message you want to reply to the sender. For testing purposes it helps, if you have replace the placeholder with the subaccount region the SAP Cloud Integration is located in. That way, you can easily identify which tenant is handling the traffic routed by Azure Traffic Manager. 
+9. Select the **Message Body** tab so you can type in whatever message you want to reply to the sender. For testing purposes it helps, if you replace the placeholder with the subaccount region, the current SAP Cloud Integration instance is located in. That way, you can easily identify which tenant is handling the traffic routed by Azure Traffic Manager. 
 
     ![replace placeholder Message Body](./images/08.png)
 
@@ -64,7 +64,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![Create space button](./images/11.png)
 
-15. Enter a space name and select the permissions you would like to assign to your ID and **Save** the changes.
+15. Enter a space name and select the permissions you would like to assign to your ID and save the changes by using the **Create** button.
     
     ![space name and creation button](./images/12.png)
 
@@ -82,7 +82,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![Service instance name and plan](./images/15.png)
 
-20. In the Specify Parameter menu switch to the **JSON** tab and insert the following content in the text area to assign roles. This authorizes the sender system to call a tenant and allows to process the messages on the tenant.
+20. In the Parameter menu switch to the **JSON** tab and insert the following content in the text area to assign roles. This authorizes the sender system to call a tenant and allows to process the messages on the tenant.
 
     > Note: The role name is case-sensitive and the authentication mode used is basic authentication. In the Assign Application menu, to bind the new service instance by default None selected and then choose Next.
 
@@ -90,15 +90,15 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 21. Continue with **Create**. 
 
-22. **View Instance** to see the progress of the service instance creation. 
+22. Select **View Instance** to see the progress of the service instance creation. 
 
     ![Service instance creation progress](./images/17.png)
 
-23. <a name="servicekey"></a> In the Instance View, select **Create** in the service key section to create a service key. 
+23. <a name="servicekey"></a> In the Instance View, select **Create** in the **Service Keys** section to create a service key. 
 
     ![service key creation](./images/18.png)
 
-24. Enter a name for the service key and choose **Create**. 
+24. Enter a name (e.g. sk1) for the service key and choose **Create**. 
 
 25. Click on the recently created service key to retrieve the credential information from the service key. Keep this tab opened since you will need the credentials in one of the next steps.  
 
@@ -131,9 +131,9 @@ curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clients
 
 ![Hit REST API endpoint](./images/23.png)
 
-30.**Repeat all the steps for the second subaccount.**
+30. **Repeat all the steps for the second subaccount.**
 
-Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Azure Traffic Manager to identify whether one of the tenants is online or not. Surely, this REST API only offers a straight forward way if the tenant is able to handle the incoming request or not. It's up to you to implement a more sophisticated logic to identify if the tenant should be the one Azure Traffic Manager prioritizes or not. 
+Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Azure Traffic Manager to identify whether one of the tenants is online or not. For sure, this REST API only offers a straight forward way to determine, whether the tenant is able to handle an incoming request or not. It's up to you to implement a more sophisticated logic to identify, if a tenant should be the one prioritized by Azure Traffic Manager or not. 
 
 
 

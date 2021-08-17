@@ -59,7 +59,7 @@ resource "azurerm_traffic_manager_endpoint" "tm-endpoint-1" {
 
 # Create Traffic Manager - West End Point
 resource "azurerm_traffic_manager_endpoint" "tm-endpoint-2" {
-  name                = "Cloud Integration US"
+  name                = "Cloud Integration ${var.region_2}"
   resource_group_name = azurerm_resource_group.resource-group-global.name
   profile_name        = azurerm_traffic_manager_profile.traffic-manager.name
   type                = "externalEndpoints"

@@ -3,6 +3,7 @@
 In this step, you will setup two SAP Cloud Integration tenants in two different regions. 
 
 **IMPORTANT: Therefore, two subaccounts in two different regions are necessary.** Not only will you subscribe to the SAP Integration Suite but further on provision the SAP Cloud Integration tenant and assign the needed roles to your user. 
+<!-- (Not sure if this scentence is correct! - What do you want to express? -->
 ## Setup SAP Cloud Integration 
 
 1. If you haven't used SAP Business Technology Platform or SAP Cloud Integration, please go to the corresponding SAP Discovery Center Mission. [TODO LINK einfügen zu dieser Mission mit Basic Phase](google.com)
@@ -11,7 +12,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
     ![New subaccount](./images/01.png)
 
-> NOTE: If you have two subaccounts in regions where the [SAP Integration Suite is available](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan), you don't necessarily need to create separate accounts for this. You can simply reuse the existing ones, if you want.
+> NOTE: If you already have two subaccounts in regions where the [SAP Integration Suite is available](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan), you don't necessarily need to create separate accounts for this tutorial. You can simply reuse the existing ones, if you want.
 
 3. Provide the necessary details for the new subaccount. 
 
@@ -20,7 +21,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
    - Select Provider **Azure**. 
    - Select Europe (Netherlands) or another region, where SAP Integration Suite is available. The [SAP Discovery Center](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan) shows the available regions.  
    - Enter a Subdomain for your subaccount. This subdomain becomes part of the URL for accessing applications that you subscribe to from this subaccount.
-   - Optional: If your subaccount is to be used for production purposes, select the Use for production option.
+   - Optional: If your subaccount is to be used for productive purposes, select the **Used for production** option.
 
     ![Subaccount details](./images/02.png)
 
@@ -43,7 +44,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
     - SAP Integration Suite (Service Plan: standard_edition or digital_edition or premium_edition)
     - Process Integration runtime (Service Plan: integration-flow)
-    - Custom Domain Service (Service Plan: custom_domains)
+    - Custom Domain Certificates (Service Plan: custom_domains)
     - SAP Business Application Studio (Service Plan: standard-edition)
 
 > Note: SAP Business Application Studio only needs to entitled for one of the subaccounts not both. 
@@ -101,7 +102,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
     ![activation status Cloud Integration in progress](./images/15.png)
     ![activation status Cloud Integration finished](./images/16.png)
     
-21. Navigate to the Integration Suite Launchpad by choosing the Integration Suite button on the header.
+21. Navigate to the Integration Suite Launchpad by choosing the Integration Suite button in the header.
 
 ![status Cloud Integration finished](./images/17.png)
     
@@ -109,13 +110,13 @@ The activated capabilities appear as tiles under the Capabilities section.
 
 ![status Cloud Integration finished](./images/18.png)
 
-At the top-right corner of each capability tile, you can choose the icon to bring out options that let you manage and view additional details of a capability.
+In the top-right corner of each capability tile, you can choose the icon to bring out options that let you manage and view additional details of a capability.
 
 ![capabilities option](./images/19.png)
 
 > Note: This option is available only to users with Integration_Provisioner role.
 
-22   Navigate back to SAP BTP Cockpit and select the subaccount in which of setup the SAP Integration Suite tenant in the previous steps.
+22   Navigate back to SAP BTP Cockpit and select the subaccount in which you've setup the SAP Integration Suite tenant in the previous steps.
 
 23.  In the navigation area of the subaccount, choose **Security > Users** and select your user. An overview of already assigned role collections will show up. 
 
@@ -133,7 +134,7 @@ At the top-right corner of each capability tile, you can choose the icon to brin
 
     ![Create new Role Collection ](./images/21.png) 
 
-26. Provide a **CloudIntegrationSender** as the name and a description for the new Role Collection.
+26. Provide **CloudIntegrationSender** as the name and a description for the new Role Collection.
 
     ![Role Collection name and description](./images/22.png) 
 
@@ -150,7 +151,7 @@ At the top-right corner of each capability tile, you can choose the icon to brin
 
 30. Continue with **Save**. 
 
-    > With the newly created Role Collection you are later on able call Integration Flows or REST APIs deployed to the SAP Cloud Integration runtime. 
+    > With the newly created Role Collection, you are later on able call Integration Flows or REST APIs deployed to the SAP Cloud Integration runtime. 
 
 31. Go back to the subaccount. 
 
@@ -169,7 +170,7 @@ At the top-right corner of each capability tile, you can choose the icon to brin
 
 34.   **Repeat steps 10 - 33 for the second subaccount.**
 
-35.   You should now two SAP Cloud Integration tenants in two different subaccounts. Congratulations!
+35.   You should now have two SAP Cloud Integration tenants in subaccounts of different regions. Congratulations!
 
 
     

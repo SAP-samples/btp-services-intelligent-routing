@@ -2,11 +2,11 @@
 
 In this step, you will map the endpoints of the SAP Cloud Integration runtime to your custom domain using the SAP Custom Domain Service. Both of the SAP Cloud Integration runtime endpoints are then mapped to the same domain. 
 
-This way, the sender to SAP Cloud Integration must not use the endpoint information of the particular SAP Cloud Integration tenants but uses the custom domain. 
+This way, a sender connecting to SAP Cloud Integration must not use the region-specific endpoint information of the particular SAP Cloud Integration tenants but simply uses the custom domain. 
 
-The steps below describe the process with a domain bought via Azure. The process for a domain from another domain provider should be relatively similar. 
+The steps below describe the process using a custom domain bought via Azure. The process for a domain coming from another domain provider should be relatively similar. 
 
-**Important:** The following steps need to executed for both of the subaccounts for SAP Cloud Integration 
+**Important:** The following steps need to be executed for both of the subaccounts running your SAP Cloud Integration subscriptions 
 
 ## Map Custom Domain Routes
 
@@ -14,7 +14,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
 2. Install the [custom domain plugin for the Cloud Foundry CLI](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/9f98dd0fcf9447019f233403f4ca60c1.html). 
 
-3. Double check if you are logged in to the right environment:
+3. Double check if you are logged in to the correct environment:
 
     ```console
     cf target
@@ -63,7 +63,7 @@ The steps below describe the process with a domain bought via Azure. The process
 8. Sign the certificate signing request (with a domain bought from Azure): 
 
 
-    **Windows:**
+    **Windows (console with administrative rights might be required):**
     ```console
     certbot certonly --manual --preferred-challenges dns --server "https://acme-v02.api.letsencrypt.org/directory" --domain "*.example.com" --email your.mail@example.com --csr key1_unsigned.pem --no-bootstrap --agree-tos
     ```
@@ -132,7 +132,7 @@ The steps below describe the process with a domain bought via Azure. The process
 
     > Note: It can take a few minutes up to a few hours until the custom domain is activated. 
 
-18. <a name="endpointmapping">Finally, map the SAP Cloud Integration runtime endpoint to a subdomain of your domain: 
+18. <a name="endpointmapping">Finally, map the SAP Cloud Integration **runtime** endpoint to a subdomain of your domain: 
 
     ```console
     cf custom-domain-map-route <endpoint_from_sapcloudintegration> cloudintegration.example.com
