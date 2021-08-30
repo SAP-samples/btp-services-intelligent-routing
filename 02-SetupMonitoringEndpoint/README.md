@@ -52,7 +52,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 11. Open a new browser tab and navigate to your subaccount in the SAP BTP Cockpit. 
 
-12. Create space in Cloud Foundry environment to control use of resources. A space sets the scope to fix the share of resources to be consumed by a particular subaccount within a Cloud Foundry organization. Therefore, **Enable Cloud Foundry**. 
+12. Create space in Cloud Foundry environment to control use of resources. Therefore, **Enable Cloud Foundry**. 
 
     ![Enable Cloud Foundry button](./images/10.png)
 
@@ -69,6 +69,8 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
     ![space name and creation button](./images/12.png)
 
 16. Select the newly created space. 
+
+    ![space name and creation button](./images/12.1.png)
     
 17. Go to **Services > Service Marketplace** and search for **Process Integration Runtime**.
 
@@ -84,7 +86,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 20. In the Parameter menu switch to the **JSON** tab and insert the following content in the text area to assign roles. This authorizes the sender system to call a tenant and allows to process the messages on the tenant.
 
-    > Note: The role name is case-sensitive and the authentication mode used is basic authentication. In the Assign Application menu, to bind the new service instance by default None selected and then choose Next.
+    > Note: The role name is case-sensitive and the authentication mode used is basic authentication.
 
     ![Service instance name and plan](./images/16.png)
 

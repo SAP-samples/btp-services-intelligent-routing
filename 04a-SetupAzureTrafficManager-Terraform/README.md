@@ -97,7 +97,7 @@ Sign in with your account credentials in the browser.
 25. *terraform plan* will give you an idea of what's already in place and what the execution of the subsequent *terraform apply* will cause in the system: 
 
     ```console
-    terraform plan -var-file=config.tfvars -out 
+    terraform plan -var-file=config.tfvars
     ```
 
     ![terraform plan result](./images/08.png)

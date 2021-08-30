@@ -44,10 +44,8 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
     - SAP Integration Suite (Service Plan: standard_edition or digital_edition or premium_edition)
     - Process Integration runtime (Service Plan: integration-flow)
+    - Process Integration runtime (Service Plan: api)
     - Custom Domain Certificates (Service Plan: custom_domains)
-    - SAP Business Application Studio (Service Plan: standard-edition)
-
-> Note: SAP Business Application Studio only needs to entitled for one of the subaccounts not both. 
 
 8.  **Save** the changes. 
 

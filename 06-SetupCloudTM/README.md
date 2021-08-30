@@ -139,6 +139,7 @@ A potential landscape could look like this:
     sourceSystemId=DEV
 
     ![sourceSystemId as new property for the destination](./images/20.png)
+    > make sure that this ID matches exactly the Node name of the source environment in SAP Cloud Transport Management. 
 
 31. Continue with **Save**. 
 
