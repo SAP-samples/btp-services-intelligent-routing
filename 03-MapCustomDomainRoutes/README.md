@@ -94,6 +94,12 @@ The steps below describe the process using a custom domain bought via Azure. The
 
 12. Hit **Enter** in the Terminal (where you have recently executed the certbot command in Step 8) to continue the verification process. 
 
+    **Windows**
+
+    ![Verification process continuation ](./images/07a.png)
+
+    **macOS**
+    
     ![Verification process continuation ](./images/07.png)
 
     > IMPORTANT: sometimes it could happen that you have to repeat Step 10 & Step 11 a few times, depending on the output in the terminal. 
