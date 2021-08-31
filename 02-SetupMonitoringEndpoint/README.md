@@ -7,9 +7,9 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 1. Go to the SAP Cloud Integration web interface of your first subaccount, either via the SAP Integration Suite launchpad as shown in [Setting SAP Cloud Integration](../01-SetupCloudIntegration/README.md). 
 
-2. <a name="download"><a/>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupMonitoringEndpoint/flow-azuretm.zip. **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
+2. <a name="download"></a>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupMonitoringEndpoint/flow-azuretm.zip. **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
 
-![Download Button on GitHub](./images/01.png)
+    ![Download Button on GitHub](./images/01.png)
 
 3. Go back to the SAP Cloud Integration web interface and choosse **Design** in the navigation area. 
 
@@ -120,20 +120,21 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 29. Open a terminal on your machine and try to execute the following command. 
 
-```console
-curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey'
-```
+    ```console
+    curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey'
+    ```
 
-- <endpoint_from_sapcloudintegration> is the endpoint URL you have just copied in the SAP Cloud Integration web interface. 
-- <clientid_from_servicekey> is the clientid value of the service key that you have created in step 25. 
-- <clientsecret_from_servicekey> is the clientsecret value of the service key that you have created in step 25.
+    - <endpoint_from_sapcloudintegration> is the endpoint URL you have just copied in the SAP Cloud Integration web interface. 
+    - <clientid_from_servicekey> is the clientid value of the service key that you have created in step 25. 
+    - <clientsecret_from_servicekey> is the clientsecret value of the service key that you have created in step 25.
 
-> The command could possibly look like: 
-> curl https://mysubaccount.it-cpi003-rt.cfapps.eu20.hana.ondemand.com/http/ping -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
+    > The command could possibly look like: 
+    > curl https://mysubaccount.it-cpi003-rt.cfapps.eu20.hana.ondemand.com/http/ping -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
 
-![Hit REST API endpoint](./images/23.png)
+    ![Hit REST API endpoint](./images/23.png)
 
-> Note: It could happen that Windows machines are trying to authenticate implicitly with certificates against the endpoint. This can cause problems. 
+    > Note: It could happen that Windows machines are trying to authenticate implicitly with certificates against the endpoint. This can cause problems. 
+    > In case you're facing the error message "The filename, directory name, or volume label syntax is incorrect.", encode special characters like '|' in the username. 
 
 30. **Repeat all the steps for the second subaccount.**
 

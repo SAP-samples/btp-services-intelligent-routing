@@ -68,7 +68,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > **IMPORTANT**: The output of the certbot commands will look slightly different depending on your OS. Screenshots were taken with macOS. 
 
-12. Sign the certificate signing request (with a domain bought from Azure): 
+11. Sign the certificate signing request (with a domain bought from Azure): 
 
     **Windows (console with administrative rights might be required):**
     ```console
@@ -83,16 +83,16 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Don't forget to fill in your domain and mail address instead of example.com! You now have to proof that you are in control of the domain - certbot is now executing a DNS challenge. 
 
-13. Open a new broswer tab, go to the [Azure Portal](http://portal.azure.com) and navigate into the DNS zone of your bought domain. 
+12. Open a new broswer tab, go to the [Azure Portal](http://portal.azure.com) and navigate into the DNS zone of your bought domain. 
 
     ![DNS Zone Search](./images/04.png)
     ![DNS Zone selection](./images/05.png)
 
-14. **Create a new record set** and enter the details that the certbot command (Step 8) has printed out. 
+13. **Create a new record set** and enter the details that the certbot command (Step 8) has printed out. 
 
     ![Record creation in DNS Zone](./images/06.png)
 
-12. Hit **Enter** in the Terminal (where you have recently executed the certbot command in Step 8) to continue the verification process. 
+14. Hit **Enter** in the Terminal (where you have recently executed the certbot command in Step 11) to continue the verification process. 
 
     **Windows**
 
@@ -102,21 +102,21 @@ The steps below describe the process using a custom domain bought via Azure. The
     
     ![Verification process continuation ](./images/07.png)
 
-    > IMPORTANT: sometimes it could happen that you have to repeat Step 10 & Step 11 a few times, depending on the output in the terminal. 
+    > IMPORTANT: sometimes it could happen that you have to repeat the last steps a few times, depending on the output in the terminal. 
 
-13. Open the certificate chain that has been created in the previous step in a text editor of your choice. 
+15. Open the certificate chain that has been created in the previous step in a text editor of your choice. 
 
     ![Certificate in text editor](./images/08.png)
 
-14. Open a new broswer tab, go to <https://www.identrust.com/dst-root-ca-x3> and copy the content of the entire DST Root CA X3 Certificate. 
+16. Open a new broswer tab, go to <https://www.identrust.com/dst-root-ca-x3> and copy the content of the entire DST Root CA X3 Certificate. 
 
     > Don't forget to copy the entire content including '-----BEGIN CERTIFICATE-----' and '-----END CERTIFICATE-----'
     
-15. Paste the content of the DST Root CA X3 Certificate to the end of the created certificate chain on your local machine that you have opened during step 12. Save it as a new file, for instance **certificate1.pem**. 
+17. Paste the content of the DST Root CA X3 Certificate to the end of the created certificate chain on your local machine that you have opened during step 15. Save it as a new file, for instance **certificate1.pem**. 
 
     ![Certificate in text editor](./images/09.png)
 
-16. Upload and activate the certificates: 
+18. Upload and activate the certificates: 
 
     ```console
     cf custom-domain-upload-certificate-chain key1 certificate1.pem
@@ -126,7 +126,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Note: *key1* refers to the key you have created in Step 5, certificate.pem is the name of the file that you have created in the previous step.
 
-17. Activate the custom domain: 
+19. Activate the custom domain: 
 
     ```console
     cf custom-domain-activate key1 "*.example.com"
@@ -135,7 +135,7 @@ The steps below describe the process using a custom domain bought via Azure. The
     ![Custom domain activation](./images/11.png)
 
 
-18. Verify the custom domain activation: 
+20. Verify the custom domain activation: 
 
     ```console
     cf custom-domain-list
@@ -145,7 +145,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Note: It can take a few minutes up to a few hours until the custom domain is activated. 
 
-19. <a name="endpointmapping">Finally, map the SAP Cloud Integration **runtime** endpoint to a subdomain of your domain: 
+21. <a name="endpointmapping"></a>Finally, map the SAP Cloud Integration **runtime** endpoint to a subdomain of your domain: 
 
     ```console
     cf custom-domain-map-route <endpoint_from_sapcloudintegration> cloudintegration.example.com
@@ -157,7 +157,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Note: Most likely the TXT validation entry (step 14) does not need to be set again and can further be used. In this case, certbot will not ask for a renewal of the entry. 
 
-20. **Execute all of the steps for the second subaccount!**
+22. **Execute all of the steps for the second subaccount!**
 
 Congratulations! You have created a certificate for your domain using Certbot. With the help of the SAP Custom Domain Service you registered the domain in the subaccounts in which you also provisioned SAP Cloud Integration and mapped its runtime endpoints to the actual domain.
 

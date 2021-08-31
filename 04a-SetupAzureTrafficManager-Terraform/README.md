@@ -8,16 +8,17 @@ This is the **alternative step** to "Configure Azure Traffic Manager using the A
 
 1. Clone this repository: 
 
-```console
-git clone https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing.git
-```
+    ```console
+    git clone https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing.git
+    ```
 
 2. Change into the right directory: 
 
-```console
-cd terraform
-```
-3. Install Terraform on your machine. Find the instructions [here](https://learn.hashicorp.com/tutorials/terraform/install-cli#install-terraform)  
+    ```console
+    cd terraform
+    ```
+
+3. Install Terraform on your machine. Find the instructions [here](https://learn.hashicorp.com/tutorials/terraform/install-cli#install-terraform).
 
 4. Open the file **config.tvars** in an editor of your choice and replace the placeholders in the following steps. 
 
@@ -73,18 +74,19 @@ cd terraform
 19. Replace **base64 encoded clientid:clientsecret secondary SAP Cloud Integration** with the encoded information of the **secondary** SAP Cloud Integration credentials. 
    
 20. Install the Azure CLI. Find the instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). 
+
 21. Login to your Azure subscription using the Azure CLI: 
 
-```console
-az login
-```
-If the CLI can open your default browser, it will do so and load an Azure sign-in page.
+    ```console
+    az login
+    ```
+    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
 
-Otherwise, open a browser page at https://aka.ms/devicelogin and enter the authorization code displayed in your terminal.
+    Otherwise, open a browser page at https://aka.ms/devicelogin and enter the authorization code displayed in your terminal.
 
-If no web browser is available or the web browser fails to open, use device code flow with az login --use-device-code.
+    If no web browser is available or the web browser fails to open, use device code flow with az login --use-device-code.
 
-Sign in with your account credentials in the browser.
+    Sign in with your account credentials in the browser.
 
 22. Execute the following command in the terminal to initialize the Terraform working directory.
 
