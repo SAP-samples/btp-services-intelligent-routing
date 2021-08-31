@@ -19,41 +19,41 @@ cd terraform
 ```
 3. Install Terraform on your machine. Find the instructions [here](https://learn.hashicorp.com/tutorials/terraform/install-cli#install-terraform)  
 
-6. Open the file **config.tvars** in an editor of your choice and replace the placeholders in the following steps. 
+4. Open the file **config.tvars** in an editor of your choice and replace the placeholders in the following steps. 
 
-7. Open a new browser tab and go to the [Azure Portal](http://portal.azure.com) and search for **Subscriptions**.
+5. Open a new browser tab and go to the [Azure Portal](http://portal.azure.com) and search for **Subscriptions**.
 
     ![Subscriptions](./images/01.png)
 
-8. Copy the **ID** of the subscription you want the Azure Traffic Manager profile be assigned to. Replace **Azure Subscription ID** in the config.tfvars file with the copied ID. 
+6. Copy the **ID** of the subscription you want the Azure Traffic Manager profile be assigned to. Replace **Azure Subscription ID** in the config.tfvars file with the copied ID. 
    
     ![Subscription ID from Azure Portal](./images/02.png)
     ![Subscription ID replacement in config.tfvars](./images/03.png)
 
-9.  Search for **Azure Active Directory** in the Azure Portal and copy the **Tenant ID**. Replace **Azure AD Tenant ID** in the config.tfvars file with the copied ID. 
+7.  Search for **Azure Active Directory** in the Azure Portal and copy the **Tenant ID**. Replace **Azure AD Tenant ID** in the config.tfvars file with the copied ID. 
 
     ![Azure Active Directory search Azure Portal](./images/04.png)
     ![Replace Tenant ID](./images/05.png)
 
-10. Replace **profile-name** in the config.tfvars file with a name for the Azure Traffic Manager profile. 
+8. Replace **profile-name** in the config.tfvars file with a name for the Azure Traffic Manager profile. 
 
-11. Replace **name for resource group** in the config.tfvars file with a name for a new **Resource Group** in Azure that the Traffic Manager profile will be assigned to. 
+9. Replace **name for resource group** in the config.tfvars file with a name for a new **Resource Group** in Azure that the Traffic Manager profile will be assigned to. 
 
-12. Replace **region of primary cloudintegration tenant** in the config.tfvars file with the region of the primary SAP Cloud Integration tenant. (e.g. EU20, US20, etc.)
+10. Replace **region of primary cloudintegration tenant** in the config.tfvars file with the region of the primary SAP Cloud Integration tenant. (e.g. EU20, US20, etc.)
 
-13. Replace **region of secondary cloudintegration tenant** in the config.tfvars file with the region of the secondary SAP Cloud Integration tenant. (e.g. EU20, US20, etc.)
+11. Replace **region of secondary cloudintegration tenant** in the config.tfvars file with the region of the secondary SAP Cloud Integration tenant. (e.g. EU20, US20, etc.)
 
-14. Replace **cloudintegration runtime endpoint primary tenant** in the config.tfvars file with the primary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). This could e.g. look like `ci-demo-us.it-cpi005-rt.cfapps.eu20.hana.ondemand.com`.
+12. Replace **cloudintegration runtime endpoint primary tenant** in the config.tfvars file with the primary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). This could e.g. look like `ci-demo-us.it-cpi005-rt.cfapps.eu20.hana.ondemand.com`.
 
-15. Replace **cloudintegration runtime endpoint secondary tenant** in the config.tfvars file with the secondary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). This could e.g. look like `ci-demo-eu.it-cpi009-rt.cfapps.us20.hana.ondemand.com`.
+13. Replace **cloudintegration runtime endpoint secondary tenant** in the config.tfvars file with the secondary SAP Cloud Integration runtime endpoint that you have mapped in one of the [previous exercises](../03-MapCustomDomainRoutes/README.md#endpointmapping). This could e.g. look like `ci-demo-eu.it-cpi009-rt.cfapps.us20.hana.ondemand.com`.
 
-16. Open a new browser tab and navigate to the SAP BTP Cockpit, go to your first subaccount and open the **Instances and Subscriptions** view. Select the service with the service plan **integration-flow** and display the service key details. 
+14. Open a new browser tab and navigate to the SAP BTP Cockpit, go to your first subaccount and open the **Instances and Subscriptions** view. Select the service with the service plan **integration-flow** and display the service key details. 
 
     ![Service Key details in SAP BTP Cockpit](./images/06.png)
 
     > You have created the service instance and service key in one of the previous exercises, [Setup Monitoring Endpoint](../02-SetupMonitoringEndpoint/README.md#servicekey).
 
-17. Open another browser tab and go to <http://base64encode.org>. Encode the **clientid** and **clientsecret** from the service key (see previous step) in the following format: 
+15. Open another browser tab and go to <http://base64encode.org>. Encode the **clientid** and **clientsecret** from the service key (see previous step) in the following format: 
 
     ```
     <clientid>:<clientsecret>
@@ -64,16 +64,16 @@ cd terraform
     ![Encoding clientid and clientsecret via base64encode.org](./images/07.png)
 
 
-18. Copy the encoded information to your clipboard. 
+16. Copy the encoded information to your clipboard. 
 
-19. Replace **base64 encoded clientid:clientsecret primary SAP Cloud Integration** with the encoded information of the previous step. 
+17. Replace **base64 encoded clientid:clientsecret primary SAP Cloud Integration** with the encoded information of the previous step. 
 
-20. Repeat Steps 16-18 for the **second** subaccount. 
+18. Repeat Steps 16-18 for the **second** subaccount. 
     
-21. Replace **base64 encoded clientid:clientsecret secondary SAP Cloud Integration** with the encoded information of the **secondary** SAP Cloud Integration credentials. 
+19. Replace **base64 encoded clientid:clientsecret secondary SAP Cloud Integration** with the encoded information of the **secondary** SAP Cloud Integration credentials. 
    
-22. Install the Azure CLI. Find the instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). 
-23. Login to your Azure subscription using the Azure CLI: 
+20. Install the Azure CLI. Find the instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). 
+21. Login to your Azure subscription using the Azure CLI: 
 
 ```console
 az login
@@ -86,7 +86,7 @@ If no web browser is available or the web browser fails to open, use device code
 
 Sign in with your account credentials in the browser.
 
-24. Execute the following command in the terminal to initialize the Terraform working directory.
+22. Execute the following command in the terminal to initialize the Terraform working directory.
 
     ```console
     terraform init
@@ -94,7 +94,7 @@ Sign in with your account credentials in the browser.
 
     > IMPORTANT: Make sure you are in the btp-cloud-integration-intelligent-routing/terraform directory. That's where the config.tvars and environment.tf file are located. The terraform CLI picks the files implicitly from the current working directory. 
 
-25. *terraform plan* will give you an idea of what's already in place and what the execution of the subsequent *terraform apply* will cause in the system: 
+23. *terraform plan* will give you an idea of what's already in place and what the execution of the subsequent *terraform apply* will cause in the system: 
 
     ```console
     terraform plan -var-file=config.tfvars
@@ -102,7 +102,7 @@ Sign in with your account credentials in the browser.
 
     ![terraform plan result](./images/08.png)
 
-26. Execute the actions proposed in the Terraform plan using *terraform apply*:
+24. Execute the actions proposed in the Terraform plan using *terraform apply*:
 
     ```console
     terraform apply -var-file=config.tfvars
@@ -116,25 +116,25 @@ Sign in with your account credentials in the browser.
 
     You have now provisioned a complete Azure Traffic Manager profile in Azure that is almost ready to use in conjunction with SAP Cloud Integration. In the next step you will configure the DNS Zone of the domain in Azure to use the DNS name of the Azure Traffic Manager profile. 
 
-27. Go to the Azure Portal and search for **Traffic Manager profiles**.
+25. Go to the Azure Portal and search for **Traffic Manager profiles**.
 
     ![Azure Portal search for Traffic manager profiles](./images/10.png)
 
-28. **Select** the Azure Traffic Manager you have recently created and compare the values defined in the **environment.tf** with the created artifacts in the Azure Portal. (in particular: **Configurations** and **Endpoints** menu items)
+26. **Select** the Azure Traffic Manager you have recently created and compare the values defined in the **environment.tf** with the created artifacts in the Azure Portal. (in particular: **Configurations** and **Endpoints** menu items)
 
     ![Traffic Manager profile selection](./images/11.png)
     ![Traffic Manager profile menu items](./images/12.png)
 
-29. Go back to the overview of your Azure Traffic Manager profile and copy the **DNS Name**. 
+27. Go back to the overview of your Azure Traffic Manager profile and copy the **DNS Name**. 
 
     ![Traffic Manager DNS Name](./images/13.png)
 
-30. Go to to the **DNS Zone** of your domain. 
+28. Go to to the **DNS Zone** of your domain. 
 
     ![DNS Zone search using Azure Portal](./images/14.png)
     ![Select domain in Azure Portal](./images/15.png)
 
-31. Create a record set for the subdomain that [you have mapped to the SAP Cloud Integration runtime endpoint](../03-MapCustomDomainRoutes/README.md#endpointmapping): 
+29. Create a record set for the subdomain that [you have mapped to the SAP Cloud Integration runtime endpoint](../03-MapCustomDomainRoutes/README.md#endpointmapping): 
 
     - Name: subdomain that you have mapped to the SAP Cloud Integration runtime endpoint
     - Type: CNAME
