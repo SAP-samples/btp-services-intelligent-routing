@@ -7,7 +7,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 1. Go to the SAP Cloud Integration web interface of your first subaccount, either via the SAP Integration Suite launchpad as shown in [Setting SAP Cloud Integration](../01-SetupCloudIntegration/README.md). 
 
-2. <a name="download"><a/>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupMonitoringEndpoint/flow-azuretm.zip and **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
+2. <a name="download"><a/>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/mission/02-SetupMonitoringEndpoint/flow-azuretm.zip. **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
 
 ![Download Button on GitHub](./images/01.png)
 
@@ -58,9 +58,9 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     > If you already have a Cloud Foundry space, you can skip steps 12 - 15. 
 
-13.  Provide unique names for the instance and org name. 
+13. Provide unique names for the instance and org name. 
 
-14.  Create a new Cloud Foundry space using the **Create Space** button.
+14. Create a new Cloud Foundry space using the **Create Space** button.
 
     ![Create space button](./images/11.png)
 
