@@ -91,16 +91,20 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
     > Note: The Add Capabilities action is available only to users with Integration_Provisioner role.
 
-19. Select the checkbox for **Design, Develop and Operate Integration Scenarios** (SAP Cloud Integration). Continue with **Next** and **Activate** without any further modifications. 
+19. Select the checkbox for **Design, Develop and Operate Integration Scenarios** (SAP Cloud Integration). Continue with **Next**.
 
     ![Design, Develop and Operate Integration Scenarios checkbox](./images/14.png) 
 
-20. Wait until the Cloud Integration is activated. 
+20. Select the desired environment type (e.g. **Non-Productive**). Continue with Next and **Activate** without any further modifications.
+
+    ![choose environment type](./images/14a.png) 
+
+21. Wait until the Cloud Integration is activated. 
 
     ![activation status Cloud Integration in progress](./images/15.png)
     ![activation status Cloud Integration finished](./images/16.png)
     
-21. Navigate to the Integration Suite Launchpad by choosing the Integration Suite button in the header.
+22. Navigate to the Integration Suite Launchpad by choosing the Integration Suite button in the header.
 
 ![status Cloud Integration finished](./images/17.png)
     
