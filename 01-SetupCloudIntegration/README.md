@@ -118,61 +118,61 @@ In the top-right corner of each capability tile, you can choose the icon to brin
 
 > Note: This option is available only to users with Integration_Provisioner role.
 
-22   Navigate back to SAP BTP Cockpit and select the subaccount in which you've setup the SAP Integration Suite tenant in the previous steps.
+23. Navigate back to SAP BTP Cockpit and select the subaccount in which you've setup the SAP Integration Suite tenant in the previous steps.
 
-23.  In the navigation area of the subaccount, choose **Security > Users** and select your user. An overview of already assigned role collections will show up. 
+24. In the navigation area of the subaccount, choose **Security > Users** and select your user. An overview of already assigned role collections will show up. 
 
-![assign role collections](./images/20.png)
+    ![assign role collections](./images/20.png)
 
-24. Select **Assign Role Collection** and add the following Role Collections: 
+25. Select **Assign Role Collection** and add the following Role Collections: 
 
     - PI_Business_Expert	
     - PI_Administrator
     - PI_Integration_Developer	
 
-> Find an overview of all Role Collections for the SAP Integration Suite on [help.sap.com](https://help.sap.com/viewer/51ab953548be4459bfe8539ecaeee98d/LATEST/en-US/2c6214a3228e4b4cba207f49fda92ed4.html)
+    > Find an overview of all Role Collections for the SAP Integration Suite on [help.sap.com](https://help.sap.com/viewer/51ab953548be4459bfe8539ecaeee98d/LATEST/en-US/2c6214a3228e4b4cba207f49fda92ed4.html)
 
-25. Go to **Role Collections** in the navigation area and **create** a new Role Collection. 
+26. Go to **Role Collections** in the navigation area and **create** a new Role Collection. 
 
     ![Create new Role Collection ](./images/21.png) 
 
-26. Provide **CloudIntegrationSender** as the name and a description for the new Role Collection.
+27. Provide **CloudIntegrationSender** as the name and a description for the new Role Collection.
 
     ![Role Collection name and description](./images/22.png) 
 
-27. Select the newly created Role Collection from the list of all Role Collections. 
+28. Select the newly created Role Collection from the list of all Role Collections. 
 
-28. Select **Edit** and add the **MessagingSend** role. 
+29. Select **Edit** and add the **MessagingSend** role. 
 
     ![Role Collection edit](./images/23.png) 
     ![MessagingSend addition](./images/24.png) 
     
-29. <a name="rolecollection-sender">Enter your mail adress to assign the Role Collection to your user. 
+30. <a name="rolecollection-sender">Enter your mail adress to assign the Role Collection to your user. 
 
     ![Role Collection assignment](./images/25.png) 
 
-30. Continue with **Save**. 
+31. Continue with **Save**. 
 
     > With the newly created Role Collection, you are later on able call Integration Flows or REST APIs deployed to the SAP Cloud Integration runtime. 
 
-31. Go back to the subaccount. 
+32. Go back to the subaccount. 
 
     ![Role Collection assignment](./images/26.png) 
 
-32.  Navigate to the **Instances and Subscriptions** page. Select the **Integration Suite** Subscription and choose **Go to Application** to launch the Integration Suite Launchpad again. 
+33. Navigate to the **Instances and Subscriptions** page. Select the **Integration Suite** Subscription and choose **Go to Application** to launch the Integration Suite Launchpad again. 
 
-![Go to Integration Suite launchpad](./images/12.png) 
+    ![Go to Integration Suite launchpad](./images/12.png) 
 
-33.    In the Integration Suite Launchpad, choose the **Cloud Integration** tile to access the SAP Cloud Integration web interface. 
+34. In the Integration Suite Launchpad, choose the **Cloud Integration** tile to access the SAP Cloud Integration web interface. 
 
     ![Launch SAP Cloud Integration ](./images/27.png) 
     ![SAP Cloud Integration web interface](./images/28.png) 
 
     > Note: Bookmark the SAP Cloud Integration web interface to have the URL handy whenever you need it without navigation through the SAP Integration Suite launchpad. 
 
-34.   **Repeat steps 10 - 33 for the second subaccount.**
+35. **Repeat steps 10 - 33 for the second subaccount.**
 
-35.   You should now have two SAP Cloud Integration tenants in subaccounts of different regions. Congratulations!
+36. You should now have two SAP Cloud Integration tenants in subaccounts of different regions. Congratulations!
 
 
     
