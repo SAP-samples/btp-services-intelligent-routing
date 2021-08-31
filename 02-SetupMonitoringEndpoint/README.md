@@ -133,6 +133,8 @@ curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clients
 
 ![Hit REST API endpoint](./images/23.png)
 
+> Note: It could happen that Windows machines are trying to authenticate implicitly with certificates against the endpoint. This can cause problems. 
+
 30. **Repeat all the steps for the second subaccount.**
 
 Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Azure Traffic Manager to identify whether one of the tenants is online or not. For sure, this REST API only offers a straight forward way to determine, whether the tenant is able to handle an incoming request or not. It's up to you to implement a more sophisticated logic to identify, if a tenant should be the one prioritized by Azure Traffic Manager or not. 
