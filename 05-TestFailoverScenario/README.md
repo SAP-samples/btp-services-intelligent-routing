@@ -26,14 +26,16 @@ Depending on the Failover & DNS TTL settings in Azure Traffic Manager profile, t
 
    > In this example we are not using the clientid and clientsecret (from the service key) for the particular SAP Cloud Integration tenants as they are tenant specific. Since the caller doesn't know which tenant is handling the request, a user in both subaccounts is necessary. You have assigned the needed Role Collection to your account in one of the [previous exercises](./../01-SetupCloudIntegration/README.md#rolecollection-sender). That's the reason why you should use your personal BTP login credentials in this HTTP call. 
 
+   > Note: In case you're facing the error message "The filename, directory name, or volume label syntax is incorrect." in Windows, encode special characters like ' | ' in the username or password. 
+
 3. Let's now simulate that the primary tenant is not available anymore. For testing purposes you can simply undeploy the REST API that acts as the monitoring endpoint for Azure Traffic Manager. That way, Azure Traffic Manager doesn't get a HTTP 200 Response from the REST API and considers the tenant as not available. 
 Therefore, go to the **SAP Cloud Integration web interface** and select the said REST API. (**Monitor** option in the navigation area). Select **Undeploy** to undeploy the REST API from SAP Cloud Integration. You can deploy the API later again, as learned in one of the previous exercises. 
 
-![Undeploy REST API in SAP Cloud Integration web interface](./images/03.png)
+   ![Undeploy REST API in SAP Cloud Integration web interface](./images/03.png)
 
 4. Check the status of the endpoints in the Azure Traffic Manager profile. Depending on your failover settings in the Azure Traffic Manager profile configuration it takes a few moments until the primary tenant is considered as **Degraded**. 
 
-![Endpoints monitoring Azure Traffic Manager profile](./images/04.png)
+   ![Endpoints monitoring Azure Traffic Manager profile](./images/04.png)
 
 5. Go back to the terminal on your machine and call the REST API you have called in Step 2 again. 
 

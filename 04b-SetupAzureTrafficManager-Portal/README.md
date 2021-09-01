@@ -32,7 +32,7 @@ This is the alternative step to "Configure Azure Traffic Manager using terraform
 
     ![Traffic Manager profile details after deployment](./images/05.png)
 
-8. <a name="tm-configuration">Provide the following settings: 
+8. <a name="tm-configuration"></a>Provide the following settings: 
 
     - Routing method: Priority
     - DNS time to live (TTL): 1

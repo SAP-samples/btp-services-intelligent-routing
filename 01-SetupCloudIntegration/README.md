@@ -6,13 +6,13 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 <!-- (Not sure if this scentence is correct! - What do you want to express? -->
 ## Setup SAP Cloud Integration 
 
-1. If you haven't used SAP Business Technology Platform or SAP Cloud Integration yet, please go to the SAP Discovery Center Mission _[Get Started with Integration Suite - Cloud Integration](https://discovery-center.cloud.sap/missiondetail/3258/3327/?tab=projectboard)_
+1. If you haven't used SAP Business Technology Platform or SAP Cloud Integration yet, please go to the SAP Discovery Center Mission [Get Started with Integration Suite - Cloud Integration](https://discovery-center.cloud.sap/missiondetail/3258/3327/?tab=projectboard)_
 
 2. Go to your SAP BTP Cockpit and make sure that you have two subaccounts in your global account. In this case, we have both of them on Azure - one in West Europe (Netherlands, EU20), one in West US (WA, US20). If you don't have them yet, click on **New Subaccount** in order to create a new subaccount. 
 
     ![New subaccount](./images/01.png)
 
-> NOTE: If you already have two subaccounts in regions where the [SAP Integration Suite is available](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan), you don't necessarily need to create separate accounts for this tutorial. You can simply reuse the existing ones, if you want.
+    > NOTE: If you already have two subaccounts in regions where the [SAP Integration Suite is available](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan), you don't necessarily need to create separate accounts for this tutorial. You can simply reuse the existing ones, if you want.
 
 3. Provide the necessary details for the new subaccount. 
 
@@ -83,7 +83,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
     >The Integration Suite Launchpad is a common launchpad for provisioning and onboarding users to the Integration Suite capabilities. The provisioned users can access the activated capabilities and explore the resources needed for using the Integration Suite service. All the Integration Suite capabilities are represented as tiles on the launchpad.
 
-    >Note: In case if you are unable to view the Integration Suite Launchpad, see 2953114 Information published on SAP site.
+    >Note: In case if you are unable to view the Integration Suite Launchpad, see [SAP Note 2953114](https://launchpad.support.sap.com/#/notes/2953114) published on SAP Support page.
 
 18. In the Integration Suite launchpad, under **Capabilities** section, choose **Add Capabilities**. The Provisioning application is launched.
 
@@ -106,17 +106,17 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
     
 22. Navigate to the Integration Suite Launchpad by choosing the Integration Suite button in the header.
 
-![status Cloud Integration finished](./images/17.png)
+    ![status Cloud Integration finished](./images/17.png)
     
-The activated capabilities appear as tiles under the Capabilities section.
+    The activated capabilities appear as tiles under the Capabilities section.
 
-![status Cloud Integration finished](./images/18.png)
+    ![status Cloud Integration finished](./images/18.png)
 
-In the top-right corner of each capability tile, you can choose the icon to bring out options that let you manage and view additional details of a capability.
+    In the top-right corner of each capability tile, you can choose the icon to bring out options that let you manage and view additional details of a capability.
 
-![capabilities option](./images/19.png)
+    ![capabilities option](./images/19.png)
 
-> Note: This option is available only to users with Integration_Provisioner role.
+    > Note: This option is available only to users with Integration_Provisioner role.
 
 23. Navigate back to SAP BTP Cockpit and select the subaccount in which you've setup the SAP Integration Suite tenant in the previous steps.
 
@@ -147,7 +147,7 @@ In the top-right corner of each capability tile, you can choose the icon to brin
     ![Role Collection edit](./images/23.png) 
     ![MessagingSend addition](./images/24.png) 
     
-30. <a name="rolecollection-sender">Enter your mail adress to assign the Role Collection to your user. 
+30. <a name="rolecollection-sender"></a>Enter your mail adress to assign the Role Collection to your user. 
 
     ![Role Collection assignment](./images/25.png) 
 

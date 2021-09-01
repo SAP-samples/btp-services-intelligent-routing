@@ -310,7 +310,7 @@ A potential landscape could look like this:
 61. Select **Design** in the navigation area and choose an Integration Package that you would like to transport. 
     ![Design area SAP Cloud integration](./images/38.png)
 
-> If you don't have an Integration Package yet, feel free to use one of the [previous exercises](./../02-SetupMonitoringEndpoint/README.md#download)
+    > If you don't have an Integration Package yet, feel free to use one of the [previous exercises](./../02-SetupMonitoringEndpoint/README.md#download)
 
 62. **Transport** the whole package and provide a short description. 
 
