@@ -3,7 +3,7 @@
 In this step, you will setup two SAP Cloud Integration tenants in two different regions. 
 
 **IMPORTANT: Therefore, two subaccounts in two different regions are necessary.** Not only will you subscribe to the SAP Integration Suite but further on provision the SAP Cloud Integration tenant and assign the needed roles to your user. 
-<!-- (Not sure if this scentence is correct! - What do you want to express? -->
+
 ## Setup SAP Cloud Integration 
 
 1. If you haven't used SAP Business Technology Platform or SAP Cloud Integration yet, please go to the SAP Discovery Center Mission [Get Started with Integration Suite - Cloud Integration](https://discovery-center.cloud.sap/missiondetail/3258/3327/?tab=projectboard)_
