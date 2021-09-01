@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cloud-integration-intelligent-routing)](https://api.reuse.software/info/github.com/SAP-samples/btp-cloud-integration-intelligent-routing)
+
 # Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager
 
 This repository contains code samples and step by step instructions to enable *Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager*. 
