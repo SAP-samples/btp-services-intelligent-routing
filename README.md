@@ -60,6 +60,12 @@ Subscriptions required in your SAP Business Technology Platform Account:
 
 ### [Step 5: Test the current failover scenario](./05-TestFailoverScenario/README.md)
 ### [Step 6: Setup SAP Cloud Transport Management to keep tenants in sync](06-SetupCloudTM/README.md)
+
+## Further Information
+
+Blog Post: *[How to crash your iflows and watch them failover beautifully](https://blogs.sap.com/2021/01/18/second-round-of-crashing-iflows-in-cpi-and-failing-over-with-azure-even-simpler/)* (featuring Azure Front Door) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
+
+Blog Post: *[Second round of crashing iFlows in CPI and failing over with Azure – even simpler](https://blogs.sap.com/2020/11/23/how-to-crash-your-iflows-and-watch-them-failover-beautifully/)* (featuring Azure Traffic Manager) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
 ## Known Issues
 
 None. 
