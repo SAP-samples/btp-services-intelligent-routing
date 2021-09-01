@@ -29,7 +29,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
 **A new tile appears in the global account page with the subaccount details.**
 
-5. Make sure that you have two subaccounts in a region where the SAP Integration Suite is available. If you don't have two subaccounts for SAP Integration Suite yet, create another subaccount as explained in Step 3-4. 
+5. Make sure that you have two subaccounts in regions where the SAP Integration Suite is available. If you don't have two subaccounts for SAP Integration Suite yet, create another subaccount as explained in Step 3-4. 
 
 5. In the navigation area of the global account, choose **Entitlements > Entity Assignments** and select the subaccounts in which you want to set up SAP Integration Suite. Continue with **Go**. 
 
