@@ -65,6 +65,8 @@ Subscriptions required in your SAP Business Technology Platform Account:
 
 ## Further Information
 
+The Github repository is being expanded bit by bit by further steps, for example to automatically keep the security artifacts between the two productive SAP Cloud Integration tenants in sync. 
+
 Blog Post: *[How to crash your iflows and watch them failover beautifully](https://blogs.sap.com/2021/01/18/second-round-of-crashing-iflows-in-cpi-and-failing-over-with-azure-even-simpler/)* (featuring Azure Front Door) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
 
 Blog Post: *[Second round of crashing iFlows in CPI and failing over with Azure – even simpler](https://blogs.sap.com/2020/11/23/how-to-crash-your-iflows-and-watch-them-failover-beautifully/)* (featuring Azure Traffic Manager) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
