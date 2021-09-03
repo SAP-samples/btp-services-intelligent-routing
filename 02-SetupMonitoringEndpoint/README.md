@@ -86,6 +86,14 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 20. In the Parameter menu switch to the **JSON** tab and insert the following content in the text area to assign roles. This authorizes the sender system to call a tenant and allows to process the messages on the tenant.
 
+    ```json
+    {
+        "roles": [
+            "ESBMessaging.send"
+        ]
+    }
+    ```
+
     > Note: The role name is case-sensitive and the authentication mode used is basic authentication.
 
     ![Service instance name and plan](./images/16.png)
