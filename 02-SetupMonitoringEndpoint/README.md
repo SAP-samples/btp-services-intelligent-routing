@@ -136,10 +136,12 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
     - <clientid_from_servicekey> is the clientid value of the service key that you have created in step 25. 
     - <clientsecret_from_servicekey> is the clientsecret value of the service key that you have created in step 25.
 
+
     > The command could possibly look like: 
     > curl https://mysubaccount.it-cpi003-rt.cfapps.eu20.hana.ondemand.com/http/ping -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
 
     ![Hit REST API endpoint](./images/23.png)
+
 
     > Note: It could happen that Windows machines are trying to authenticate implicitly with certificates against the endpoint. This can cause problems. 
     > In case you're facing the error message "The filename, directory name, or volume label syntax is incorrect.", encode special characters like '|' in the username. 
