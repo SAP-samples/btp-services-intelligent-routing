@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cloud-integration-intelligent-routing)](https://api.reuse.software/info/github.com/SAP-samples/btp-cloud-integration-intelligent-routing) 
+
 # Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager
 
 This repository contains code samples and step by step instructions to enable *Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager*. 
@@ -63,6 +65,8 @@ Subscriptions required in your SAP Business Technology Platform Account:
 
 ## Further Information
 
+The Github repository is being expanded bit by bit by further steps, for example to automatically keep the security artifacts between the two productive SAP Cloud Integration tenants in sync. 
+
 Blog Post: *[How to crash your iflows and watch them failover beautifully](https://blogs.sap.com/2021/01/18/second-round-of-crashing-iflows-in-cpi-and-failing-over-with-azure-even-simpler/)* (featuring Azure Front Door) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
 
 Blog Post: *[Second round of crashing iFlows in CPI and failing over with Azure – even simpler](https://blogs.sap.com/2020/11/23/how-to-crash-your-iflows-and-watch-them-failover-beautifully/)* (featuring Azure Traffic Manager) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
@@ -76,6 +80,8 @@ None.
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
 ## Contributing
+
+Do you have ideas how to improve this scenario? Do you want to correct descriptions/artifacts of this repository? Don't hesitate to open a PR and we'll have a look at it. 
 
 ## License
 Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
