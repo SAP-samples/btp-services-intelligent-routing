@@ -161,7 +161,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
 Congratulations! You have created a certificate for your domain using Certbot. With the help of the SAP Custom Domain Service you registered the domain in the subaccounts in which you also provisioned SAP Cloud Integration and mapped its runtime endpoints to the actual domain.
 
-Keep in mind that the Let's Encrypt certificate (the one you have create using Certbot) is only valid for three months. There are other more sophisticated alternatives for productive scenarios. 
+Keep in mind that the Let's Encrypt certificate (the one you have created using Certbot) is only valid for three months. There are other more sophisticated alternatives for productive scenarios. 
 
 
 
