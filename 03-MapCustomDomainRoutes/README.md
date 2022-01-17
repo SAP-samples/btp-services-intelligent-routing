@@ -108,11 +108,11 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     ![Certificate in text editor](./images/08.png)
 
-16. Open a new broswer tab, go to <https://www.identrust.com/dst-root-ca-x3> and copy the content of the entire DST Root CA X3 Certificate. 
+16. Open a new broswer tab, go to <https://letsencrypt.org/certs/isrgrootx1.pem>, download the certficate and copy the content of the entire ISRG Root X1 Certificate. 
 
     > Don't forget to copy the entire content including '-----BEGIN CERTIFICATE-----' and '-----END CERTIFICATE-----'
     
-17. Paste the content of the DST Root CA X3 Certificate to the end of the created certificate chain on your local machine that you have opened during step 15. Save it as a new file, for instance **certificate1.pem**. 
+17. Paste the content of the ISRG Root X1 Certificate to the end of the created certificate chain on your local machine that you have opened during step 15. Save it as a new file, for instance **certificate1.pem**. 
 
     ![Certificate in text editor](./images/09.png)
 
