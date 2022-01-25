@@ -114,7 +114,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![service key detail](./images/19.png)
 
-26. Go back to the tab with the SAP SAP Cloud Integration web interface or open a new one. Navigate to the **Monitor** item in the navigation area. 
+26. Go back to the tab with the SAP Cloud Integration web interface or open a new one. Navigate to the **Monitor** item in the navigation area. 
 
     ![SAP Cloud Integration Monitor section](./images/20.png)
 
