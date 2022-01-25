@@ -1,5 +1,9 @@
 # Introduction
 
+**Important**: As first SAP BTP regions like eu10 are making use of extension landscapes (e.g. eu10-002, eu10-003), new SAP Integration Suite instances might be provisioned to one of those landscapes. In this case, the below procedure for custom domains cannot be applied anymore and you will end up in a certificate error. For SaaS applications running in extension landscapes, the new Web UI of the Custom Domain service needs to be used ([see here](https://help.sap.com/viewer/6f35a23466ee4df0b19085c9c52f9c29/LATEST/en-US/4f4c3ff62fd2413089dce8a973620167.html)). A respective update of this GitHub repository will be provided as soon as time allows.
+
+---
+
 In this step, you will map the endpoints of the SAP Cloud Integration runtime to your custom domain using the SAP Custom Domain Service. Both of the SAP Cloud Integration runtime endpoints are then mapped to the same domain. 
 
 This way, a sender connecting to SAP Cloud Integration must not use the region-specific endpoint information of the particular SAP Cloud Integration tenants but simply uses the custom domain. 
