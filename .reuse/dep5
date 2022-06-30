@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: btp-cloud-integration-intelligent-routing
+Upstream-Name: btp-services-intelligent-routing
 Upstream-Contact: Max Streifeneder <maximilian.streifeneder@sap.com>
-Source: https://github.com/sap-samples/btp-cloud-integration-intelligent-routing
+Source: https://github.com/sap-samples/btp-services-intelligent-routing
 Disclaimer: The code in this project may include calls to APIs (“API Calls”) of
  SAP or third-party products or services developed outside of this project
  (“External Products”).
@@ -25,5 +25,5 @@ Disclaimer: The code in this project may include calls to APIs (“API Calls”)
  parties the right to use of access any SAP External Product, through API Calls.
 
 Files: *
-Copyright: 2021 SAP SE or an SAP affiliate company and [YOUR REPO NAME] contributors
+Copyright: 2021 SAP SE or an SAP affiliate company and btp-services-intelligent-routing contributors
 License: Apache-2.0
