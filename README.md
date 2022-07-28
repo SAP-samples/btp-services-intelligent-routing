@@ -21,7 +21,7 @@ A cloud-native integration pattern that incorporates SAP BTP and Hyperscaler ser
 
 In this scenario, you will learn how to achieve the high availability of a Cloud Integration flow built by a customer using SAP Custom Domain service & Azure traffic manager. 
 
-#### [High Availability of SAP Launchpad service on SAP Business Technology Platform using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/launchpad_azure)
+#### [Multi-region High Availability for SAP Launchpad service on SAP BTP using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/launchpad_azure)
 
 This scenario will be similar to the above one, but here we will achieve the high availability of the SAP Launchpad service, a SaaS application managed by SAP.
 
