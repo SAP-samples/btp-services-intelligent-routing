@@ -153,7 +153,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Example: cf custom-domain-map-route mysubaccount.launchpad.cfapps.us20.hana.ondemand.com launchpad.saptfe-demo.com. 
 
-    > Note: If you don't know your SAP Launchpad service URL, go back to the [previous exercise, step 28](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url) - don't include the complete URL with path, just the basic URL without any path. 
+    > Note: If you don't know your SAP Launchpad service URL, go back to the [previous exercise : Step 28](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url) - don't include the complete URL with path, just the basic URL without any path. 
 
     > Note: Most likely the TXT validation entry (step 14) does not need to be set again and can further be used. In this case, certbot will not ask for a renewal of the entry. 
 

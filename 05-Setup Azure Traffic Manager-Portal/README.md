@@ -45,7 +45,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
 
     > **IMPORTANT**: Those settings enable the fastest failover that's possible based on DNS time to live & the **fast endpoint failover settings**. The more often the **monitor** endpoint (/site) the higher the number of messages the SAP Cloud Integration needs to handle. How often the monitor endpoint is called is defined by the combination of probe timeout and probing interval. Adjust the settings for your productive scenario depending on your needs. 
 
-    > Note: The path you have defined is later on used to monitor every defined endpoint in the Azure Traffic Manager profile. The exact path is then concatenated with the endpoints target that we'll define in one of the subsequent steps. **/site* is the path of the SAP Launchpad service accessed in one of the previous exercises [previous exercises](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url).
+    > Note: The path you have defined is later on used to monitor every defined endpoint in the Azure Traffic Manager profile. The exact path is then concatenated with the endpoints target that we'll define in one of the subsequent steps. **/site* is the path of the SAP Launchpad service accessed in one of the previous exercises [previous exercises : Step 28](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url).
 
 9. Continue with **Save**.
 
@@ -75,7 +75,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
     ![DNS Zone search using Azure Portal](./images/13.png)
     ![Select domain in Azure Portal](./images/14.png)
 
-15. Create a record set for the subdomain that [you have mapped to the SAP Launchpad service URL](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping): 
+15. Create a record set for the subdomain that [you have mapped to the SAP Launchpad service URL: Step 21 from the previous exercise](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping): 
 
     - Name: subdomain that you have mapped to the SAP Launchpad Service URL
     - Type: CNAME
