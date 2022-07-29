@@ -75,7 +75,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
     ![DNS Zone search using Azure Portal](./images/13.png)
     ![Select domain in Azure Portal](./images/14.png)
 
-15. Create a record set for the subdomain that [you have mapped to the SAP Launchpad service URL (Step 21 from the previous exercise)](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping): 
+15. Create a record set for the subdomain that [you have mapped to the SAP Launchpad service URL (Exercise 4: Step 21)](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping): 
 
     - Name: subdomain that you have mapped to the SAP Launchpad Service URL
     - Type: CNAME
