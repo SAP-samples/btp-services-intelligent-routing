@@ -45,7 +45,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
 
     > **IMPORTANT**: Those settings enable the fastest failover that's possible based on DNS time to live & the **fast endpoint failover settings**. The more often the **monitor** endpoint (/site) the higher the number of messages the SAP Cloud Integration needs to handle. How often the monitor endpoint is called is defined by the combination of probe timeout and probing interval. Adjust the settings for your productive scenario depending on your needs. 
 
-    > Note: The path you have defined is later on used to monitor every defined endpoint in the Azure Traffic Manager profile. The exact path is then concatenated with the endpoints target that we'll define in one of the subsequent steps. **/site* is the path of the SAP Launchpad service accessed in one of the previous exercises [previous exercises : Step 28](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url).
+    > Note: The path you have defined is later on used to monitor every defined endpoint in the Azure Traffic Manager profile. The exact path is then concatenated with the endpoints target that we'll define in one of the subsequent steps. **/site* is the path of the SAP Launchpad service accessed in one of the previous exercises [previous exercises (Exercise 3: Step 28)](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url).
 
 9. Continue with **Save**.
 
@@ -60,7 +60,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
     - Fully-qualified domain name (FQDN) or IP: SAP Launchpad service URL for US subaccount (without any path)
     - Priority: 1
 
-    > Note: The SAP Launchpad service URL is the FQDN name (without */site*) that you have also mapped in the [previous exercise (Exercise 4, Step 21)](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping). 
+    > Note: The SAP Launchpad service URL is the FQDN name that you have also mapped in the [previous exercise (Exercise 4, Step 21)](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping). 
 
     ![Cloud Integration EU](./images/08.png)
 
