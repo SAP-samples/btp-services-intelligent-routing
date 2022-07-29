@@ -4,7 +4,7 @@ In this step, you will setup content federation for your SAP S/4HANA Fiori Apps.
 **Important**: Federation will be setup with one SAP S/4HANA system, where the SAP Fiori apps will be federated to the two SAP Launchpad services.
 
 >Prerequisites
-> - To test content federation, you need an SAP S/4HANA system on release 2020 and have administrator access to it. This tutorial describes the configuration of an [SAP S/4 HANA Fully Activated Appliance 30-day trial system](https://www.sap.com/products/s4hana-erp/trial.html). You can find more details about the process to start your SAP S/4HANA trial in this [Quick Start Document](https://www.sap.com/documents/2019/04/4276422b-487d-0010-87a3-c30de2ffd8ff.html#page=1).
+> - To test content federation, you need an SAP S/4HANA system on release 2020 and have administrator access to it. This tutorial describes the configuration of an [SAP S/4 HANA Fully Activated Appliance 30-day trial system](https://www.sap.com/products/erp/s4hana-erp/on-prem-trial.html). You can find more details about the process to start your SAP S/4HANA trial in this [Quick Start Document](https://www.sap.com/documents/2019/04/4276422b-487d-0010-87a3-c30de2ffd8ff.html#page=1).
 > 
 >   Please keep in mind that the trial is only free for 30 days, so only request the system, when you are ready to run the tutorial.
 > - [Download & install the cloud connector](https://tools.hana.ondemand.com/#cloud) & the [technical documentation](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/LATEST/en-US/57ae3d62f63440f7952e57bfcef948d3.html)
