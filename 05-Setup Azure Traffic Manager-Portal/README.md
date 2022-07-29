@@ -85,7 +85,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
 
     ![Select domain in Azure Portal](./images/15.png)
 
-16. Repeat **Step 16** by changing the **Name** to *'s4hanart'*. This is needed to load SAP GUI-based Fiori apps to SAP Launchpad service. **s4hanrt** is the runtime destination name that is created in the destinations.
+16. Repeat **Step 15** by changing the **Name** to *'s4hanart'*. This is needed to load SAP GUI-based Fiori apps to SAP Launchpad service. **s4hanrt** is the runtime destination name that is created in the destinations.
     ![Select domain in Azure Portal](./images/17.png)
 
 17. You can now access the SAP Launchpad service URL using the custom domain.
