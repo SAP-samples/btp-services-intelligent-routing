@@ -60,7 +60,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
     - Fully-qualified domain name (FQDN) or IP: SAP Launchpad service URL for US subaccount (without any path)
     - Priority: 1
 
-    > Note: The SAP Launchpad service URL is the FQDN name (without */site*) that you have also mapped in the [previous exercise](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping). 
+    > Note: The SAP Launchpad service URL is the FQDN name (without */site*) that you have also mapped in the [previous exercise (Exercise 4, Step 21)](../04-Map%20Custom%20Domain%20Routes/README.md#endpointmapping). 
 
     ![Cloud Integration EU](./images/08.png)
 
