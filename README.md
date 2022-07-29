@@ -76,7 +76,7 @@ Subscriptions required in your SAP Business Technology Platform Account:
 
 ## <a name="furtherreading"></a> Further Reading
 
-Git Hub: [BTP Cloud Integration Intelligent Routing](https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing)
+Git Hub: [BTP Cloud Integration Intelligent Routing](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_azure)
 
 Blogpost: [Architecting Solutions on SAP BTP for High Availability](https://blogs.sap.com/2021/08/17/architecting-solutions-on-sap-btp-for-high-availability/) by [Murali Shanmugham](https://people.sap.com/muralidaran.shanmugham2)
 
