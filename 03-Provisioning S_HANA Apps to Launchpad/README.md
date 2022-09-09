@@ -80,51 +80,58 @@ In this step, you will create a new site in your SAP Launchpad service and add t
 
      ![create](./images/13.png)
 
-    > We add this dummy app to differentiate between the two Launchpad services for testing the failover scenario.
+     > We add this dummy app to differentiate between the two Launchpad services for testing the failover scenario.
 
-18.  Provide the **Title Name**, which should be unique to this SAP Launchpad service instance. Then click **In a new tab** and set **App UI Technology** to **URL**. Continue with **Save**.
+18.  Provide the **Title Name**, which should be unique to this SAP Launchpad service instance. Then click **In a new tab** and set **App UI Technology** to **URL**. Enter the mandatory **URL** (Any Dummy URL as we use this for testing purposes only).
 
      ![create](./images/14.png)
 
-19.  Now create a new **Group** to assign the app created in *Step 7*.
+19.  Enter the mandatory **Intent** details. Then click **Save**.
+     ![Intent](./images/IntentDefinition.PNG)
+
+20.  Now create a new **Group** to assign the app created in *Step 17*.
 
      ![create](./images/15.png)
 
-20.  Enter *Home* in the **Title** field and click **Save**.
+21.  Enter **Home** in the **Title** field.
      
      ![create](./images/17.png)
 
-21. Go back to **My Content** and click **Everyone** to add the above created app.
+22.  On the right side, assign the created application to the group and click **Save**.
+    
+     ![create](./images/ApptoGroup.PNG)
+
+23. Go back to **My Content** and click **Everyone** to add the above created app.
     
     ![create](./images/18.png)
 
-22. Go to **Edit** mode, search for the app created in *Step 7* and continue with **Save**.
+24. Go to **Edit** mode, search for the app created in *Step 17* and continue with **Save**.
     
     ![create](./images/19.png)
 
-23. Repeat steps 12-22 for the other SAP BTP subaccount.
+25. Repeat steps 12-24 for the other SAP BTP subaccount.
 
 ## Adding Authorizations & Testing the Launchpad service
 
-24.  Go to the SAP BTP subaccount, navigate to **Security > Role Collections** to add the SAP S/4HANA role to your user. Select the SAP S/4HANA role that is added to the content federation.
+26.  Go to the SAP BTP subaccount and navigate to **Security > Role Collections** to add the SAP S/4HANA role to your user. Select the SAP S/4HANA role that is added to the content federation.
     ![create](./images/20.png)
 
-25.  Click **Edit** to add the user.
+27.  Click **Edit** to add the user.
      
      ![create](./images/21.png)
 
-26.  Enter the **ID** & **E-mail** and click **Save**.
+28.  Enter the **ID** & **E-mail** and click **Save**.
     
      ![create](./images/22.png)
 
-27.  Now that the role is assigned to the user, go back to the **Site Directory** and click the highlighted button to open the **SAP BTP Launchpad service site**.
+29.  Now that the role is assigned to the user, go back to the **Site Directory** and click the highlighted button to open the **SAP BTP Launchpad service site**.
 
      ![create](./images/23.png)
 
-28.  <a name="url"></a> You can find all the Fiori apps that were federated from SAP S/4HANA along with the dummy app that you added to the **Everyone** role.
+30.  <a name="url"></a> You can find all the Fiori apps that were federated from SAP S/4HANA along with the dummy app that you added to the **Everyone** role.
      ![create](./images/24.png)
 
-29.  Go back to the **Site Directory** again and set the site as the default site (in case if multiple sites exist, the default site will be opened when you access the SAP Launchpad service).
+31.  Go back to the **Site Directory** again and set the site as the default site (in case multiple sites exist, the default site will be opened when you access the SAP Launchpad service).
      
      ![create](./images/25.png)
      

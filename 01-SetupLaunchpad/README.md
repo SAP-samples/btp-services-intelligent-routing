@@ -26,52 +26,56 @@ SAP Launchpad service enables organizations to establish a central point of acce
 4. **Save** your changes.
    
    **A new tile appears on the global account page with the subaccount details.**
+5. Open the Sub Account and navigate to **Overview** > **Cloud Foundry Environment**.
 
-5. Make sure that you have two subaccounts in regions where the Launchpad service is available. If you don't have two subaccounts for the SAP Launchpad service yet, create another subaccount as explained in Steps 3-4.
+6. Click **Create Space**, enter the required information and click **Create**.
+    ![Subaccount details](./images/space.png)
 
-6. In the navigation area of the global account, choose Entitlements > Entity Assignments and select the subaccounts in which you want to set up SAP Launchpad service. 
+7. Make sure that you have two subaccounts in regions where the Launchpad service is available. If you don't have two subaccounts for the SAP Launchpad service yet, create another subaccount as explained in Steps 3-6.
+
+8. In the navigation area of the global account, choose Entitlements > Entity Assignments and select the subaccounts in which you want to set up SAP Launchpad service. 
    ![Entity Assignments-Sub account Selection](./images/03.png)
 
-7. Go to **Configure Entitlements** followed by **Add Service Plans** for the first subaccount.
+9. Go to **Configure Entitlements** followed by **Add Service Plans** for the first subaccount.
    ![Entity Assignments-Add Service Plan](./images/04.png)
 
-8. Add the following entitlements: 
+10. Add the following entitlements: 
 
     - Launchpad service (Service Plan: standard (Application))
     - Custom Domain service (Service Plan: custom_domains, standard (Application))
 
-9. Click on **Save** to save the changes.
+11. Click on **Save** to save the changes.
     
-10.   **Repeat steps 7-10 for the second subaccount.**
+12.   **Repeat steps 8-11 for the second subaccount.**
 
-11.   Go to **Subaccounts** and navigate to the first subaccount for SAP Launchpad service.
+13.   Go to **Subaccounts** and navigate to the first subaccount for SAP Launchpad service.
 
-12.   In the navigation area of the subaccount, choose **Services > Service Marketplace** and search for **Launchpad Service**. Choose **Create** on the overview page.
+14.   In the navigation area of the subaccount, choose **Services > Service Marketplace** and search for **Launchpad Service**. Choose **Create** on the overview page.
       ![Adding Launchpad Service](./images/05.png)
 
-13.   In the **New Instance or Subscription** dialog box, select an available **Plan** and finish with **Create**. Wait for the subscription to complete successfully.
+15.   In the **New Instance or Subscription** dialog box, select an available **Plan** and finish with **Create**. Wait for the subscription to complete successfully.
 
-14.    In the navigation area of the subaccount, choose **Security > Role Collections** and search for **Launchpad_Admin**. 
+16.    In the navigation area of the subaccount, choose **Security > Role Collections** and search for **Launchpad_Admin**. 
       ![Launchpad Role](./images/06.png)
 
-15. Click on the Role Collection itself and **Edit**.
+17. Click on the Role Collection itself and **Edit**.
 
     ![Launchpad role collection edit](./images/07.png) 
     
-16. Enter the email address for your SAP BTP user in the **User** section and **Save** your changes. Make sure that your user appears in the User section after you have saved the changes.
+18. Enter the email address for your SAP BTP user in the **User** section and **Save** your changes. Make sure that your user appears in the User section after you have saved the changes.
 
-17. Go back (using the browser function, for instance) to the **Instances and Subscriptions** page. Select the **Launchpad Service** Subscription and choose **Go to Application** to launch the Launchpad service.
+19. Go back (using the browser function, for instance) to the **Instances and Subscriptions** page. Select the **Launchpad Service** Subscription and choose **Go to Application** to launch the Launchpad service.
 
     ![Go to Launchpad Service](./images/08.png) 
 
-18. You now have the access to Launchpad Site Manager.
+20. You now have the access to Launchpad Site Manager.
 
     ![Launchpad Service](./images/09.png)
 
-19.   **Repeat steps 11-18 for the second subaccount**.
+21.   **Repeat steps 13-19 for the second subaccount**.
 
 ---
 
-You have succesfully configured two SAP BTP subaccounts and subscribed to the SAP Launchpad Service in each of the subaccounts.
+You have successfully configured two SAP BTP subaccounts and subscribed to the SAP Launchpad Service in each of the subaccounts.
 
 Congratulations!

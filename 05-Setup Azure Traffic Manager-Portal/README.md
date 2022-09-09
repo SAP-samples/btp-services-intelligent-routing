@@ -36,7 +36,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
     - Protocol HTTPS
     - Port: 443
     - Path: /site
-    - Expected Status Code Range: 200-200
+    - Expected Status Code Ranges: <<**Leave Blank, default 200**>>
     - Probing interval: 10
     - Tolerated number of failures: 1
     - Probe timeout: 5
@@ -64,7 +64,8 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
 
     ![Cloud Integration EU](./images/08.png)
 
-12. You have created the first endpoint in the Azure Traffic Manager profile. **IMPORTANT: Repeat the Step 11 for the other SAP Launchpad service in the other SAP BTP region(s).**
+12. You have created the first endpoint in the Azure Traffic Manager profile. **IMPORTANT: Repeat Step 11 for the other SAP Launchpad service in the other SAP BTP region(s).**
+    > Note: Enter the priority as **2** for the other SAP Launchpad service
 
 13. Display **Overview** of your Azure Traffic Manager profile and copy the **DNS Name**. 
 
@@ -81,7 +82,7 @@ In this step, you will configure Azure Traffic Manager (actually the Azure Traff
     - Type: CNAME
     - Alias Record Set: No
     - TTL: 1 Second (depending on your requirements, how fast a failover should be executed)
-    - Alias: DNS Name of the Azure Traffic Manager profile that you have copied in Step 18 - without *http://*(e.g. http://launchpad-failover.trafficmanager.net)
+    - Alias: DNS Name of the Azure Traffic Manager profile that you have copied in Step 18 - without "**http://**"(e.g. launchpad-failover.trafficmanager.net)
 
     ![Select domain in Azure Portal](./images/15.png)
 

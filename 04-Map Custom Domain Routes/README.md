@@ -52,12 +52,12 @@ The steps below describe the process using a custom domain bought via Azure. The
 9.  Download certificate signing request corresponding to the new key:
 
     ```console
-    cf custom-domain-get-csr key1 key1_unsigned.pem
+    cf custom-domain-get-csr keyazuretemp keyazuretemp_unsigned.pem
     ```
 
     ![Download signing request](./images/02.png)
 
-    > Note: The file key1_unsigned.pem is downloaded to your current working directory. Use `pwd` (for Linux/macOs) or `dir` (Windows) to find out the current working directory.
+    > Note: The file keyazuretemp_unsigned.pem is downloaded to your current working directory. Use `pwd` (for Linux/macOs) or `dir` (Windows) to find out the current working directory.
 
 10. Install certbot client on local machine. 
 
@@ -88,7 +88,7 @@ The steps below describe the process using a custom domain bought via Azure. The
     ![DNS Zone Search](./images/04.png)
     ![DNS Zone selection](./images/05.png)
 
-13. **Create a new record set** and enter the details that the certbot command (Step 8) has printed out. 
+13. **Create a new record set** and enter the details that the certbot command (Step 11) has printed out. 
 
     ![Record creation in DNS Zone](./images/06.png)
 
@@ -124,7 +124,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     ![Custom domain upload certificate](./images/10.png)
 
-    > Note: *key1* refers to the key you have created in Step 5, certificate.pem is the name of the file that you have created in the previous step.
+    > Note: *keyazuretemp* refers to the key you have created in Step 5, certificate.pem is the name of the file that you have created in the previous step.
 
 19. Activate the custom domain: 
 
@@ -153,15 +153,16 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Example: cf custom-domain-map-route mysubaccount.launchpad.cfapps.us20.hana.ondemand.com launchpad.saptfe-demo.com. 
 
-    > Note: If you don't know your SAP Launchpad service URL, go back to the [previous exercise : Step 28](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url) - don't include the complete URL with path, just the basic URL without any path. 
+    > Note: If you don't know your SAP Launchpad service URL, go back to the [previous exercise : Step 30](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url) - don't include the complete URL with path, just the basic URL without any path. 
 
     > Note: Most likely the TXT validation entry (step 14) does not need to be set again and can further be used. In this case, certbot will not ask for a renewal of the entry. 
 
-   S/4HANA GUI apps(non-SAPUI5 based) will be opened using a different URL internally, with the runtime destination name concatenated in the URL you created in the earlier exercise. For this reason, we need to map that URL to a new subdomain.
+    S/4HANA GUI apps(non-SAPUI5 based) will be opened using a different URL internally, with the runtime destination name concatenated in the URL you created in the earlier exercise. For this reason, we need to map that URL to a new subdomain.
 
     ```console
     cf custom-domain-map-route <s/4hana gui app url> runtimedestinationname.example.com
     ```
+
     > Example: cf custom-domain-map-route mysubaccount-sapdelim-runtimedestinationname.launchpad.cfapps.us20.hana.ondemand.com runtimedestinationname.example.com
 
     > **runtimedestinationname** here is s4hanart, which you created in [2nd exercise, step 25](../02-Configuring%20S_4HANA%20system%20for%20Content%20Federation/README.md#runtimedest)

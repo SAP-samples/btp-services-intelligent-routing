@@ -64,7 +64,7 @@ In this step, you will setup content federation for your SAP S/4HANA Fiori Apps.
     
     ![virtual](./images/23.png)
     
-    >Note: In production scenarios, it is recommended to use Principal Propagation or better authentication methods. 
+    >Note: In production scenarios, it is recommended to use Principal Propagation or better authentication methods and if you have set up principal propagation, then select X.509 Cert (Strict Usage) option for Basic User Authentication or X.509 Cert (General Usage) option for principal propagation using the destinations in SAP BTP.
 
 14. Click **Next**.
     
@@ -78,13 +78,13 @@ In this step, you will setup content federation for your SAP S/4HANA Fiori Apps.
     
     ![Resources Add](./images/26.png)
 
-17. Enter '/' in **URL Path** and select '*Paths and All Sub-Paths*' in **Access Policy**.
+17. Enter '/' in **URL Path** and select '*Paths and All Sub-Paths*' in **Access Policy** and Click **Save**.
 
     ![URL Path](./images/27.png)
 
     >Note: In production systems, it is recommended to add the required URLs that needed to be exposed.
 
-18. Click **Save**.
+18. Repeat steps 2-17 in the second subaccount that you have configured for SAP Launchpad Service.
 
 ## Creating SAP S/4HANA design-time destinations in SAP BTP
 
@@ -94,23 +94,24 @@ The design-time destination is used to fetch the federated content from your SAP
     ![Destination Navigate](./images/28.png)
 
 20.  Fill in the following details.
-    | Field Name | Value |
-    |---|---|
-    | Name  | s4hanadt  |
-    | Type | HTTP|
-    | Description | SAP S/4HANA design-time destination |
-    | URL | http://s4hana:44300/sap/bc/ui2/cdm3/entities or http://yourvirtualhost:yourvirtualport/sap/bc/ui2/cdm3/entities |
-    | Proxy Type | OnPremise |
-    | Authentication | Basic Authentication |
-    | User | *'User ID in your SAP S/4HANA system'* |
-    | Password | *'Password of the user'* |
+
+     | Field Name | Value |
+     |---|---|
+     | Name  | s4hanadt  |
+     | Type | HTTP|
+     | Description | SAP S/4HANA design-time destination |
+     | URL | http://s4hana:44300/sap/bc/ui2/cdm3/entities or http://yourvirtualhost:yourvirtualport/sap/bc/ui2/cdm3/entities |
+     | Proxy Type | OnPremise |
+     | Authentication | Basic Authentication |
+     | User | *'User ID in your SAP S/4HANA system'* |
+     | Password | *'Password of the user'* |
 
 21.  Click **New Property** to add sap-client, e.g. *100* for SAP S/4HANA trial systems.
     ![Destination properties](./images/29.png)
 
 22.  Click **Save**.
 
-23. Repeat the steps from 18-21 in the second subaccount that you have configured for SAP Launchpad Service.
+23. Repeat the steps from 19-22 in the second subaccount that you have configured for SAP Launchpad Service.
 
 ## Creating SAP S/4HANA runtime destinations in SAP BTP
 
@@ -125,31 +126,32 @@ The runtime destination is used to launch federated SAP S/4HANA applications at 
      ![Properties](./images/31.png)
 
 26.  Add additional properties as shown below:
-    | Property Name | Value |
-    |---|---|
-    | HTML5.DynamicDestination  | true  |
-    | sap-platform | ABAP |
-    | sap-sysid | Your SAP S/4HANA system ID |
+
+     | Property Name | Value |
+     |---|---|
+     | HTML5.DynamicDestination  | true  |
+     | sap-platform | ABAP |
+     | sap-sysid | Your SAP S/4HANA system ID |
 
 27.  Click **Save**.
     
      ![Save](./images/33.png)
 
-28. Repeat the steps from 23-26 in the second subaccount that you have configured for SAP Launchpad Service.
+28. Repeat the steps from 24-27 in the second subaccount that you have configured for SAP Launchpad Service.
 
 ## Configuring SAP S/4HANA system for Content Federation
 
 29.  In your SAP S/4HANA system, open the transaction **spro**.
     
-     ![spro tcode](./images/01.png)
+     ![SPRO TCode](./images/01.png)
 
 30.  Click **SAP Reference IMG**.
     
      ![Reference IMG](./images/02.png)
 
-31.  In the tree, navigate to path **SAP NetWeaver > UI Technologies > SAP Fiori > SAP Fiori Launchpad** and click **change Client-Specific Settings**.
+31.  In the tree, navigate to path **SAP NetWeaver > UI Technologies > SAP Fiori > SAP Fiori Launchpad Settings** and click **change Client-Specific Settings**.
     
-     ![Clinet-Specific](./images/03.png)
+     ![Client-Specific](./images/03.png)
 
 32.  After opening the maintenance view, click **New Entries**.
     
@@ -162,7 +164,7 @@ The runtime destination is used to launch federated SAP S/4HANA applications at 
      | FLP Property ID      | EXPOSURE_SYSTEM_ALIASES_MODE       |
      | Type   | String Type        |
      | Category | FLP UI Server Settings |
-     | Property Value || CLEAR |
+     | Property Value | CLEAR |
 
 34.  Click **Save**, and if it prompts for the customizing request, select an existing project-related request or create a new one and click **Ok** icon.
      ![Save](./images/05.png)
@@ -173,7 +175,7 @@ The runtime destination is used to launch federated SAP S/4HANA applications at 
      ![sicf tcode](./images/07.png)
      ![cdm3 service](./images/08.png)
 
-36.  Right-click on the service and click **Activate Service**.
+36.  Right-click on the service, click **Activate Service** and click **Yes** on the pop-up to confirm.
     
      ![Activate service](./images/09.png)
 
