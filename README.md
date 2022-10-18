@@ -4,7 +4,7 @@
 
 ## Description
 
-Critical business use cases built on SAP BTP need to be highly available and responsive. While availability zones help with disruptions in a single region, application developers and administrators are responsible for availability and stability in cases of regional outage or application upgrades. This scenario demonstrates techniques for load balancing, failover, and latency reduction of BTP services, such as SAP Launchpad and SAP Cloud Integration, with Hyperscaler traffic management solutions like Azure Traffic Manager.
+Critical business use cases built on SAP BTP need to be highly available and responsive. While availability zones help with disruptions in a single region, application developers and administrators are responsible for availability and stability in cases of regional outage or application upgrades. This scenario demonstrates techniques for load balancing, failover, and latency reduction of BTP services, such as SAP Launchpad and SAP Cloud Integration, with Hyperscaler traffic management solutions like Azure Traffic Manager & Amazon Route 53.
 
 ### Challenge
 A lack of automatic failover, especially for critical business scenarios, can be damaging to your business. If users are located in diverse geographies, latency will also increase if services are restored in a single region.
