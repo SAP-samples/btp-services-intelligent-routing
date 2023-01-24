@@ -7,7 +7,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 1. Go to the SAP Cloud Integration web interface of your first subaccount, either via the SAP Integration Suite launchpad as shown in [Setting SAP Cloud Integration](../01-SetupCloudIntegration/README.md). 
 
-2. <a name="download"></a>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-cloud-integration-intelligent-routing/blob/main/02-SetupMonitoringEndpoint/flow-azuretm.zip. **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
+2. <a name="download"></a>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-services-intelligent-routing/blob/ci_azure/02-SetupMonitoringEndpoint/flow-azuretm.zip. **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
 
     ![Download Button on GitHub](./images/01.png)
 
