@@ -45,7 +45,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
     - SAP Integration Suite (Service Plan: standard_edition or digital_edition or premium_edition)
     - Process Integration runtime (Service Plan: integration-flow)
     - Process Integration runtime (Service Plan: api)
-    - Custom Domain Certificates (Service Plan: custom_domains)
+    - Custom Domain Service (Service Plan: standard (Application))
 
 8.  **Save** the changes. 
 
