@@ -1,12 +1,12 @@
 # Introduction
 
-In this step, you will map the endpoints of the SAP Launchpad service runtime to your custom domain using the SAP Custom Domain service. Both of the SAP Launchpad service URL's are mapped to the same domain. 
+In this step, you will map the endpoints of the SAP Build Work Zone, standard edition service runtime to your custom domain using the SAP Custom Domain service. Both of the SAP Build Work Zone, standard edition service URL's are mapped to the same domain. 
 
-This way, a user accessing the Launchpad service must not use the region-specific URL information of the particular Launchpad service tenant but simply uses the custom domain. 
+This way, a user accessing the Build Work Zone, standard edition service must not use the region-specific URL information of the particular Build Work Zone, standard edition service tenant but simply uses the custom domain. 
 
 The steps below describe the process using a custom domain bought via Azure. The process for a domain coming from another domain provider should be relatively similar. 
 
-**Important:** The following steps need to be executed for both of the subaccounts running your SAP Launchpad service subscriptions 
+**Important:** The following steps need to be executed for both of the subaccounts running your SAP Build Work Zone, standard edition service subscriptions 
 
 ## Map Custom Domain Routes
 
@@ -145,7 +145,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Note: It can take a few minutes up to a few hours until the custom domain is activated. 
 
-21. <a name="endpointmapping"></a>Finally, map the **SAP Launchpad service URL**  to a subdomain of your domain: 
+21. <a name="endpointmapping"></a>Finally, map the **SAP Build Work Zone, standard edition service URL**  to a subdomain of your domain: 
 
     ```console
     cf custom-domain-map-route <launchpadservice_url> launchpad.example.com
@@ -153,7 +153,7 @@ The steps below describe the process using a custom domain bought via Azure. The
 
     > Example: cf custom-domain-map-route mysubaccount.launchpad.cfapps.us20.hana.ondemand.com launchpad.saptfe-demo.com. 
 
-    > Note: If you don't know your SAP Launchpad service URL, go back to the [previous exercise : Step 30](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url) - don't include the complete URL with path, just the basic URL without any path. 
+    > Note: If you don't know your SAP Build Work Zone, standard edition service URL, go back to the [previous exercise : Step 30](../03-Provisioning%20S_HANA%20Apps%20to%20Launchpad/README.md#url) - don't include the complete URL with path, just the basic URL without any path. 
 
     > Note: Most likely the TXT validation entry (step 14) does not need to be set again and can further be used. In this case, certbot will not ask for a renewal of the entry. 
 
@@ -169,6 +169,6 @@ The steps below describe the process using a custom domain bought via Azure. The
     
 22. **Execute all of the steps for the second subaccount!**
 
-Congratulations! You have created a certificate for your domain using Certbot. With the help of the SAP Custom Domain service you registered the domain in the subaccounts in which you also provisioned SAP Launchpad service and mapped its URL to the actual domain.
+Congratulations! You have created a certificate for your domain using Certbot. With the help of the SAP Custom Domain service you registered the domain in the subaccounts in which you also provisioned SAP Build Work Zone, standard edition service and mapped its URL to the actual domain.
 
 Keep in mind that the Let's Encrypt certificate (the one you have created using Certbot) is only valid for three months. There are other more sophisticated alternatives for productive scenarios. 

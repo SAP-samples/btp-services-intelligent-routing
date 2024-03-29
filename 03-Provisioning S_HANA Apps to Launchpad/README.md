@@ -1,13 +1,13 @@
 # Introduction
-In this step, you will create a new site in your SAP Launchpad service and add the Federated SAP S/4HANA Roles to the newly created site.
+In this step, you will create a new site in your SAP Build Work Zone, standard edition service and add the Federated SAP S/4HANA Roles to the newly created site.
 
-**Important**: You need to perform these steps in both the SAP BTP subaccounts that you have configured for the SAP Launchpad Service.
+**Important**: You need to perform these steps in both the SAP BTP subaccounts that you have configured for the SAP Build Work Zone, standard edition Service.
 
 ## Creating a new Content Provider and adding the roles
 
-1.  Open your SAP Launchpad service by navigating to the **Instances and Subscriptions** page. Select the **Launchpad Service** Subscription and choose **Go to Application** to launch the Launchpad service.
+1.  Open your SAP Build Work Zone, standard edition service by navigating to the **Instances and Subscriptions** page. Select the **Build Work Zone, standard edition Service** Subscription and choose **Go to Application** to launch the Build Work Zone, standard edition service.
 
-    ![Go to Launchpad Service](./images/26.png) 
+    ![Go to Build Work Zone, standard edition Service](./images/26.png) 
 
 2.  Click the Provider Manager tab.
 
@@ -80,9 +80,9 @@ In this step, you will create a new site in your SAP Launchpad service and add t
 
      ![create](./images/13.png)
 
-     > We add this dummy app to differentiate between the two Launchpad services for testing the failover scenario.
+     > We add this dummy app to differentiate between the two Build Work Zone, standard edition services for testing the failover scenario.
 
-18.  Provide the **Title Name**, which should be unique to this SAP Launchpad service instance. Then click **In a new tab** and set **App UI Technology** to **URL**. Enter the mandatory **URL** (Any Dummy URL as we use this for testing purposes only).
+18.  Provide the **Title Name**, which should be unique to this SAP Build Work Zone, standard edition service instance. Then click **In a new tab** and set **App UI Technology** to **URL**. Enter the mandatory **URL** (Any Dummy URL as we use this for testing purposes only).
 
      ![create](./images/14.png)
 
@@ -111,7 +111,7 @@ In this step, you will create a new site in your SAP Launchpad service and add t
 
 25. Repeat steps 12-24 for the other SAP BTP subaccount.
 
-## Adding Authorizations & Testing the Launchpad service
+## Adding Authorizations & Testing the Build Work Zone, standard edition service
 
 26.  Go to the SAP BTP subaccount and navigate to **Security > Role Collections** to add the SAP S/4HANA role to your user. Select the SAP S/4HANA role that is added to the content federation.
     ![create](./images/20.png)
@@ -124,20 +124,20 @@ In this step, you will create a new site in your SAP Launchpad service and add t
     
      ![create](./images/22.png)
 
-29.  Now that the role is assigned to the user, go back to the **Site Directory** and click the highlighted button to open the **SAP BTP Launchpad service site**.
+29.  Now that the role is assigned to the user, go back to the **Site Directory** and click the highlighted button to open the **SAP BTP Build Work Zone, standard edition service site**.
 
      ![create](./images/23.png)
 
 30.  <a name="url"></a> You can find all the Fiori apps that were federated from SAP S/4HANA along with the dummy app that you added to the **Everyone** role.
      ![create](./images/24.png)
 
-31.  Go back to the **Site Directory** again and set the site as the default site (in case multiple sites exist, the default site will be opened when you access the SAP Launchpad service).
+31.  Go back to the **Site Directory** again and set the site as the default site (in case multiple sites exist, the default site will be opened when you access the SAP Build Work Zone, standard edition service).
      
      ![create](./images/25.png)
      
 ---
    
-Good job! Now you have the SAP Launchpad service with SAP Fiori applications federated from your SAP S/4HANA system.
+Good job! Now you have the SAP Build Work Zone, standard edition service with SAP Fiori applications federated from your SAP S/4HANA system.
 
 
 

@@ -1,7 +1,7 @@
 # Introduction
 In this step, you will setup content federation for your SAP S/4HANA Fiori Apps.
 
-**Important**: Federation will be setup with one SAP S/4HANA system, where the SAP Fiori apps will be federated to the two SAP Launchpad services.
+**Important**: Federation will be setup with one SAP S/4HANA system, where the SAP Fiori apps will be federated to the two SAP Build Work Zone, standard edition services.
 
 >Prerequisites
 > - To test content federation, you need an SAP S/4HANA system on release 2020 and have administrator access to it. This tutorial describes the configuration of an [SAP S/4 HANA Fully Activated Appliance 30-day trial system](https://www.sap.com/products/erp/s4hana-erp/on-prem-trial.html). You can find more details about the process to start your SAP S/4HANA trial in this [Quick Start Document](https://www.sap.com/documents/2019/04/4276422b-487d-0010-87a3-c30de2ffd8ff.html#page=1).
@@ -84,7 +84,7 @@ In this step, you will setup content federation for your SAP S/4HANA Fiori Apps.
 
     >Note: In production systems, it is recommended to add the required URLs that needed to be exposed.
 
-18. Repeat steps 2-17 in the second subaccount that you have configured for SAP Launchpad Service.
+18. Repeat steps 2-17 in the second subaccount that you have configured for SAP Build Work Zone, standard edition Service.
 
 ## Creating SAP S/4HANA design-time destinations in SAP BTP
 
@@ -111,7 +111,7 @@ The design-time destination is used to fetch the federated content from your SAP
 
 22.  Click **Save**.
 
-23. Repeat the steps from 19-22 in the second subaccount that you have configured for SAP Launchpad Service.
+23. Repeat the steps from 19-22 in the second subaccount that you have configured for SAP Build Work Zone, standard edition Service.
 
 ## Creating SAP S/4HANA runtime destinations in SAP BTP
 
@@ -137,7 +137,7 @@ The runtime destination is used to launch federated SAP S/4HANA applications at 
     
      ![Save](./images/33.png)
 
-28. Repeat the steps from 24-27 in the second subaccount that you have configured for SAP Launchpad Service.
+28. Repeat the steps from 24-27 in the second subaccount that you have configured for SAP Build Work Zone, standard edition Service.
 
 ## Configuring SAP S/4HANA system for Content Federation
 
