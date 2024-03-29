@@ -41,7 +41,7 @@ A cloud native integration pattern that incorporates SAP BTP and Azure to elimin
 The required systems and components are:
 
 - SAP BTP enterprise account
-- 2 SAP BTP subaccounts: e.g. one in EU20, one in US20 or where the ([SAP Launchpad service is available](https://discovery-center.cloud.sap/serviceCatalog/launchpad?region=all&tab=service_plan))
+- 2 SAP BTP subaccounts: e.g. one in EU20, one in US20 or where the ([SAP Build Work Zone, standard edition is available](https://discovery-center.cloud.sap/serviceCatalog/launchpad?region=all&tab=service_plan))
 - A Microsoft Azure subscription
 - An own domain
 - 1 S/4HANA system and 1 Cloud connector to expose the Fiori apps from S/4HANA.
