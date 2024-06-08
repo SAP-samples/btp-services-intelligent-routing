@@ -1,0 +1,34 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.monitor.CIMonitorArtifacts"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:filterbar="sap.ui.comp.filterbar"
+	xmlns:smarttable="sap.ui.comp.smarttable"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage id="page" showFooter="false">
+		<!-- Content -->
+		<semantic:content>
+			<IconTabBar select="onFilterSelect" items="{config>/regionNames}" backgroundDesign="Translucent">
+				<items>
+					<IconTabFilter text="{config>value}" key="{config>key}"/>
+				</items>
+				<content>
+
+					<List items="{/d/results}" growing="true" growingThreshold="4" growingScrollToLoad="false">
+						<headerToolbar>
+							<OverflowToolbar >
+								<Title text="Running / Processing Artifacts" level="H2" />
+								<ToolbarSpacer />
+								<Button icon="sap-icon://refresh" tooltip="Refresh" press="onRefresh" />
+							</OverflowToolbar>
+						</headerToolbar>
+						<items>
+							<StandardListItem title="{IntegrationFlowName}" description="{ path: 'LogStart',type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'yyyy/MM/dd HH:mm:ss'}, style: 'medium'}}"/>
+						</items>
+					</List>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

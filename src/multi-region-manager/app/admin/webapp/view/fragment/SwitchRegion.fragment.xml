@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Dialog title="Switch Region" class="sapUiContentPadding">
+		<content>		
+			<l:VerticalLayout>
+			<MessageStrip hideCloseButton="true" enableFormattedText="true"
+				text="Please note that this action involves redirecting traffic from one region to another,  &lt;br&gt; which includes changes to replication topology and other related activities.  &lt;br&gt; Are you sure you want to proceed?" 
+				design="Warning">
+			</MessageStrip>
+			<f:SimpleForm>
+					<CheckBox id="switchRegionMonitor" text="Monitor replication before making the switch" valueState="Information" />
+					<Label text="Region to Switch"/>
+					<Select id="switchRegion" items="{config>/regionNames}" forceSelection="true" selectedKey="{appView>/switchRegion}" >
+						<core:ListItem key="{config>key}" text="{config>value}" icon="sap-icon://building"/>
+
+						<!-- <core:ListItem key="secondary" text="Secondary" icon="sap-icon://building"/> -->
+					</Select>
+					<TextArea id="switchRegionNotes" value="{appView>/notes}" width="100%" placeholder= "Add note (optional)"/>
+			</f:SimpleForm>
+			</l:VerticalLayout>
+			</content>
+			<beginButton>
+				<Button text="Ok" press="onOk" />
+			</beginButton>
+			<endButton>
+				<Button text="Cancel" press="onCancel" />
+			</endButton>
+		</Dialog>
+	</core:FragmentDefinition>

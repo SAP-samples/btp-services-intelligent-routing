@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<Dialog title="Start Operations" class="sapUiContentPadding">
+		<content>		
+			<l:VerticalLayout>
+			<MessageStrip hideCloseButton="true" enableFormattedText="true"
+				text="Please be aware that this action will begin replicating data in the &lt;strong&gt;background&lt;/strong&gt;. &lt;br&gt;Do you want to continue? " 
+				design="Warning">
+			</MessageStrip>
+			<f:SimpleForm>
+			<Label text="Region"/>
+			<Select items="{config>/regionNames}" forceSelection="true" selectedKey="{appView>/switchRegion}">
+				<core:ListItem key="{config>key}" text="{config>value}" icon="sap-icon://building"/>
+			</Select>
+			<TextArea id="startReplicationNotes" value="{appView>/notes}" width="100%" placeholder= "Add note (optional)"/>
+			</f:SimpleForm>
+			</l:VerticalLayout>
+			</content>
+			<beginButton>
+				<Button text="Ok" press="onOk" />
+			</beginButton>
+			<endButton>
+				<Button text="Cancel" press="onCancel" />
+			</endButton>
+		</Dialog>
+	</core:FragmentDefinition>

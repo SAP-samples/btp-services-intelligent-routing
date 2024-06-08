@@ -1,0 +1,61 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.batch.Step"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:smarttable="sap.ui.comp.smarttable"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<ObjectPageLayout id="ObjectPageLayout">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="{STEP_NAME}">
+				<actions>
+					<ObjectPageHeaderActionButton text="Take Action" icon="sap-icon://refresh" tooltip="action" press="onRefresh" />
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:ObjectAttribute title="Job Id" text="{JOB_EXECUTION_ID}" active="false" />
+				<m:ObjectAttribute title="Step Id" text="{STEP_EXECUTION_ID}" />
+			</layout:VerticalLayout>
+			<layout:VerticalLayout>
+				<m:ObjectAttribute title="Start Time" text="{ path: 'START_TIME', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium'}}" />
+				<m:ObjectAttribute title="End Time" text="{ path: 'END_TIME', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium'}}" />
+			</layout:VerticalLayout>
+			<layout:VerticalLayout>
+				<m:ObjectAttribute title="Duration" text="{parts: [ { path : 'START_TIME' } , { path : 'END_TIME'} ], formatter : '.formatter.batchDuration'}" />
+			</layout:VerticalLayout>
+			<layout:VerticalLayout>
+				<m:ObjectStatus title="Status" text="{STATUS}" icon="{path: 'STATUS', formatter : '.formatter.batchStateIcon'}" state="{path: 'STATUS', formatter : '.formatter.batchState'}" />
+			</layout:VerticalLayout>
+		</headerContent>
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="Context">
+				<subSections>
+					<ObjectPageSubSection titleUppercase="false">
+						<blocks>
+							<m:ScrollContainer height="50%" width="100%" vertical="true" focusable="true">
+								<m:Text id="jobContext" text="{SHORT_CONTEXT}" growing="true" width="100%" />
+							</m:ScrollContainer>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="Exit Message">
+				<subSections>
+					<ObjectPageSubSection titleUppercase="false">
+						<blocks>
+							<m:ScrollContainer height="50%" width="100%" vertical="true" focusable="true">
+								<m:Text text="{EXIT_MESSAGE}" growing="true" width="100%" />
+							</m:ScrollContainer>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+
+</mvc:View>

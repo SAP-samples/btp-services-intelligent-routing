@@ -1,0 +1,43 @@
+{
+    "welcomeFile": "/app/admin/webapp/index.html",
+    "authenticationMethod": "route",
+    "routes": [
+        {
+            "source": "^/odata/(.*)$",
+            "target": "/odata/$1",
+            "destination": "srv-api",
+            "authenticationType": "xsuaa"
+        },   
+        {
+            "source": "^/job/(.*)$",
+            "target": "/job/$1",
+            "destination": "srv-api",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^/alert/(.*)$",
+            "target": "/alert/$1",
+            "destination": "srv-api",
+            "authenticationType": "none"
+        },
+        {
+            "source": "^/api/(.*)$",
+            "target": "/api/$1",
+            "destination": "srv-api",
+            "authenticationType": "none"
+        },
+        {
+            "source": "^/app/(.*)$",
+            "cacheControl": "no-cache, no-store, must-revalidate",
+            "target": "$1",
+            "localDir": "./",
+            "authenticationType": "xsuaa"
+        },
+        {
+            "source": "^(.*)$",
+            "target": "$1",
+            "destination": "srv-api",
+            "authenticationType": "xsuaa"
+        }
+    ]
+}

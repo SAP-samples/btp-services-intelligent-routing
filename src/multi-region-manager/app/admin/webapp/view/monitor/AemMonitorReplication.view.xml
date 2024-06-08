@@ -1,0 +1,31 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.monitor.AemMonitorReplication"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:filterbar="sap.ui.comp.filterbar"
+	xmlns:smarttable="sap.ui.comp.smarttable"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage id="page" showFooter="false">
+		<!-- Content -->
+		<semantic:content>
+			<IconTabBar select="onFilterSelect" items="{config>/regionNames}" backgroundDesign="Translucent">
+				<items>
+					<IconTabFilter text="{config>value}" key="{config>key}"/>
+				</items>
+				<content>
+					<f:SimpleForm editable="false" layout="ResponsiveGridLayout" title="Queue Status" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<OverflowToolbar >
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://refresh" tooltip="Refresh" press="onRefresh" />
+							</OverflowToolbar>
+							<Label text="Replication queue pending message count" />
+							<Text id="nameText" text="{/collections/msgs/count}" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

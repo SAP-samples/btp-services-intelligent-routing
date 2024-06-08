@@ -1,0 +1,13 @@
+{
+  "name": "sap-f-sample--shell-bar-with-split-app",
+  "version": "1.0.0",
+  "author": "SAP SE",
+  "description": "Sample: Shell Bar with Split App",
+  "scripts": {
+    "start": "ui5 serve",
+    "build": "ui5 build"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3"
+  }
+}

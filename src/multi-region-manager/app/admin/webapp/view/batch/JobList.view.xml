@@ -1,0 +1,97 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.batch.JobList" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:filterbar="sap.ui.comp.filterbar" xmlns:smarttable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage id="page" showFooter="false" navButtonPress="onNavBack">
+		<!-- Content -->
+		<semantic:content>
+			<VBox class="sapUiResponsiveContentPadding">
+				
+				<smarttable:SmartTable class="sapUiSmallMargin" id="jobListSmartTable" entitySet="BatchJobExecution" initialNoDataText="{i18n>jobListNoDataText}" header="{i18n>jobListHeader}" useTablePersonalisation="true" enableAutoBinding="true" useExportToExcel="true" demandPopin="true" beforeRebindTable="onBeforeRebindTable" ignoreFromPersonalisation="" requestAtLeastFields="JOB_EXECUTION_ID,JOB_INSTANCE_ID,START_TIME,END_TIME,STATUS,EXIT_CODE,JOB_INSTANCE/JOB_NAME">
+					<smarttable:customToolbar>
+						<OverflowToolbar design="Transparent">
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://refresh" tooltip="Refresh" press="onRefresh" />
+						</OverflowToolbar>
+					</smarttable:customToolbar>
+					<Table id="jobListTable" width="auto" noDataText="{i18n>jobListNoDataText}" busyIndicatorDelay="{jobListView>/tableBusyDelay}" growing="true" growingThreshold="10" growingScrollToLoad="false" updateFinished=".onUpdateFinished" sticky="ColumnHeaders,HeaderToolbar">
+						<columns >
+							<Column popinDisplay="Inline" width="10%" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "JOB_EXECUTION_ID","leadingProperty":"JOB_EXECUTION_ID", "columnIndex":"1"}' />
+								</customData>
+								<Text text="Execution Id" />
+							</Column>
+							<Column popinDisplay="Inline" width="10%" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "JOB_INSTANCE_ID","leadingProperty":"JOB_INSTANCE_ID", "columnIndex":"2"}' />
+								</customData>
+								<Text text="Instance Id" />
+							</Column>
+							<Column popinDisplay="Inline" width="20%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "JOB_INSTANCE/JOB_NAME", "leadingProperty":"JOB_INSTANCE/JOB_NAME", "columnIndex":"3"}' />
+								</customData>
+								<Text text="Name" />
+							</Column>
+							<Column popinDisplay="Inline" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "START_TIME", "leadingProperty":"START_TIME","columnIndex":"4"}' />
+								</customData>
+								<Text text="Started At" />
+							</Column>
+							<!-- <Column popinDisplay="Inline" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "END_TIME", "leadingProperty":"","columnIndex":"4","sortProperty": "START_TIME","filterProperty":"START_TIME", "type": "String"}' />
+								</customData>
+								<Text text="Completed At" />
+							</Column> -->
+							<Column popinDisplay="Inline" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "DURATION", "columnIndex":"5"}' />
+								</customData>
+								<Text text="Duration" />
+							</Column>
+							<Column popinDisplay="Inline" width="13%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "STATUS", "leadingProperty":"STATUS","columnIndex":"6"}' />
+								</customData>
+								<Text text="Status" />
+							</Column>
+							<Column popinDisplay="Inline" width="13%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "EXIT_CODE", "leadingProperty":"EXIT_CODE","columnIndex":"7"}' />
+								</customData>
+								<Text text="Exit Status" />
+							</Column>
+							<Column width="7rem" popinDisplay="Block" demandPopin="false" hAlign="Center">
+								<customData>
+									<core:CustomData key="p13nData" value='\{"columnKey": "action", "columnIndex":"10"}' />
+								</customData>
+								<Text text="Actions" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active">
+								<cells>
+									<Text text="{JOB_EXECUTION_ID}" />
+									<Text text="{JOB_INSTANCE_ID}" />
+									<Text text="{JOB_INSTANCE/JOB_NAME}" />
+									<Text text="{ path: 'START_TIME', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium'}}" />
+									<!-- <Text text="{ path: 'END_TIME', type: 'sap.ui.model.type.DateTime', formatOptions: { style: 'medium'}}" /> -->
+									<Text text="{parts: [ { path : 'START_TIME' } , { path : 'END_TIME'} ], formatter : '.formatter.batchDuration'}" />
+									<ObjectStatus  inverted="true" text="{STATUS}" icon="{path: 'STATUS', formatter : '.formatter.batchStateIcon'}" state="{path: 'STATUS', formatter : '.formatter.batchState'}" />
+									<ObjectStatus  inverted="true" text="{EXIT_CODE}" icon="{path: 'EXIT_CODE', formatter : '.formatter.batchStateIcon'}" state="{path: 'EXIT_CODE', formatter : '.formatter.batchState'}" />
+									<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+										<HBox>
+											<Button type="Transparent" press="onStop" icon="sap-icon://stop" iconFirst="true" visible="{parts: [ { path : 'STATUS' } , { path : 'EXIT_CODE'} ], formatter : '.formatter.batchStopAction'}"/>
+											<Button type="Transparent" press="onRestart" icon="sap-icon://restart" iconFirst="true" visible="{parts: [ { path : 'STATUS' } , { path : 'EXIT_CODE'} ], formatter : '.formatter.batchRestartAction'}" />
+										</HBox>
+										<Button type="Transparent" press="onObjectShow" icon="sap-icon://navigation-right-arrow" iconFirst="true" visible="true" />
+									</FlexBox>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</smarttable:SmartTable>
+			</VBox>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

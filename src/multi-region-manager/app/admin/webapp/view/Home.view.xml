@@ -1,0 +1,81 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.Home"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage id="page" showFooter="false">
+		<!-- Content -->
+		<semantic:content>
+			<Panel headerText="Home">
+				<content>
+					<VBox>
+
+						<Table id="table" items="{/}" width="auto" growing="true" growingThreshold="10">
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<Title text="Multi-Region Service status" level="H2"/>
+										<ToolbarSpacer />
+										<Button icon="sap-icon://refresh" tooltip="Refresh" press="onRefresh" />
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column popinDisplay="Inline" width="20%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "serviceName", "columnIndex":"1"}' />
+									</customData>
+									<Text text="Service Name" />
+								</Column>
+								<Column popinDisplay="Inline" width="15%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "activeRegionName", "columnIndex":"2"}' />
+									</customData>
+									<Text text="Active Region" />
+								</Column>
+								<Column popinDisplay="Inline" width="15%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "standByRegionName", "columnIndex":"2"}' />
+									</customData>
+									<Text text="Standby Region" />
+								</Column>
+								<Column popinDisplay="Inline" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "pendingMessage", "columnIndex":"4"}' />
+									</customData>
+									<Text text="Comments" />
+								</Column>
+								<Column popinDisplay="Inline" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<Text text="" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Active">
+									<cells>
+										<Text text="{serviceName}" />
+										<Text text="{activeRegionName}" />
+										<Text text="{standByRegionName}" />
+										<ObjectStatus class="sapUiSmallMarginBottom" text="{comments}" state="{status}" />
+										<Button text="More details" press="onMoreDetails" visible="{path: 'serviceKey',formatter: '.formatter.moreDetailsVisible' }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+
+						<!-- <FormattedText htmlText='&lt;p&gt;
+						As part of the manual switchover process, it is essential to check the following areas before proceeding with the next steps.
+						&lt;/p&gt;'/>
+											
+							<Button text="SAP HANA Cloud Replication status" press="onRtrReplication"/>
+							<Button text="SAP AEM Replication status" press="onAemReplication"/>
+
+							<FormattedText htmlText='&lt;p&gt;
+							&lt;strong&gt;Note:&lt;/strong&gt; Certain iFlows initiated asynchronously need to be manually deployed or undeployed. Use the &lt;strong&gt; Cloud Integration -> Deploy / Undeply artifacts &lt;/strong&gt; option to manage these iFlows and monitor the status &lt;/p&gt;'/>
+							<Button text="SAP Cloud Integration - iFlow running status" press="onIflowStatus"/> -->
+					</VBox>
+				</content>
+			</Panel>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

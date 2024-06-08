@@ -1,0 +1,147 @@
+---
+spring:
+  config.activate.on-profile: default
+  web.resources.static-locations: "file:./app"
+  h2.console.enabled: false
+  regions:
+    primary: ${vcap.services.multi-region-manager-ups.credentials.region_primary_name}
+    secondary: ${vcap.services.multi-region-manager-ups.credentials.region_secondary_name}
+  datasource:
+    primary:
+      driverClassName: com.sap.db.jdbc.Driver
+      url: ${vcap.services.multi-region-manager-ups.credentials.db_primary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.db_primary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.db_primary_password}
+      schema: ${vcap.services.multi-region-manager-ups.credentials.db_primary_schema}
+      initialization-mode: never
+      hikari:
+        maximum-pool-size: 10      
+    secondary:
+      driverClassName: com.sap.db.jdbc.Driver
+      url: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_password}
+      schema: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_schema}
+      initialization-mode: never
+      hikari:
+        maximum-pool-size: 10 
+    batch:
+      driverClassName: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_driverClassName}
+      url: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_password}
+      initialization-mode: never
+      hikari:
+        maximum-pool-size: 10 
+  sql.init.platform: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_platform}
+  remotesource: ${vcap.services.multi-region-manager-ups.credentials.db_remotesource}
+  cloudintegration:
+    package_ids: ${vcap.services.multi-region-manager-ups.credentials.ci_package_ids}
+    primary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.ci_primary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.ci_primary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.ci_primary_password}
+    secondary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.ci_secondary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.ci_secondary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.ci_secondary_password}
+  aem:
+    primary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.aem_primary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.aem_primary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.aem_primary_password}
+      vpn: ${vcap.services.multi-region-manager-ups.credentials.aem_vpn}
+    secondary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.aem_secondary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.aem_secondary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.aem_secondary_password}
+      vpn: ${vcap.services.multi-region-manager-ups.credentials.aem_vpn}
+  azure:
+    client_id: ${vcap.services.multi-region-manager-ups.credentials.azure_client_id}
+    client_secret: ${vcap.services.multi-region-manager-ups.credentials.azure_client_secret}
+    tenant_id: ${vcap.services.multi-region-manager-ups.credentials.azure_tenant_id}
+    subscription_id: ${vcap.services.multi-region-manager-ups.credentials.azure_subscription_id}
+    tm_resource_group: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_resource_group}
+    tm_profile_name: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_profile_name}
+    tm_endpoint_primary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_endpoint_primary}
+    tm_endpoint_secondary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_endpoint_secondary}
+    tm_alert_primary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_alert_primary}    
+    tm_alert_secondary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_alert_secondary}  
+cds:
+  datasource:
+    auto-config.enabled: false
+management.endpoints.web.exposure.include: "*"
+---
+spring:
+  config.activate.on-profile: cloud
+  web.resources.static-locations: "file:./app"
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"  
+  regions:
+    primary: ${vcap.services.multi-region-manager-ups.credentials.region_primary_name}
+    secondary: ${vcap.services.multi-region-manager-ups.credentials.region_secondary_name}
+  datasource:
+    primary:
+      driverClassName: com.sap.db.jdbc.Driver
+      url: ${vcap.services.multi-region-manager-ups.credentials.db_primary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.db_primary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.db_primary_password}
+      schema: ${vcap.services.multi-region-manager-ups.credentials.db_primary_schema}
+      initialization-mode: never
+      hikari:
+        maximum-pool-size: 10      
+    secondary:
+      driverClassName: com.sap.db.jdbc.Driver
+      url: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_password}
+      schema: ${vcap.services.multi-region-manager-ups.credentials.db_secondary_schema}
+      initialization-mode: never
+      hikari:
+        maximum-pool-size: 10 
+    batch:
+      driverClassName: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_driverClassName}
+      url: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_password}
+      schema: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_schema}
+      initialization-mode: never
+      hikari:
+        maximum-pool-size: 10
+  sql.init.platform: ${vcap.services.multi-region-manager-ups.credentials.db_mrm_platform}
+  remotesource: ${vcap.services.multi-region-manager-ups.credentials.db_remotesource}
+  cloudintegration:
+    package_ids: ${vcap.services.multi-region-manager-ups.credentials.ci_package_ids}
+    primary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.ci_primary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.ci_primary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.ci_primary_password}
+    secondary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.ci_secondary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.ci_secondary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.ci_secondary_password}
+  aem:
+    primary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.aem_primary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.aem_primary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.aem_primary_password}
+      vpn: ${vcap.services.multi-region-manager-ups.credentials.aem_vpn}
+    secondary:
+      url: ${vcap.services.multi-region-manager-ups.credentials.aem_secondary_url}
+      username: ${vcap.services.multi-region-manager-ups.credentials.aem_secondary_username}
+      password: ${vcap.services.multi-region-manager-ups.credentials.aem_secondary_password}
+      vpn: ${vcap.services.multi-region-manager-ups.credentials.aem_vpn}
+  azure:
+    client_id: ${vcap.services.multi-region-manager-ups.credentials.azure_client_id}
+    client_secret: ${vcap.services.multi-region-manager-ups.credentials.azure_client_secret}
+    tenant_id: ${vcap.services.multi-region-manager-ups.credentials.azure_tenant_id}
+    subscription_id: ${vcap.services.multi-region-manager-ups.credentials.azure_subscription_id}
+    tm_resource_group: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_resource_group}
+    tm_profile_name: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_profile_name}
+    tm_endpoint_primary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_endpoint_primary}
+    tm_endpoint_secondary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_endpoint_secondary}
+    tm_alert_primary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_alert_primary}    
+    tm_alert_secondary: ${vcap.services.multi-region-manager-ups.credentials.azure_tm_alert_secondary}    

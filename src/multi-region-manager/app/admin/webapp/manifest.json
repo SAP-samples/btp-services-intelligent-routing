@@ -1,0 +1,272 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.sap.region.manager.ui",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			],
+			"fallbackLocale": ""
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"resources": "resources.json",
+		"dataSources": {
+			"mainService": {
+				"uri": "/odata/v2/batch/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"configService": {
+				"uri": "/api/config",
+				"type": "JSON"
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklistmodule",
+			"version": "1.81.1"
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"intent1": {
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"semanticObject": "aatp",
+					"action": "forecast",
+					"title": "Forecast",
+					"icon": "sap-icon://accounting-document-verification"
+				}
+			}
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.sap.region.manager.ui.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.66.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ushell": {},
+				"sap.ui.table": {},
+				"sap.ui.comp": {},
+				"sap.ui.unified": {},
+				"sap.collaboration": {
+					"lazy": true
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.sap.region.manager.ui.i18n.i18n",
+					"supportedLocales": [
+						""
+					],
+					"fallbackLocale": ""
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			},
+			"config": {
+				"dataSource": "configService",
+				"preload": true
+			}
+			
+		},
+		"services": {
+			"ShellUIService": {
+				"factoryName": "sap.ushell.ui5service.ShellUIService",
+				"lazy": false,
+				"settings": {
+					"setTitle": "auto"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.region.manager.ui.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "home",
+					"target": [
+						"home"
+					]
+				},
+				{
+					"pattern": "jobList",
+					"name": "jobList",
+					"target": [
+						"jobList"
+					]
+				},
+				{
+					"pattern": "hanaMonitorReplication",
+					"name": "hanaMonitorReplication",
+					"target": [
+						"hanaMonitorReplication"
+					]
+				},
+				{
+					"pattern": "aemMonitorReplication",
+					"name": "aemMonitorReplication",
+					"target": [
+						"aemMonitorReplication"
+					]
+				},
+				{
+					"pattern": "ciMonitorArtifacts",
+					"name": "ciMonitorArtifacts",
+					"target": [
+						"ciMonitorArtifacts"
+					]
+				},
+				{
+					"pattern": "monitorOverview",
+					"name": "monitorOverview",
+					"target": [
+						"monitorOverview"
+					]
+				},
+				{
+					"pattern": "hanaPerformance",
+					"name": "hanaPerformance",
+					"target": [
+						"hanaPerformance"
+					]
+				},
+				{
+					"pattern": "allPerformance",
+					"name": "allPerformance",
+					"target": [
+						"allPerformance"
+					]
+				},
+				{
+					"pattern": "job/{id}",
+					"name": "job",
+					"target": [
+						"job"
+					]
+				},
+				{
+					"pattern": "step/{id}",
+					"name": "step",
+					"target": [
+						"step"
+					]
+				},
+				{
+					"pattern": "api/{message}",
+					"name": "api",
+					"target": [
+						"api"
+					]
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewId": "home",
+					"viewLevel": 1
+				},
+				"jobList": {
+					"viewName": "batch/JobList",
+					"viewId": "jobList",
+					"viewLevel": 1,
+					"title": "{i18n>jobListViewTitle}"
+				},
+				"job": {
+					"viewName": "batch/Job",
+					"viewId": "job",
+					"viewLevel": 2,
+					"title": "{i18n>jobViewTitle}"
+				},
+				"step": {
+					"viewName": "batch/Step",
+					"viewId": "step",
+					"viewLevel": 2,
+					"title": "{i18n>stepViewTitle}"
+				},
+				"notFound": {
+					"viewName": "common/NotFound",
+					"viewId": "notFound"
+				},
+				"hanaMonitorReplication": {
+					"viewName": "monitor/HanaMonitorReplication",
+					"viewId": "hanaMonitorReplication",
+					"viewLevel": 1,
+					"title": "{i18n>jobListViewTitle}"
+				},
+				"aemMonitorReplication": {
+					"viewName": "monitor/AemMonitorReplication",
+					"viewId": "aemMonitorReplication",
+					"viewLevel": 1,
+					"title": "{i18n>jobListViewTitle}"
+				},
+				"ciMonitorArtifacts": {
+					"viewName": "monitor/CIMonitorArtifacts",
+					"viewId": "ciMonitorArtifacts",
+					"viewLevel": 1,
+					"title": "{i18n>jobListViewTitle}"
+				},
+				"monitorOverview": {
+					"viewName": "monitor/MonitorOverview",
+					"viewId": "monitorOverview",
+					"viewLevel": 1,
+					"title": "{i18n>jobListViewTitle}"
+				},
+				"hanaPerformance": {
+					"viewName": "performance/HanaPerformance",
+					"viewId": "hanaPerformance",
+					"viewLevel": 1,
+					"title": "{i18n>jobListViewTitle}"
+				},
+				"allPerformance": {
+					"viewName": "performance/AllPerformance",
+					"viewId": "allPerformance",
+					"viewLevel": 1,
+					"title": "{i18n>jobListViewTitle}"
+				},
+				"api": {
+					"viewName": "common/Api",
+					"viewId": "api"
+				}
+			}
+		}
+	}
+}

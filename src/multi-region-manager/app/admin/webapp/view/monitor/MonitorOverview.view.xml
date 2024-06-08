@@ -1,0 +1,43 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.monitor.MonitorOverview"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage id="page" showFooter="false">
+		<!-- Content -->
+		<semantic:content>
+			<Panel headerText="Monitoring">
+				<content>
+					<VBox>
+						<FormattedText htmlText='&lt;p&gt;
+						Multi-region High Availability (HA) monitoring is a critical practice for ensuring that applications and services remain available and performant across different geographic locations. This involves continuously tracking the health, performance, and  data consistency of systems deployed in multiple regions
+						&lt;/p&gt;'/>
+
+						<FormattedText htmlText='&lt;p&gt;
+						As part of the manual switchover process, it is essential to check the following areas before proceeding with the next steps.
+						&lt;/p&gt;'/>
+						<Button text="SAP HANA Cloud Replication status" press="onRtrReplication"/>
+						<Button text="SAP AEM Replication status" press="onAemReplication"/>
+						<FormattedText htmlText='&lt;p&gt;
+							&lt;strong&gt;Note:&lt;/strong&gt; Certain iFlows initiated asynchronously need to be manually deployed or undeployed. Use the &lt;strong&gt; Cloud Integration -> Deploy / Undeply artifacts &lt;/strong&gt; option to manage these iFlows and monitor the status &lt;/p&gt;'/>
+						<Button text="SAP Cloud Integration - iFlow running status" press="onIflowStatus"/>
+
+
+
+						<!-- <FormattedText htmlText='&lt;p&gt;
+						As part of the manual switchover process, it is essential to check the following areas before proceeding with the next steps.
+						&lt;/p&gt;'/>
+											
+							<Button text="SAP HANA Cloud Replication status" press="onRtrReplication"/>
+							<Button text="SAP AEM Replication status" press="onAemReplication"/>
+
+							<FormattedText htmlText='&lt;p&gt;
+							&lt;strong&gt;Note:&lt;/strong&gt; Certain iFlows initiated asynchronously need to be manually deployed or undeployed. Use the &lt;strong&gt; Cloud Integration -> Deploy / Undeply artifacts &lt;/strong&gt; option to manage these iFlows and monitor the status &lt;/p&gt;'/>
+							<Button text="SAP Cloud Integration - iFlow running status" press="onIflowStatus"/> -->
+					</VBox>
+				</content>
+			</Panel>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

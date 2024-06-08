@@ -1,0 +1,14 @@
+{
+    "build": {
+        "target": "."
+    },
+    "requires": {
+        "[production]": {
+            "auth": "xsuaa"
+        }
+    },
+    "cdsc": { "fewerLocalizedViews": true } ,
+    "odata": {
+		"version": "v2"
+	}
+}

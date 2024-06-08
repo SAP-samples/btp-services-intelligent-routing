@@ -1,0 +1,63 @@
+_schema-version: '3.1'
+ID: multi-region-manager
+version: 1.0.0-SNAPSHOT
+description: "Multi-region Switch CAP Application."
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: multi-region-manager-srv
+    type: java
+    path: srv
+    parameters:
+      buildpack: sap_java_buildpack
+    properties:
+      SPRING_PROFILES_ACTIVE: cloud,sandbox
+      JBP_CONFIG_COMPONENTS: "jres: ['com.sap.xs.java.buildpack.jre.SAPMachineJRE']"
+      JBP_CONFIG_SAP_MACHINE_JRE: '{ use_offline_repository: false, version: 17.+ }'
+      PERFORMANCE_TRACE: 'false'
+      PERFORMANCE_TRACE_REGION: 'EU10 AND EU20'
+    build-parameters:
+      builder: custom
+      commands:
+        - mvn clean package -DskipTests=true
+      build-result: target/*-exec.jar
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: multi-region-manager-ups
+      - name: multi-region-manager-uaa
+  - name: multi-region-manager
+    type: approuter.nodejs
+    path: app/ # from cds.env.folders. Consider also cds.env.build.target -> gen/app
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: multi-region-manager-uaa
+    provides:
+      - name: app-api
+        properties:
+          url: ${default-url}
+resources:
+  - name: multi-region-manager-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+      config:
+        xsappname: multi-region-manager-${org}-${space}
+        tenant-mode: dedicated
+  - name: multi-region-manager-ups
+    type: org.cloudfoundry.user-provided-service
+    parameters:
+      path: ./ups.json

@@ -1,0 +1,13 @@
+specVersion: "3.0"
+metadata:
+  name: sap-f-sample--shell-bar-with-split-app
+type: application
+framework:
+  name: SAPUI5
+  version: "1.122.0"
+  libraries:
+    - name: themelib_sap_horizon
+    - name: sap.f
+    - name: sap.m
+    - name: sap.tnt
+    - name: sap.ui.core

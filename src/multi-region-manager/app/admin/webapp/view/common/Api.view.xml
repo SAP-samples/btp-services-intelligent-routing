@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="com.sap.region.manager.ui.controller.common.Api"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<MessagePage
+		title="Background job"
+		text=""
+		icon="sap-icon://in-progress"
+		id="page"
+		description="">
+		<customDescription>
+			<Link id="link" text="{i18n>backToHome}" press=".onLinkPressed"/>
+		</customDescription>
+	</MessagePage>
+
+</mvc:View>

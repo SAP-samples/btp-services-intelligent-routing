@@ -1,0 +1,57 @@
+{
+    "xsappname": "multi-region-manager",
+    "tenant-mode": "dedicated",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.mrm-user",
+            "description": "Hana mrm User"
+        },
+        {
+            "name": "$XSAPPNAME.mrm-admin",
+            "description": "Hana mrm Admin"
+        }
+    ],
+    "attributes": [],
+    "role-templates": [
+        {
+            "name": "mrm-user",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.mrm-user"
+            ],
+            "attribute-references": []
+        },
+        {
+            "name": "mrm-admin",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.mrm-admin"
+            ],
+            "attribute-references": []
+        }
+    ],
+    "role-collections": [
+        {
+            "description": "MRM User",
+            "name": "MRM User",
+            "role-template-references": [
+                "$XSAPPNAME.mrm-user"
+            ]
+        },
+        {
+            "description": "MRM admin",
+            "name": "MRM admin",
+            "role-template-references": [
+                "$XSAPPNAME.mrm-admin"
+            ]
+        }
+    ],
+    "authorities-inheritance": false,
+	"oauth2-configuration": {
+        "redirect-uris": [
+            "https://*.eu10-004.hana.ondemand.com/**",
+            "https://*.us20.hana.ondemand.com/**",
+            "https://*.eu20-001.hana.ondemand.com/**"
+        ]
+    }    
+}

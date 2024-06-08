@@ -1,0 +1,119 @@
+{
+	"selectedKey": "page2",
+	"navigation": [
+		{
+			"title": "Home",
+			"icon": "sap-icon://home",
+			"key": "home"
+		},
+		{
+			"title": "Region Change Activities ",
+			"icon": "sap-icon://activities",
+			"key": "job"
+		},
+		{
+			"title": "Manual Switchover",
+			"icon": "sap-icon://switch-views",
+			"expanded": true,
+			"key": "switch",
+			"items": [
+				{
+					"title": "01. Stop operations",
+					"key": "stopAllOperations"
+				},	
+				{
+					"title": "02. Monitoring",
+					"key": "monitorOverview"
+				},			
+				{
+					"title": "03. Switch region",
+					"key": "switchRegion"
+				},
+				{
+					"title": "04. Start operations",
+					"key": "startAllOperations"
+				},
+				{
+					"title": "05. Start replication",
+					"key": "startReplication"
+				}				
+			]
+		},{
+			"title": "Traffic Manager",
+			"icon": "sap-icon://bus-public-transport",
+			"expanded": false,
+			"key": "traffic",
+			"items": [
+				{
+					"title": "Change routing",
+					"key": "tmRoutingPriority"
+				},				
+				{
+					
+					"title": "Enable / Disable endpoints",
+					"key": "tmAllRoutingChange"
+				}
+			]
+		},{
+			"title": "Hana Cloud",
+			"icon": "sap-icon://cloud",
+			"expanded": false,
+			"key": "hana",
+			"items": [
+				{
+					"title": "Change replication",
+					"key": "hanaRemoteSubscription"
+				},
+				{
+					"title": "Monitor replication",
+					"key": "hanaMonitorReplication"
+				}				
+			]
+		},{
+			"title": "Advanced Event Mesh",
+			"icon": "sap-icon://instance",
+			"expanded": false,
+			"key": "aem",
+			"items": [
+				{
+					"title": "Change replication",
+					"key": "aemReplicationRoleChange"
+				},				
+				{
+					"title": "Monitor replication",
+					"key": "aemMonitorReplication"
+				}
+			]
+		},{
+			"title": "Cloud Integration",
+			"icon": "sap-icon://connected",
+			"expanded": false,
+			"key": "ci",
+			"items": [
+				{
+					"title": "Deploy / Undeploy artifacts",
+					"key": "ciArtifacts"
+				},
+				{
+					"title": "Monitor artifacts",
+					"key": "ciMonitorArtifacts"
+				}				
+			]
+		},{
+			"title": "Performance",
+			"icon": "sap-icon://chart-table-view",
+			"expanded": false,
+			"key": "performance",
+			"items": [
+				{
+					"title": "Overview",
+					"key": "allPerformance"
+				},
+				{
+					"title": "SDA performance",
+					"key": "hanaPerformance"
+				}				
+			]
+		}
+	]
+}

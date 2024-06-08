@@ -1,0 +1,73 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.monitor.HanaMonitorReplication"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:filterbar="sap.ui.comp.filterbar"
+	xmlns:smarttable="sap.ui.comp.smarttable"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage id="page" showFooter="false">
+		<!-- Content -->
+		<semantic:content>
+			<IconTabBar select="onFilterSelect" items="{config>/regionNames}" backgroundDesign="Translucent">
+				<items>
+					<IconTabFilter text="{config>value}" key="{config>key}"/>
+				</items>
+				<content>
+					<smarttable:SmartTable class="sapUiSmallMargin" id="repSmartTable" entitySet="/" initialNoDataText="{oViewModel>/tableNoDataText}" header="Replication Status" useTablePersonalisation="true" enableAutoBinding="true" useExportToExcel="false" demandPopin="true" beforeRebindTable="onRebindInvTable" ignoreFromPersonalisation="" requestAtLeastFields="JOB_EXECUTION_ID,JOB_INSTANCE_ID,START_TIME,END_TIME,STATUS,EXIT_CODE,JOB_INSTANCE/JOB_NAME">
+						<smarttable:customToolbar>
+							<OverflowToolbar >
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://refresh" tooltip="Refresh" press="onRefresh" />
+							</OverflowToolbar>
+						</smarttable:customToolbar>
+						<Table id="table" width="auto" noDataText="{oViewModel>/tableNoDataText}" busyIndicatorDelay="{oViewModel>/tableBusyDelay}" growing="true" growingThreshold="10" growingScrollToLoad="true" updateStarted="onUpdateStarted" updateFinished=".onUpdateFinished">
+							<columns>
+								<Column popinDisplay="Inline" width="20%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "sourceTable","maxLength": "5", "columnIndex":"1","sortProperty": "sourceTable","filterProperty":"sourceTable"}' />
+									</customData>
+									<Text text="Primary Region Tables" />
+								</Column>
+								<Column popinDisplay="Inline" width="20%" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "Replication","maxLength": "5", "columnIndex":"2","sortProperty": "Replication","filterProperty":"Replication"}' />
+									</customData>
+									<Text text="Replication" />
+								</Column>
+								<Column popinDisplay="Inline" width="20%" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "replicationTable", "maxLength": "10","columnIndex":"3","sortProperty": "replicationTable","filterProperty":"replicationTable", "type": "String"}' />
+									</customData>
+									<Text text="Secondary Region Tables" />
+								</Column>
+								<Column popinDisplay="Inline" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "START_TIME", "maxLength": "10","columnIndex":"4","sortProperty": "START_TIME","filterProperty":"START_TIME", "type": "String"}' />
+									</customData>
+									<Text text="Received Message" />
+								</Column>
+								<Column popinDisplay="Inline" minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+									<customData>
+										<core:CustomData key="p13nData" value='\{"columnKey": "END_TIME", "maxLength": "10","columnIndex":"4","sortProperty": "START_TIME","filterProperty":"START_TIME", "type": "String"}' />
+									</customData>
+									<Text text="Applied Message" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Active">
+									<cells>
+										<Text text="{sourceTable}" />
+										<ObjectStatus icon="{parts: [{path: 'replicationEnabled'},{path: 'region'}], formatter : '.formatter.repStateIcon'}"/>
+										<Text text="{replicationTable}" />
+										<Text text="{messageStatus/receivedMessageCount}" />
+										<Text text="{messageStatus/appliedMessageCount}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</smarttable:SmartTable>
+				</content>
+			</IconTabBar>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

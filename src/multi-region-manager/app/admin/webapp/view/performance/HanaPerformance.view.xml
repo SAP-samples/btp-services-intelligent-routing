@@ -1,0 +1,21 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.performance.HanaPerformance"
+	xmlns="sap.suite.ui.commons"
+	xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage id="page" showFooter="false">
+		<!-- Content -->
+		<semantic:content>
+			<ChartContainer id="sda" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" showSelectionDetails="true">
+				<dimensionSelectors>
+					<m:Select id="dimensionSelector" change="handleSelectionChange"></m:Select>
+				</dimensionSelectors>
+				<customIcons>
+					<core:Icon src="sap-icon://refresh"  press="onRefresh"></core:Icon>
+				</customIcons>
+			</ChartContainer>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

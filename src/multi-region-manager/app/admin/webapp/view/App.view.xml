@@ -1,0 +1,33 @@
+<mvc:View controllerName="com.sap.region.manager.ui.controller.App" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt"
+	xmlns:mvc="sap.ui.core.mvc">
+	<!-- <App id="app" busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}"/> -->
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<f:ShellBar title="{i18n>appTitle}" secondTitle="" showMenuButton="true" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png" showNavButton="true" navButtonPressed="navBack" showCopilot="true" showNotifications="false" menuButtonPressed="onMenuButtonPress" notificationsNumber="2">
+				<!-- <f:menu>
+					<Menu>
+						<MenuItem text="Flight booking" icon="sap-icon://flight" />
+						<MenuItem text="Car rental" icon="sap-icon://car-rental" />
+					</Menu>
+				</f:menu> -->
+				<f:profile>
+					<Avatar initials="MRM"/>
+				</f:profile>
+				<f:searchManager>
+					<f:SearchManager/>
+				</f:searchManager>
+			</f:ShellBar>
+		</tnt:header>
+		<tnt:sideContent>
+			<core:Fragment fragmentName="com.sap.region.manager.ui.view.fragment.SideBar" type="XML" />
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="app">
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>
