@@ -60,8 +60,8 @@ Having delved into the concepts of state replication using HANA and Asynchronous
 
 ## 4. Demo
 #### Manual Switchover 
-https://media.github.tools.sap/user/36702/files/f793d031-9b98-43e1-a07c-841ead35f849
 
+https://github.com/SAP-samples/btp-services-intelligent-routing/assets/1583418/bbab1d5a-2c7b-48fc-8b33-5132622942a8
 
 ## Performance
 
