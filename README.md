@@ -4,26 +4,32 @@
 
 ## Description
 
-Critical business use cases built on SAP BTP need to be highly available and responsive. While availability zones help with disruptions in a single region, application developers and administrators are responsible for availability and stability in cases of regional outage or application upgrades. This scenario demonstrates techniques for load balancing, failover, and latency reduction of SAP BTP services, such as SAP Launchpad and SAP Cloud Integration, with Hyperscaler traffic management solutions like Azure Traffic Manager & Amazon Route 53.
+As the adoption of SAP BTP services grows and they become integral to essential business operations, customers are progressing through the platform maturity spectrum, incorporating SAP BTP services into their vital business scenarios. It is acknowledged that SAP BTP services come with built-in multi-AZ resiliency features.
+
+Nevertheless, to enhance the robustness of their solutions, many customers have expressed interest in a multi-region setup of SAP BTP services and use cases. This approach involves geographic redundancy and the use of a load balancer to ensure that, should one region face downtime, the load balancer promptly identifies the problem and reroutes requests to a functioning region, thus maintaining uninterrupted business continuity.
 
 ### Challenge
-A lack of automatic failover, especially for critical business scenarios, can be damaging to your business. If users are located in diverse geographies, latency will also increase if services are restored in a single region.
+A lack of automatic failover, especially for critical business scenarios, can be damaging to your business if the complete region is unavailable. If users are located in diverse geographies, latency will also increase if services are restored in a single region.
 
 ### Solution
-Use your own domain for SAP BTP services, extensions, and integrations endpoints using the SAP Custom Domain Service. Configure Hyperscaler traffic management solutions such as Azure Traffic Manager and apply different profiles to decouple connection information.
+Use your own domain for SAP BTP services, extensions, and integrations endpoints using the SAP Custom Domain Service. Configure Hyperscaler traffic management solutions such as Azure Traffic Manager and apply different profiles to decouple connection information. This allows routing of the traffic to the healthy region.
 
 ### Outcome
 A cloud-native integration pattern that incorporates SAP BTP and Hyperscaler services eliminates downtime, reduces global latency, and increases throughput.
 
 ### Implementations
 
-#### [Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_azure)
+#### [Stateless Scenario - Multi-Region High Availability for SAP Cloud Integration using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_azure)
 
 In this scenario, you will learn how to achieve the high availability of a Cloud Integration flow built by a customer using SAP Custom Domain service & Azure traffic manager. 
 
-#### [Multi-region High Availability for SAP Launchpad service on SAP BTP using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/launchpad_azure)
+#### [Stateless Scenario - Multi-region High Availability for SAP Work Zone, standard edtion using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/launchpad_azure)
 
-This scenario will be similar to the above one, but here we will achieve the high availability of the SAP Launchpad service, a SaaS application managed by SAP.
+This scenario will be similar to the above one, but here we will achieve the high availability of the SAP Build Work Zone, standard service, a SaaS application managed by SAP.
+
+#### [Stateful & Event Replication Scenario - Multi-region High Availability for SAP Cloud Integration using SAP HANA Cloud, SAP Advanced Event Mesh & Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_stateful_azure)
+
+In a stateful scenario, SAP Cloud Integration flows needs the data to be replicated across regions for it's own internal state storage or to store any documents. On the other hand, JMS queues, which are specific to a region can also be replaced with the SAP Advanced Event Mesh, making use of it's DR replication bridge.
 
 ## How to obtain support
 [Create an issue](https://github.com/SAP-samples/btp-services-intelligent-routing/issues) in this repository if you find a bug or have questions about the content.
