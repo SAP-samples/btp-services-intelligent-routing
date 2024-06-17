@@ -27,7 +27,7 @@ In this scenario, you will learn how to achieve the high availability of a Cloud
 
 This scenario will be similar to the above one, but here we will achieve the high availability of the SAP Build Work Zone, standard service, a SaaS application managed by SAP.
 
-#### [Stateful & Event Replication Scenario - Multi-region High Availability for SAP Cloud Integration using SAP HANA Cloud, SAP Advanced Event Mesh & Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_stateful_azure)
+#### [State & Event Replication Scenario - Multi-region High Availability for SAP Cloud Integration using SAP HANA Cloud, SAP Advanced Event Mesh & Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_stateful_azure)
 
 In a stateful scenario, SAP Cloud Integration flows needs the data to be replicated across regions for it's own internal state storage or to store any documents. On the other hand, JMS queues, which are specific to a region can also be replaced with the SAP Advanced Event Mesh, making use of it's DR replication bridge.
 
