@@ -17,7 +17,7 @@ Use your own domain for SAP BTP services, extensions, and integrations endpoints
 ### Outcome
 A cloud-native integration pattern that incorporates SAP BTP and Hyperscaler services eliminates downtime, reduces global latency, and increases throughput.
 
-**Note**: Our evaluations showcased in the below implementations offers an architectural viewpoint on Disaster Recovery strategies that incorporate certain SAP BTP services, alongside hyperscaler services like Azure Traffic Manager or AWS Route 53. This also constitutes one of the potential methodologies for overseeing stateful failovers. It's important to note that this evaluation, the proposed architecture, and the Proof of Concept (PoC) are not part of a standard support package or a production-grade solution. Additionally, they do not cover the assessment of specific customer needs or bespoke use cases.
+> **Note**: Our evaluations showcased in the below implementations offers an architectural viewpoint on Disaster Recovery strategies that incorporate certain SAP BTP services, alongside hyperscaler services like Azure Traffic Manager or AWS Route 53. This also constitutes one of the potential methodologies for overseeing stateful failovers. It's important to note that this evaluation, the proposed architecture, and the Proof of Concept (PoC) are not part of a standard support package or a production-grade solution. Additionally, they do not cover the assessment of specific customer needs or bespoke use cases.
 
 ### Implementations
 
