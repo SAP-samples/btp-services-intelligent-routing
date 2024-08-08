@@ -17,7 +17,7 @@ But an AZ setup might not work in few case like if there is a Natural disaster, 
 
 In such cases, to achieve better fault-tolerance, it is recommended to deploy applications and configure services in multiple regions.
 
-![Launchpad service High Availability using AWS Route 53](./images/HA%20Solution%20Diagram.png)
+![Launchpad service High Availability using AWS Route 53](./images/architecture.png)
 
 In this mission, you will learn how to handle the scenarios described above for the SAP Launchpad service on SAP Business Technology Platform, which serves SAP Fiori Apps federated from SAP S/4HANA systems or alike. The same can be achieved for other SAP BTP services as well. In this scenario, you will leverage AWS Route 53 to route requests to the SAP Launchpad service in different subaccounts in different regions based on the configurations, which can be priority-based, performance-based, weighted or geo-based.
 
