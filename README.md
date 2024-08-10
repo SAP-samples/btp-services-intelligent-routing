@@ -21,6 +21,8 @@ A cloud-native integration pattern that incorporates SAP BTP and Hyperscaler ser
 
 ### Implementations
 
+The implementation and architecture archetypes presented leverage Microsoft Azure services to illustrate key concepts. It’s important to note that equivalent patterns can be realized using comparable offerings from other hyperscale cloud providers, such as Amazon Route 53.
+
 #### [Stateless Scenario - Multi-Region High Availability for SAP Cloud Integration using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_azure)
 
 In this scenario, you will learn how to achieve the high availability of a Cloud Integration flow built by a customer using SAP Custom Domain service & Azure traffic manager. 
