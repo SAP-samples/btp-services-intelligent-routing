@@ -38,7 +38,7 @@ What is different here from the stateful architecture is the usage of SAP HANA f
 Services required to implement this solution architecture are as follows: 
 - 2 SAP Integration Suite (Cloud Integration) tenants 
 - 2 SAP HANA Cloud Service instances
-- 2 SAP Advanced Event Mesh (AEM) instances with 1 Message Brokers each, which are in [DMR Cluster](https://help.pubsub.em.services.cloud.sap/Features/DMR/DMR-Overview.htm)
+- q SAP Advanced Event Mesh (AEM) instance with 1 Message Brokers in different region, which are in [DMR Cluster](https://help.pubsub.em.services.cloud.sap/Features/DMR/DMR-Overview.htm)
 - 1 HTTP/DNS based Load Balancer 
 
 ### 2.3 Architecture Deep Dive
