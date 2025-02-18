@@ -55,8 +55,7 @@ Subscriptions required in your SAP Business Technology Platform Account:
 ### [Step 2: Setup Monitoring Endpoint in SAP Cloud Integration](./02-SetupMonitoringEndpoint/README.md)
 
 ### [Step 3: Map SAP Cloud Integration routes to custom domain using SAP Custom Domain service](./03-MapCustomDomainRoutes/README.md)
-### [Step 4a: Setup Google Cloud DNS using Terraform](./04a-SetupAzureTrafficManager-Terraform/README.md) OR
-### [Step 4b: Setup Google Cloud DNS using Google Console](./04b-SetupAzureTrafficManager-Portal/README.md) 
+### [Step 4: Setup Google Cloud DNS using Google Console](./04b-SetupAzureTrafficManager-Portal/README.md) 
 
 > it's either step 4a or step 4b (not both of them)
 
