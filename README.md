@@ -1,8 +1,8 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/btp-cloud-integration-intelligent-routing)](https://api.reuse.software/info/github.com/SAP-samples/btp-cloud-integration-intelligent-routing) 
 
-# Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager
+# Intelligent Routing for SAP Cloud Integration using Google Cloud services
 
-This repository contains code samples and step by step instructions to enable *Intelligent Routing for SAP Cloud Integration using Azure Traffic Manager*. 
+This repository contains code samples and step by step instructions to enable *Intelligent Routing for SAP Cloud Integration using Google Cloud services*. 
 
 ## Description
 
@@ -12,7 +12,7 @@ Extending your SAP S/4HANA business processes with SAP Business Technology Platf
 
 Furthermore, decoupling of the connection allows scaling of the endpoints globally as close to the end-users as possible, minimizing latency, increasing up-time and performance. Different routing techniques like performance-based, availability-based, weighted, or geo-based are typically used.
 
-In this mission you will learn how to run multiple SAP Cloud Integration tenants (SAP Integration Suite) in parallel to apply the mechanisms mentioned above. Azure Traffic Manager will play a significant role in routing the traffic intelligently to different SAP Cloud Integration tenants.
+In this repository you will learn how to run multiple SAP Cloud Integration tenants (SAP Integration Suite) in parallel to apply the mechanisms mentioned above. Google Cloud DND and Monitoring Uptime checks will help in routing the traffic to different SAP Cloud Integration tenants.
 
 ### Current Position - What is the challenge?
 - Automatic Failover for SAP Cloud Integration (anticipating disaster recovery of SAP S/4HANA, or regular SAP Cloud Integration maintenance)
@@ -23,14 +23,14 @@ In this mission you will learn how to run multiple SAP Cloud Integration tenants
 A cloud native integration pattern that incorporates SAP BTP and SAP S/4HANA to eliminate downtime, reduce global latency and increase throughput. The approach can be applied to other BTP services the same way.
 ### How You Get There - What is the solution?
 - Learn about using your own domain for SAP Cloud Integration runtime endpoints using the SAP Custom Domain Service
-- Learn how to configure Azure Traffic Manager and different Azure Traffic Manager profiles to decouple connection information
+- Learn how to configure Google Cloud DNS and Uptime checks for identifing the downtimes and routing the traffic to different region
 
 ## Requirements
 The required systems and components are:
 
 - SAP BTP enterprise account
-- 2 SAP BTP subaccounts: e.g. one in EU20, one in US20 or where the ([SAP Integration Suite is available](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan))
-- A Microsoft Azure subscription
+- 2 SAP BTP subaccounts: e.g. one in EU30, one in US30 or where the ([SAP Integration Suite is available](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan))
+- A Google Cloud subscription
 - An own domain
 
 Entitlements/Quota required in your SAP Business Technology Platform Account:
@@ -55,8 +55,8 @@ Subscriptions required in your SAP Business Technology Platform Account:
 ### [Step 2: Setup Monitoring Endpoint in SAP Cloud Integration](./02-SetupMonitoringEndpoint/README.md)
 
 ### [Step 3: Map SAP Cloud Integration routes to custom domain using SAP Custom Domain service](./03-MapCustomDomainRoutes/README.md)
-### [Step 4a: Setup Azure Traffic Manager using Terraform](./04a-SetupAzureTrafficManager-Terraform/README.md) OR
-### [Step 4b: Setup Azure Traffic Manager using Azure Portal](./04b-SetupAzureTrafficManager-Portal/README.md) 
+### [Step 4a: Setup Google Cloud DNS using Terraform](./04a-SetupAzureTrafficManager-Terraform/README.md) OR
+### [Step 4b: Setup Google Cloud DNS using Google Console](./04b-SetupAzureTrafficManager-Portal/README.md) 
 
 > it's either step 4a or step 4b (not both of them)
 
@@ -67,9 +67,8 @@ Subscriptions required in your SAP Business Technology Platform Account:
 
 The Github repository is being expanded bit by bit by further steps, for example to automatically keep the security artifacts between the two productive SAP Cloud Integration tenants in sync. 
 
-Blog Post: *[How to crash your iflows and watch them failover beautifully](https://blogs.sap.com/2021/01/18/second-round-of-crashing-iflows-in-cpi-and-failing-over-with-azure-even-simpler/)* (featuring Azure Front Door) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
+Blog Post: 
 
-Blog Post: *[Second round of crashing iFlows in CPI and failing over with Azure – even simpler](https://blogs.sap.com/2020/11/23/how-to-crash-your-iflows-and-watch-them-failover-beautifully/)* (featuring Azure Traffic Manager) by [Martin Pankraz](https://people.sap.com/martin-pankraz)
 ## Known Issues
 
 None. 
