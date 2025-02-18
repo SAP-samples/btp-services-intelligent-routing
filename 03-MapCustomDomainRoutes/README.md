@@ -4,7 +4,6 @@ In this step, you will map the endpoints of the SAP Cloud Integration runtime to
 
 This way, a sender connecting to SAP Cloud Integration must not use the region-specific endpoint information of the particular SAP Cloud Integration tenants but simply uses the custom domain. 
 
-The steps below describe the process using a custom domain bought via Azure. The process for a domain coming from another domain provider should be relatively similar. 
 
 **Important:** The following steps need to be executed for both of the subaccounts running your SAP Cloud Integration subscriptions 
 
