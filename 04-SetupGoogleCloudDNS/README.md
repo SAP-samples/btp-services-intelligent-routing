@@ -1,135 +1,273 @@
+
 # Introduction
 
-In this step, you will configure Azure Traffic Manager (actually the Azure Traffic Manager profile). The Azure Traffic Manager profile is the key component in this *intelligent routing* scenario, as it defines which SAP Cloud Integration tenant should be used when, based on certain rules and policies. 
+This section will walk through some of the failover scenarios that leverage Cloud DNS for failover. In this example, `flow.gcp.saptfe-demo.com` is your custom URL that points via CNAME record to either `region1 (eu30)` or `region2 (us30)` of Cloud Integration to accept traffic in a high availability setup. 
 
-This is the alternative step to "Configure Azure Traffic Manager using terraform" - you can also configure the Azure Traffic Manager profile using terraform instead of using the Azure Portal. 
+## Manual Failover for Google Cloud DNS
+In this sub-step, you will change traffic to flow through a secondary instance.
 
-## Setup Azure Traffic Manager profile
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and log in. <br>
 
-1. Go to the [Azure Portal](http://portal.azure.com) and log in. 
+2. Navigate to  Cloud DNS, select your zone and then edit. <br>
 
-2. Search for **Traffic Manager profile** and select the corresponding item.
+![Cloud DNS](./images/11.png)
 
-    ![Azure Traffic Manager profile search using Azure Portal](./images/01.png)
+![Cloud DNS Zone](./images/01.png)
 
-3. **Create** a new Traffic Manager profile. 
+3. Change the CNAME record to point to your secondary or failover host. In the image below, the Canonical name is updated from `eu30.x.x.com` to `us30.x.x.com`
 
-    ![Azure Traffic Manager profile search using Azure Portal](./images/02.png)
-
-4. Provide a meaningful name (e.g. *cloudintegration-failover*) for the Azure Traffic Manager profile, select **Priority** as the Routing method and assign it to one of your subscriptions. If necessary, create a new Resource Group. 
-
-    ![Azure Traffic Manager profile creation details](./images/03.png)
-
-5. Continue with **Create**. 
-
-6. Wait until the deployment was succesfully finished. Select **Go to resource** to navigate to the details of the profile.
-
-    > Alternatively you can also refresh the list of all Azure Traffic Manager profiles and select the recently created Traffic Manager profile.
-
-    ![Traffic Manager profile details after deployment](./images/04.png)
-
-7. Select **Configuration** in the navigation area. 
-
-    ![Traffic Manager profile details after deployment](./images/05.png)
-
-8. <a name="tm-configuration"></a>Provide the following settings: 
-
-    - Routing method: Priority
-    - DNS time to live (TTL): 1
-    - Protocol HTTPS
-    - Port: 443
-    - Path: /http/ping
-    - Expected Status Code Range: 200-200
-    - Probing interval: 10
-    - Tolerated number of failures: 1
-    - Probe timeout: 5
-
-    ![Traffic Manager profile configuration settings](./images/06.png)
-
-    > **IMPORTANT**: Those settings enable the fatest failover that's possible based on DNS time to live & the **fast endpoint failover settings**. The more often the **monitor** endpoint (/http/ping) the higher the amount of messages the SAP Cloud Integration needs to handle. How often the monitor endpoint is called is defined by the combination of probe timeout and probing interval. Adjust the settings for your productive scenario depending on your needs. 
-
-    > Note: The path you have defined is later on used to monitor every defined endpoint in the Azure Traffic Manager profile. The exact path is then concatenated with the endpoints target that we'll define in one of the subsequent steps. **/http/ping* is the path of the REST API that you have deployed in one of the [previous exercises](../02-SetupMonitoringEndpoint/README.md#endpoint).
-
-9. Continue with **Save**.
-
-10. Select **Endpoints** in the navigation area. 
-
-    ![Traffic Manager profile configuration settings](./images/07.png)
-
-11. **Add** a new endpoint and set the following parameters:
-
-    - Type: External endpoint
-    - Name: Cloud Integration EU
-    - Fully-qualified domain name (FQDN) or IP: SAP Cloud Integration runtime endpoint EU20 (without any protocol)
-    - Priority: 1
-
-    > Note: The SAP Cloud Integration runtime endpoint is the FQDN of the deployed REST API (without */http/ping*) that you have also mapped in the [previous exercise](../03-MapCustomDomainRoutes/README.md#endpointmapping). 
-
-    ![Cloud Integration EU](./images/08.png)
-
-12. Open a new browser tab and navigate to the SAP BTP Cockpit, go to your first subaccount and open the **Instances and Subscriptions** view. Select the service with the service plan **integration-flow** and display the service key details. 
-
-    ![Service Key details in SAP BTP Cockpit](./images/09.png)
-
-    > You have created the service instance and service key in one of the previous exercises, [Setup Monitoring Endpoint](../02-SetupMonitoringEndpoint/README.md#servicekey).
-
-13. Open another browser tab and go to <http://base64encode.org>. Encode the **clientid** and **clientsecret** from the service key (see previous step) in the following format: 
-
-    ```
-    <clientid>:<clientsecret>
-    ```
-
-    > Example: sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xyz34567!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07vxyz123
-
-    ![Encoding clientid and clientsecret via base64encode.org](./images/10.png)
+![Cloud DNS CNAME](./images/02.png)
 
 
-14. Copy the encoded information to your clipboard. 
+## Uptime monitoring and alerting
 
-15. Go back to the browser tab, in that you have started to define one of the endpoints for the Azure Traffic Manager profile. Provide the authorization information as **Custom Header Settings** in the following format: 
+1. Open Uptime Checks 
+![Uptime Check ](./images/03.png)
 
-    ```
-    Authorization:Basic <encoded clientid:clientsecret>
-    ```
+Uptime checks are one way that monitoring and alerting can be configured for your domain.
 
-    > Example: Authorization:Basic c2ItNTAxNjJhMzUtNTZkMC00YzA2LWFkYjAtM2YzMTVkZjNiMGMzIWIyNjU3fGl0LXJ0LW1234WQ2ZWQydHJpYWwhYjE5NjphZjM2ZjJlYS01NjFhLTQ0YTMtOTc3ZC04MzFmOGVkOWQxMjkkVGE4clFOMUxNelk5bDlTdm93ZnRycGNsQlJxSE5HSkR2YVgwN3Zja1pt1234
+* This is a simple example on how monitoring and alerting could be implemented. Contact your SAP and/or Google Cloud account team to discuss a solution that works best for your environment.
 
-    ![Add Authorization details as Custom Header Settings](./images/11.png)
+2. Click the create button and fill out initial form's fields. Click continue.
+![Uptime Check ](./images/04.png)
+    <br>
+   - **Protocol**: HTTPS/HTTP
+   - **Resource Type** URL
+   - **Hostname**: SAP Cloud Integration Health check endpoint e.g `ci-us30.it-cpi024-rt.cfapps.us30.hana.ondemand.com`
+   - **Path**: / (e.g. `/http/ha/health` for health specific endpoint )
+   - **Check Frequency**: 10 minute (or any interval for health checks)
+   - **Regions**: Select at least 3 regions where your check is to receive requests
+   - **Authentication**:  Basic Authentication and provide  `<clientid_from_servicekey>` and `<clientsecret_from_servicekey>` from BTP service key ( [see step 2](../02-SetupMonitoringEndpoint/README.md#setup-monitoring-endpoint-for-gcp-updtime-checks) )
+    <br>
 
-    > Note: This way Azure Traffic Manager can authenticate against SAP Cloud Integration and can call the REST API without getting an HTTP 403 response. Alternatively you can call the REST API anonymously (so that the messages from Azure Traffic Manager to monitor the endpoints aren't counted as actual handled messages) but then you need to change the [monitoring settings](./README.md#tm-configuration) accordingly. A HTTP 403 response would then reveal Azure Traffic Manager that the endpoint is available, a 5xx HTTP response that the endpoint is not available. 
+3. Fill in fields as appropriate for Response Validation
+![Uptime Check ](./images/05.png)
+    <br>
+   - **Response Timeout**: 10 seconds 
+   - **Acceptable HTTP Response Code** 2XX (others if needed)
+   - **(Optional) Content matching**: you can valiate response content
+    <br>
 
-16. Continue with **Add**. 
+4. Fill in as appropriate the Alert & Notification
+   You can define different notification chaneles. e.g. if you want to inform admin about a failover, you can enter Email or other notification channels.
+   Other option is using PubSub topic for auto failover.
+![Uptime Check ](./images/06.png)
+    <br>
+   - **Name**: Any name for this uptime monitor/alert
+   - **Duration** 1 minute (interval for notifications to be send)
+   - **Notifications** Notification channel to be alerted (PubSub, Email, etc). 
+    <br>
 
-17. You have created the first endpoint in the Azure Traffic Manager profile. **IMPORTANT: Repeat the Steps 10-16 for the other SAP Cloud Integration endpoint(s) in the other SAP BTP region(s).**
+5. Specify a notivication channel. Click Manage Notification Channels if you need to configure one. In this example, a pubsub topic will be used.
 
-18. Display **Overview** of your Azure Traffic Manager profile and copy the **DNS Name**. 
+![Uptime Check ](./images/07.png)
 
-    ![DNS Name of Azure Traffic Manager profile](./images/12.png)
 
-19. Go to to the **DNS Zone** of your domain. 
+![Uptime Check ](./images/08.png)
 
-    ![DNS Zone search using Azure Portal](./images/13.png)
-    ![Select domain in Azure Portal](./images/14.png)
 
-20. Create a record set for the subdomain that [you have mapped to the SAP Cloud Integration runtime endpoint](../03-MapCustomDomainRoutes/README.md#endpointmapping): 
+## (Optional) Example Auto-Failover (NOT for production use as is)
+This script is to provide an example on how an automatic failover might be achieved. 
+> NOTE: *Not to be used as production code. Please contact your SAP &/or Google account team if you'd like to discuss specific options for your environment*
 
-    - Name: subdomain that you have mapped to the SAP Cloud Integration runtime endpoint
-    - Type: CNAME
-    - Alias Record Set: No
-    - TTL: 1 Second (depending on your requirements, how fast a failover should be executed)
-    - Alias: DNS Name of the Azure Traffic Manager profile that you have copied in Step 18 - without *http://*(e.g. cloudintegration-failover.trafficmanager.net)
+1. Log into a Cloud Shell instance
+![Cloud Shell ](./images/09.png)
 
-    ![Select domain in Azure Portal](./images/15.png)
+2. Configure Variables for primary and failover domain names, top level CNAME record, and Google Cloud zone name
+![Env Vars ](./images/10.png)
 
-Congratulations. You have created an Azure Traffic Manager profile that detects which tenant should handle the messages based on a monitoring endpoint you have deployed (REST API in both SAP Cloud Integration tenants) in one of the previous steps. All requests sent to the mapped route in Cloud Foundry (cloudintegration.example.com) are going to the Azure Traffic Manager profile because of the CNAME record set in the DNS Zone of the domain. Azure Traffic Manager then decides on the priority setting which tenant should handle the request. All of this happens on DNS level. (If you want to use the Azure Traffic Manager for other scenarios like loadbalancing, reducing latency or others - have a look at the [available routing methods](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods).)
+3. Create a PubSub topic (Sample- for notification channels)
 
-A DNS Lookup shows the resolution: 
+```
+PROJECT_NUMBER=XXX1234XXXX # <---- Your Project Number here
 
-![DNS Lookup](./images/16.png)
+# IAM permissions PubSub
+SA=service-$PROJECT_NUMBER@gcp-sa-monitoring-notification.iam.gserviceaccount.com
 
-> As an alternative to **dig** you can also use **nslookup** on Windows. 
+gcloud pubsub topics add-iam-policy-binding dnsfailover \
+    --member="serviceAccount:$SA" \
+    --role="roles/pubsub.publisher"
 
-You should also see that Azure Traffic Manager indicates that both SAP Cloud Integration as online right now. 
 
-![DNS Lookup](./images/17.png)
+# Create pubsub topic (topic name is 'dnsfailover' in this example)
+gcloud pubsub topics create dnsfailover
+```
+
+
+4. Configure a script that triggers by uptime failure event and executes a Cloud DNS Failover in the event of the uptime monitor failing
+
+ > NOTE: *Not to be used as production code*
+```
+cat <<EOF > main.py
+from google.cloud import dns
+import os
+
+def get_cname_target(project_id, zone_name, record_name):
+    """Retrieves the CNAME target from a DNS zone."""
+    client = dns.Client(project=project_id)
+    zone = client.zone(zone_name)
+
+    try:
+        record_sets = zone.list_resource_record_sets() # Correct way to list!
+
+        for record_set in record_sets:
+            print(f"DEBUG: record_set.record_type={record_set.record_type}")
+            print(f"DEBUG: record_set.name={record_set.name}")
+            print(f"DEBUG: record_namePlusDot={record_name}")
+            if record_set.record_type == "CNAME" and record_set.name == record_name:  # Trailing dot!
+                return record_set.rrdatas[0]
+            else:
+                print("NO MATCH")
+                print(f"DEBUG: record_set.record_type={record_set.record_type}")
+                print(f"DEBUG: record_set.name={record_set.name}")
+                print(f"DEBUG: record_name={record_name}")
+
+        print(f"CNAME record {record_name} not found in zone {zone_name}")
+        return None
+
+    except Exception as e:
+        print(f"Error retrieving CNAME target: {e}")
+        return None
+
+
+def update_dns_record(project_id, zone_name, record_name, record_type, target):
+    """Updates a DNS record (more robust)."""
+    from googleapiclient import discovery
+    import google.auth
+
+    # credentials = GoogleCredentials.get_application_default()
+    credentials, project = google.auth.default()
+
+    service = discovery.build('dns', 'v1', credentials=credentials)
+
+    client = dns.Client(project=project_id)
+    zone = client.zone(zone_name)
+
+    try:
+        record_sets = zone.list_resource_record_sets()
+        changes = zone.changes()
+
+        if record_sets is None:
+          print(f"Record {record_name} of type {record_type} not found.")
+          return  # Exit if record not found
+
+
+        for record_set in record_sets:
+            print(f"DEBUG: record_set.name={record_set.name}")
+            if record_set.record_type == record_type and record_set.name == record_name:
+
+                change_body = {
+                  "kind": "dns#change",
+                  "additions": [
+                      {
+                          "kind": "dns#resourceRecordSet",
+                          "name": record_name,
+                          "type": record_type,
+                          "rrdatas": [target],
+                      }
+                  ],
+                  "deletions": [
+                      {
+                          "kind": "dns#resourceRecordSet",
+                          "name": record_name,
+                          "type": record_type,
+                          "rrdatas": record_set.rrdatas
+                      }
+                  ]
+                }
+
+                # record_set.rrdatas = [target]
+                # changes.add_update(record_set)
+                # response = change.commit()
+                request = service.changes().create(project=project_id, managedZone=zone_name, body=change_body)
+                response = request.execute()
+                print(f"DNS record {record_name} updated to {target}")
+                return  # Important: Exit after update
+
+        # If we reach here, the record wasn't found
+        print(f"Record {record_name} of type {record_type} not found.")
+
+    except Exception as e:
+        print(f"Error updating DNS record: {e}")
+
+
+def dns_failover(event, context):
+    """Cloud Function triggered by Pub/Sub message."""
+    try:
+        backup = os.environ.get("BACKUP")
+        cname = os.environ.get("CNAME")
+        primary = os.environ.get("PRIMARY")
+        project_id  = os.environ.get("PROJECT_ID")
+        zone_name  = os.environ.get("ZONE_NAME")
+
+        current_target = get_cname_target(project_id, zone_name, cname.strip('"'))
+
+        if current_target == backup:
+            print("DNS already failed over")
+        elif current_target == primary:
+            print("Failing DNS Over now")
+            update_dns_record(project_id, zone_name, cname, "CNAME", backup)
+        else:
+            print(f"Current DNS target is: {current_target}. No action needed.")
+        
+        # event.ack()
+
+    except Exception as e:
+        print(f"Error: {e}")
+EOF
+```
+
+5. Stage the script in a directory which will be deployed as a Google Cloud Function
+
+```
+mkdir -p dnsfailover
+mv main.py dnsfailover/
+echo "google-cloud-dns" > dnsfailover/requirements.txt
+echo "google-api-python-client" >> dnsfailover/requirements.txt
+echo "google-auth" >> dnsfailover/requirements.txt
+```
+
+6. Deploy the script as a Google Cloud Function
+> NOTE: set-env-vars should be updated below to map in your project_id (name), zone name, CNAME record, primary target DNS, and your failover target DNS
+
+```
+PROJECT_ID=<your_project_id>
+CLOUD_DNS_ZONE_NAME=<your_zone_name_in_cloud_dns>
+CNAME=<sap.yourcustomdomain.com>
+PRIMARY=<target1.sap.system.com>
+BACKUP=<target2.sap.system.com>
+
+gcloud functions deploy $CLOUD_FUNCTION_NAME \
+    --runtime python39 \
+    --trigger-topic $PUB_SUB_TOPIC \
+    --region $REGION \
+    --entry-point dns_failover \
+    --source dnsfailover/ \
+    --set-env-vars 'PROJECT_ID=$PROJECT_ID,ZONE_NAME=$CLOUD_DNS_ZONE_NAME,CNAME=$CNAME,PRIMARY=$PRIMARY,BACKUP=$BACKUP'
+```
+
+7. Assign permissions for Cloud Function to pull messages from Pub Sub topic
+
+```
+FUNCTION_SERVICE_ACCOUNT="$PROJECT_NUMBER-compute@developer.gserviceaccount.com"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$FUNCTION_SERVICE_ACCOUNT" \
+    --role="roles/dns.admin"
+```
+
+8. Validate the script deployed successfully as a Cloud Function. Searh for Cloud Functions
+
+![Cloud Shell ](./images/13.png)
+
+9. Click on your cloud function
+
+![Cloud Shell ](./images/14.png)
+
+10. The Logs tab is useful for troubleshooting  your script and if it's executing properly or encountering an error.
+
+![Cloud Shell ](./images/15.png)
+
+11. The given example script will fail the connection over from 
+
 

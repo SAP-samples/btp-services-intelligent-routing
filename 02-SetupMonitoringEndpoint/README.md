@@ -127,7 +127,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 29. Open a terminal on your machine and try to execute the following command. 
 
     ```console
-    curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey'
+    curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey>'
     ```
 
     - <endpoint_from_sapcloudintegration> is the endpoint URL you have just copied in the SAP Cloud Integration web interface. 

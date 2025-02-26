@@ -243,7 +243,19 @@ Congratulations! You have created a certificate for your domain using Certbot. W
 
 Keep in mind that the Let's Encrypt certificate (the one you have created using Certbot) is only valid for three months. There are other more sophisticated alternatives for productive scenarios. 
 
+## Configure Google Cloud DNS
 
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/) and log in. <br>
+
+2. Navigate to  Cloud DNS, select your zone <br>
+
+![Cloud DNS](./images/11.png)
+
+
+3. Create a CNAME record `flow.gcp.saptfe-demo.com` to point to your primary region e.g. `ci-eu30.it-cpi024-rt.cfapps.eu30.hana.ondemand.com.`
+
+
+![Cloud DNS Zone](./images/01.png)
 
     
 
