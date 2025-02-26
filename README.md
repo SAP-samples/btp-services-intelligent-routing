@@ -55,7 +55,7 @@ Subscriptions required in your SAP Business Technology Platform Account:
 ### [Step 2: Setup Monitoring Endpoint in SAP Cloud Integration](./02-SetupMonitoringEndpoint/README.md)
 
 ### [Step 3: Map SAP Cloud Integration routes to custom domain using SAP Custom Domain service](./03-MapCustomDomainRoutes/README.md)
-### [Step 4: Setup Google Cloud DNS using Google Console](./04-SetupGoogleCloudDNS/README.md) 
+### [Step 4: Setup Google Cloud DNS & Uptime checks](./04-SetupGoogleCloudDNS/README.md) 
 
 ### [Step 5: Test the current failover scenario](./05-TestFailoverScenario/README.md)
 ### [Step 6: Setup SAP Cloud Transport Management to keep tenants in sync](06-SetupCloudTM/README.md)
