@@ -268,6 +268,6 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 
 ![Cloud Shell ](./images/15.png)
 
-11. The given example script will fail the connection over from 
+11.  The given example script will fail the connection over 
 
 
