@@ -29,11 +29,8 @@ Therefore, go to the **SAP Cloud Integration web interface** and select the said
 
    ![Undeploy REST API in SAP Cloud Integration web interface](./images/03.png)
 
-3. Check the status of the endpoints in the Azure Traffic Manager profile. Depending on your failover settings in the Azure Traffic Manager profile configuration it takes a few moments until the primary tenant is considered as **Degraded**. 
 
-   ![Endpoints monitoring Azure Traffic Manager profile](./images/04.png)
-
-4. Go back to the terminal on your machine and call the REST API you have called in Step 2 again. 
+3. Go back to the terminal on your machine and call the REST API you have called in Step 2 again. 
 
    ```console
     curl cloudintegration.example.com/http/ping -u 'firstname.lastname@example.com:yourpassword'
