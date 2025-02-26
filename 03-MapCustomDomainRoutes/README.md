@@ -109,7 +109,7 @@ This way, a sender connecting to SAP Cloud Integration must not use the region-s
 
     > **IMPORTANT**: The output of the certbot commands will look slightly different depending on your OS. Screenshots were taken with macOS. 
 
-5.  Sign the certificate signing request (with a domain bought from Azure): 
+5.  Sign the certificate signing request: 
 
     **Windows (console with administrative rights might be required):**
     ```console
@@ -126,16 +126,20 @@ This way, a sender connecting to SAP Cloud Integration must not use the region-s
 
     > Don't forget to fill in your domain and mail address instead of example.com! You now have to proof that you are in control of the domain - certbot is now executing a DNS challenge. 
 
-6.  Open a new broswer tab, go to the [Azure Portal](http://portal.azure.com) and navigate into the DNS zone of your bought domain. 
+6.  Open a new broswer tab, go to the [Google Cloud Console](https://console.cloud.google.com/), navigate into the Cloud DNS and create new zone by providing your DNS name.
 
-    ![DNS Zone Search](./images/CDS_SignCSR06.png)
-    ![DNS Zone selection](./images/CDS_SignCSR07.png)
+    ![DNS Zone Search](./images/CDS_NewZone.png)
+    ![DNS Zone selection](./images/CDS_NewZone_Create.png)
 
-7.  **Create a new record set** and enter the details that the certbot command (Step 8) has printed out. 
+7. Copy the Name Server (NS) records into your domain provider’s settings. The exact process may vary depending on where you purchased your domain.
+
+    ![DNS NS Record](./images/CDS_NS_Record.png)
+
+8.  **Create a new TXT record set** and enter the details that the certbot command (Step 5) has printed out. 
 
     ![Record creation in DNS Zone](./images/CDS_SignCSR08.png)
 
-8.  Hit **Enter** in the Terminal (where you have recently executed the certbot command in Step 11) to continue the verification process. 
+9.  Hit **Enter** in the Terminal (where you have recently executed the certbot command in Step 5) to continue the verification process. 
 
     **macOS**
     
@@ -147,31 +151,31 @@ This way, a sender connecting to SAP Cloud Integration must not use the region-s
 
     > IMPORTANT: sometimes it could happen that you have to repeat the last steps a few times, depending on the output in the terminal. 
 
-9.  Open the certificate chain that has been created in the previous step in a text editor of your choice. 
+10. Open the certificate chain that has been created in the previous step in a text editor of your choice. 
 
     ![Certificate in text editor](./images/CDS_SignCSR11.png)
 
-10. Open a new browser tab, go to <https://letsencrypt.org/certs/isrgrootx1.pem>, download the certificate and copy the content of the entire ISRG Root X1 Certificate. 
+11. Open a new browser tab, go to <https://letsencrypt.org/certs/isrgrootx1.pem>, download the certificate and copy the content of the entire ISRG Root X1 Certificate. 
 
     > Don't forget to copy the entire content including '-----BEGIN CERTIFICATE-----' and '-----END CERTIFICATE-----'
     
-11. Paste the content of the ISRG Root X1 Certificate to the end of the created certificate chain on your local machine that you have opened during step 9. Save it as a new file, for instance **certificate1.pem**. 
+12. Paste the content of the ISRG Root X1 Certificate to the end of the created certificate chain on your local machine that you have opened during step 9. Save it as a new file, for instance **certificate1.pem**. 
 
     ![Certificate in text editor](./images/CDS_SignCSR12.png)
 
-12. Switch back to the **Custom Domain Manager** web user interface and click on **Upload Full Certificate Chain**. 
+13. Switch back to the **Custom Domain Manager** web user interface and click on **Upload Full Certificate Chain**. 
 
     ![Upload Certificate Chain](./images/CDS_SignCSR13.png)
 
-13. Paste the content of your **certificate1.pem** file into the popup window and click on **Next Step**.
+14. Paste the content of your **certificate1.pem** file into the popup window and click on **Next Step**.
 
     ![Upload Certificate Chain](./images/CDS_SignCSR14.png)
 
-14. Double-check the imported certificate details and click on **Next Step**.
+15. Double-check the imported certificate details and click on **Next Step**.
 
     ![Upload Certificate Chain](./images/CDS_SignCSR15.png)
 
-15. Finish the import by clicking on **Finish**. 
+16. Finish the import by clicking on **Finish**. 
 
     ![Upload Certificate Chain](./images/CDS_SignCSR16.png)
 
@@ -228,7 +232,7 @@ This way, a sender connecting to SAP Cloud Integration must not use the region-s
 
     ![SaaS Route Mapping](./images/CDS_RouteMapping05.png)
 
-6. Provide a subdomain in the **Hostname** field such as **cloudintegration** being used in this sample scenario and click on **Finish** to finalize the setup. 
+6. Provide a subdomain in the **Hostname** field such as **flow** being used in this sample scenario and click on **Finish** to finalize the setup. 
    
    ![SaaS Route Mapping](./images/CDS_RouteMapping06.png)
 
