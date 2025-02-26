@@ -1,8 +1,8 @@
 # Introduction
 
-In this step you will setup SAP Cloud Transport Management for the SAP Cloud Integration tenants you are using in the Azure Traffic Manager profile. 
+In this step you will setup SAP Cloud Transport Management for the SAP Cloud Integration tenants you are using for failover scenario. 
 
-All tenants that have been specified in the Azure Traffic Manager profile must be identical in their content. Otherwise, inconsistent processing of the Integration Flows/REST APIs may occur across tenants. Therefore, the productive tenants must also be at the same stand. In the following, you will configure SAP Cloud Transport Management so that you automatically transport from one SAP Cloud Integration tenant in the development environment to both productive SAP Cloud Integration tenants. 
+All tenants must be identical in their content. Otherwise, inconsistent processing of the Integration Flows/REST APIs may occur across tenants. Therefore, the productive tenants must also be at the same stand. In the following, you will configure SAP Cloud Transport Management so that you automatically transport from one SAP Cloud Integration tenant in the development environment to both productive SAP Cloud Integration tenants. 
 
 For the sake of simplicity we use the SAP Cloud Integration tenant of the SAP BTP Trial as the development (DEV) Tenant. You can also use any other SAP Cloud Integration tenant as your source system for SAP Cloud Transport Management. 
 
@@ -149,13 +149,13 @@ A potential landscape could look like this:
     - **Type**: HTTP
     - **Description**: Cloud Integration EU - Production
     - **URL**: `https://deploy-service.cfapps.<region>.hana.ondemand.com/slprot/<OrgNameOfTarget>/<SpaceNameOfTarget>/slp`
-      e.g.: https://deploy-service.cfapps.eu20.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-eu/dev/slp
+      e.g.: https://deploy-service.cfapps.eu30.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-eu/dev/slp
     - **ProxyType**: Internet
     - **Authentication**: BasicAuthentication
     - **User**: `<your username>`
     - **Password** `<your password>`
 
-    **Replace <region> with the region of your  productive target subaccount, in this case it is eu20.** <br>
+    **Replace <region> with the region of your  productive target subaccount, in this case it is eu30.** <br>
     **Replace <OrgNameOfTarget> and <SpaceNameOfTarget> with the Cloud Foundry information of your productive target subaccount**. 
 
     **Important: If the URL contains spaces, because your Cloud Foundry org or space contains spaces, replace the spaces with the URL escape character %20**
@@ -176,13 +176,13 @@ A potential landscape could look like this:
     - **Type**: HTTP
     - **Description**: Cloud Integration US - Production
     - **URL**: `https://deploy-service.cfapps.<region>.hana.ondemand.com/slprot/<OrgNameOfTarget>/<SpaceNameOfTarget>/slp`
-      e.g.: https://deploy-service.cfapps.us20.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-us/dev/slp
+      e.g.: https://deploy-service.cfapps.us30.hana.ondemand.com/slprot/Org%20with%20Spaces_cloudintegration-us/dev/slp
     - **ProxyType**: Internet
     - **Authentication**: BasicAuthentication
     - **User**: `<your username>`
     - **Password** `<your password>`
 
-    **Replace <region> with the region of your  productive target subaccount, in this case it is us20.**
+    **Replace <region> with the region of your  productive target subaccount, in this case it is us30.**
     **Replace <OrgNameOfTarget> and <SpaceNameOfTarget> with the Cloud Foundry information of your productive target subaccount**. 
 
     **Important: If the URL contains spaces, because your Cloud Foundry org or space contains spaces, replace the spaces with the URL escape character %20**
