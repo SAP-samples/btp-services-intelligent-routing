@@ -12,16 +12,16 @@ Nevertheless, to enhance the robustness of their solutions, many customers have 
 A lack of automatic failover, especially for critical business scenarios, can be damaging to your business if the complete region is unavailable. If users are located in diverse geographies, latency will also increase if services are restored in a single region.
 
 ### Solution
-Use your own domain for SAP BTP services, extensions, and integrations endpoints using the SAP Custom Domain Service. Configure Hyperscaler traffic management solutions (Azure Traffic Manager, Amazon Route 53, Google Cloud DNS) and apply different profiles to decouple connection information. This allows routing of the traffic to the healthy region.
+Use your own domain for SAP BTP services, extensions, and integrations endpoints using the SAP Custom Domain Service. Configure Hyperscaler traffic management solutions (Azure Traffic Manager, Amazon Route 53 or Google Cloud DNS) and apply different profiles to decouple connection information. This allows routing of the traffic to the healthy region.
 
 ### Outcome
 A cloud-native integration pattern that incorporates SAP BTP and Hyperscaler services eliminates downtime, reduces global latency, and increases throughput.
 
-> **Note**: Our evaluations showcased in the below implementations offers an architectural viewpoint on Disaster Recovery strategies that incorporate certain SAP BTP services, alongside hyperscaler services like Azure Traffic Manager or AWS Route 53 or Google Cloud DNS. This also constitutes one of the potential methodologies for overseeing stateful failovers. It's important to note that this evaluation, the proposed architecture, and the Proof of Concept (PoC) are not part of a standard support package or a production-grade solution. Additionally, they do not cover the assessment of specific customer needs or bespoke use cases.
+> **Note**: Our evaluations showcased in the below implementations offers an architectural viewpoint on Disaster Recovery strategies that incorporate certain SAP BTP services, alongside hyperscaler services like Azure Traffic Manager, AWS Route 53 or Google Cloud DNS. This also constitutes one of the potential methodologies for overseeing stateful failovers. It's important to note that this evaluation, the proposed architecture, and the Proof of Concept (PoC) are not part of a standard support package or a production-grade solution. Additionally, they do not cover the assessment of specific customer needs or bespoke use cases.
 
 ### Implementations
 
-The implementation and architecture archetypes presented leverage Microsoft Azure services to illustrate key concepts. It’s important to note that equivalent patterns can be realized using comparable offerings from other hyperscale cloud providers, such as Amazon Route 53 or Google Cloud DNS.
+The implementation and architecture archetypes presented leverage Azure, AWS and Google Cloud services to illustrate key concepts. It’s important to note that equivalent patterns can be realized using comparable offerings from other cloud providers.
 
 #### [Stateless Scenario - Multi-Region High Availability for SAP Cloud Integration using Azure Traffic Manager](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/ci_azure)
 
