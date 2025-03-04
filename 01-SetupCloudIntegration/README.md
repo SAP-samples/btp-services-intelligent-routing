@@ -8,7 +8,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
 1. If you haven't used SAP Business Technology Platform or SAP Cloud Integration yet, please go to the SAP Discovery Center Mission _[Get Started with Integration Suite - Cloud Integration](https://discovery-center.cloud.sap/missiondetail/3258/3327/?tab=projectboard)_
 
-2. Go to your SAP BTP Cockpit and make sure that you have two subaccounts in your global account. In this case, we have both of them on Azure - one in West Europe (Netherlands, EU20), one in West US (WA, US20). If you don't have them yet, click on **New Subaccount** in order to create a new subaccount. 
+2. Go to your SAP BTP Cockpit and make sure that you have two subaccounts in your global account. In this case, we have both of them on GCP - one in Europe (Frankfurt EU30), one in US Central (IA US30). If you don't have them yet, click on **New Subaccount** in order to create a new subaccount. 
 
     ![New subaccount](./images/01.png)
 
@@ -18,7 +18,7 @@ In this step, you will setup two SAP Cloud Integration tenants in two different 
 
    - Provide a subaccount name. 
    - Optional: Provide a description. 
-   - Select Provider **Azure**. 
+   - Select Provider **Google Cloud Platform**. 
    - Select Europe (Netherlands) or another region, where SAP Integration Suite is available. The [SAP Discovery Center](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan) shows the available regions.  
    - Enter a Subdomain for your subaccount. This subdomain becomes part of the URL for accessing applications that you subscribe to from this subaccount.
    - Optional: If your subaccount is to be used for productive purposes, select the **Used for production** option.

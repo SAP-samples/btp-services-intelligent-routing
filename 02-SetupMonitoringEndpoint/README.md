@@ -1,13 +1,13 @@
 # Introduction
 
-In this step, you will create a REST API in SAP Cloud Integration that will act as an auxiliary endpoint for Azure Traffic Manager. 
+In this step, you will create a REST API in SAP Cloud Integration that will act as an auxiliary endpoint for GCP Uptime checks. 
 
 **Important:** The following steps need to executed for both SAP Cloud Integration tenants. 
-## Setup Monitoring Endpoint for Azure Traffic Manager
+## Setup Monitoring Endpoint for GCP updtime checks
 
 1. Go to the SAP Cloud Integration web interface of your first subaccount, either via the SAP Integration Suite launchpad as shown in [Setting SAP Cloud Integration](../01-SetupCloudIntegration/README.md). 
 
-2. <a name="download"></a>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-services-intelligent-routing/blob/ci_azure/02-SetupMonitoringEndpoint/flow-azuretm.zip. **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
+2. <a name="download"></a>Open a new tab in your browser and go to https://github.com/SAP-samples/btp-services-intelligent-routing/blob/ci_gcp/02-SetupMonitoringEndpoint/Multi-Region-HA.zip. **Download** the ZIP File containing the Integration Package with the sample REST API for SAP Cloud Integration.
 
     ![Download Button on GitHub](./images/01.png)
 
@@ -21,18 +21,16 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![Import content package](./images/03.png)
 
-5. Select the newly uploaded Integration Package called **Azure Traffic Manager**.
+5. Select the newly uploaded Integration Package called **Multi-Region HA**.
 
     ![Select new integration package](./images/04.png)
 
-6. Go to the **Artifacts** tab and click on the **ping** artifact of type REST API to open the SAP Cloud Integration editor. 
+6. Go to the **Artifacts** tab and click on the **Health Check** artifact of type REST API to open the SAP Cloud Integration editor. 
 
     ![Select new REST API](./images/05.png)
 
-    You should now see a very basic REST API that offers an HTTP endpoint and returns a message using the HTTP body to the sender. This REST API is used for different purposes: 
-
-    - a) Azure Traffic Manager will call this REST API in both SAP Cloud Integration tenants in order to find out if the tenant is up and running. 
-    - b) A fictive sender will call this REST API and will get back which tenant was chosen by Azure Traffic Manager. 
+    You should now see a very basic REST API that offers an HTTP endpoint and returns a message using the HTTP body to the sender. This REST API is used by GCP Health check to call this REST API in both SAP Cloud Integration tenants in order to find out if the tenant is up and running. 
+    
 
 7. Change into the **Edit** mode and confirm potential messages with **Yes**.
 
@@ -42,7 +40,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![changed into edit mode](./images/07.png)
 
-9. Select the **Message Body** tab so you can type in whatever message you want to reply to the sender. For testing purposes it helps, if you replace the placeholder with the subaccount region, the current SAP Cloud Integration instance is located in. That way, you can easily identify which tenant is handling the traffic routed by Azure Traffic Manager. 
+9. Select the **Message Body** tab so you can type in whatever message you want to reply to the sender. For testing purposes it helps, if you replace the placeholder with the subaccount region, the current SAP Cloud Integration instance is located in. That way, you can easily identify which tenant is handling the traffic routed by Google Cloud DNS. 
 
     ![replace placeholder Message Body](./images/08.png)
 
@@ -122,14 +120,14 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
     ![SAP Cloud Integration Monitor section](./images/21.png)
 
-28. <a name="endpoint"></a>Select **ping** and copy the endpoint URL of the REST API. 
+28. <a name="endpoint"></a>Select **Health Check** and copy the endpoint URL of the REST API. 
 
     ![REST API endpoint](./images/22.png)
 
 29. Open a terminal on your machine and try to execute the following command. 
 
     ```console
-    curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey'
+    curl <endpoint_from_sapcloudintegration> -u '<clientid_from_servicekey>:<clientsecret_from_servicekey>'
     ```
 
     - <endpoint_from_sapcloudintegration> is the endpoint URL you have just copied in the SAP Cloud Integration web interface. 
@@ -138,7 +136,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 
     > The command could possibly look like: 
-    > curl https://mysubaccount.it-cpi003-rt.cfapps.eu20.hana.ondemand.com/http/ping -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
+    > curl https://mysubaccount.it-cpi003-rt.cfapps.eu30.hana.ondemand.com/http/ha/health -u 'sb-50162a35-56d0-4c06-adb0-3f315df3b0c3!b2657|it-rt-xxxxyzwzwze!b196:af36f2ea-561a-44a3-977d-831f8ed9d129$Ta8rQN1LMzY9l9SvowftrpclBRqHNGJDvaX07veirIx='
 
     ![Hit REST API endpoint](./images/23.png)
 
@@ -148,9 +146,7 @@ In this step, you will create a REST API in SAP Cloud Integration that will act 
 
 30. **Repeat all the steps for the second subaccount.**
 
-Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Azure Traffic Manager to identify whether one of the tenants is online or not. For sure, this REST API only offers a straight forward way to determine, whether the tenant is able to handle an incoming request or not. It's up to you to implement a more sophisticated logic to identify, if a tenant should be the one prioritized by Azure Traffic Manager or not. 
-
-
+Congratulations! You have setup an endpoint in SAP Cloud Integration that will help Google Cloud DNS to identify whether one of the tenants is online or not. For sure, this REST API only offers a straight forward way to determine, whether the tenant is able to handle an incoming request or not. It's up to you to implement a more sophisticated logic to identify, if a tenant should be the one prioritized by Google Cloud DNS or not. 
 
     
 
